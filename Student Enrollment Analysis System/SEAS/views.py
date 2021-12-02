@@ -8,5 +8,8 @@ from django.http import HttpResponse
     # Send Emails
     # etc
     # return HttpResponse('Hello World')
-def say_hello(request):
-    return render(request, 'hello.html', {'name': 'Topu'})
+    #return render(request, 'hello.html', {'name': 'Topu'})
+
+def loginpage(request):
+    return render(request, 'login.html')
+    
