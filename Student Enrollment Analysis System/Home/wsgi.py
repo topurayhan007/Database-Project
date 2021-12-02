@@ -1,5 +1,5 @@
 """
-WSGI config for SEAS project.
+WSGI config for Home project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'SEAS.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Home.settings')
 
 application = get_wsgi_application()
