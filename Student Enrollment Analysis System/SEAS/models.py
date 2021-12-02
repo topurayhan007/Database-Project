@@ -1,45 +1,42 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 
 # Create your models here.
 
-class School (models.Model):
-    schoolTitle = models.CharField(max_length = 6)
+class School_T (models.Model):
+    schoolTitle = models.CharField(max_length = 6, primary_key = True)
     schoolName = models.CharField(max_length = 50)
 
-class Department (models.Model):
-    deptCode = models.CharField(max_length = 3)
+class Department_T (models.Model):
+    deptCode = models.CharField(max_length = 3, primary_key = True)
     deptName = models.CharField(max_length = 50)
-    schoolTitle = models.CharField(max_length = 6)
+    schoolTitle = models.ForeignKey(School_T, on_delete = models.CASCADE)
 
-class Faculty (models.Model):
-    facultyID = models.IntegerField()
+class Faculty_T (models.Model):
+    facultyID = models.IntegerField(primary_key = True)
     facultyName = models.CharField(max_length = 50)
-    deptCode = models.CharField(max_length = 3)
 
-class Course (models.Model):
-    courseID = models.CharField(max_length = 7)
+class Course_T (models.Model):
+    courseID = models.CharField(max_length = 7, primary_key = True)
     courseName = models.CharField(max_length = 50)
     creditHour = models.IntegerField()
-    deptcode = models.CharField(max_length = 3)
+    deptcode = models.ForeignKey(Department_T, on_delete = CASCADE)
     semester = models.CharField(max_length = 6)
     year = models.DateField()
 
-class Classroom (models.Model):
-    roomID = models.CharField(max_length = 7)
+class Classroom_T (models.Model):
+    roomID = models.CharField(max_length = 7, primary_key = True)
     roomCapacity = models.IntegerField()
 
-class Section (models.Model):
-    courseID = models.CharField(max_length = 7)
-    sectionNo = models.IntegerField()
-    semester = models.CharField(max_length = 6)
-    year = models.DateField()
-    roomID = models.CharField(max_length = 7)
+class Section_T (models.Model):
+    courseID = models.ForeignKey(Course_T, on_delete = CASCADE)
+    sectionNo = models.IntegerField(primary_key = True)
+    roomID = models.ForeignKey(Classroom_T, on_delete = CASCADE)
     capacity = models.IntegerField()
     noOfEnrolledStudent = models.IntegerField()
-    facultyID = models.IntegerField()
+    facultyID = models.ForeignKey(Faculty_T, on_delete = CASCADE)
     startTime = models.TimeField()
     endTime = models.TimeField()
     day = models.CharField(max_length = 4)
     blocked = models.CharField(max_length = 4)
-
 

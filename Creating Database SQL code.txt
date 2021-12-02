@@ -1,0 +1,61 @@
+CREATE TABLE SCHOOL_T (
+  schoolTitle varchar(6) NOT NULL,
+  schoolName varchar(50) NOT NULL,
+  PRIMARY KEY (schoolTitle)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE DEPARTMENT_T(
+  deptCode varchar(3) NOT NULL,
+  deptName varchar(50) NOT NULL,
+  schoolTitle varchar(6) NOT NULL,
+  PRIMARY KEY (deptCode),
+  FOREIGN KEY (schoolTitle)
+    REFERENCES school_t(schoolTitle)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE FACULTY_T (
+    facultyID INTEGER NOT NULL,
+    facultyName VARCHAR(50) NOT NULL,
+    PRIMARY KEY (facultyID)
+)ENGINE = INNODB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE COURSE_T (
+    courseID VARCHAR(7) NOT NULL,
+    courseName VARCHAR(50) NOT NULL,
+    creditHour INTEGER NOT NULL,
+    deptcode VARCHAR(3) NOT NULL,
+    semester VARCHAR(6) NOT NULL,
+    year YEAR(4) NOT NULL,
+    PRIMARY KEY (courseID),
+    FOREIGN KEY (deptCode)
+    	REFERENCES department_t(deptCode)
+)ENGINE = INNODB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE CLASSROOM_T(
+    roomID VARCHAR(7) NOT NULL,
+    roomCapacity INTEGER NOT NULL,
+    PRIMARY KEY (roomID)
+)ENGINE = INNODB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE SECTION_T (
+    courseID VARCHAR(7) NOT NULL,
+    sectionNo INTEGER NOT NULL,
+    roomID VARCHAR(7) NOT NULL,
+    capacity INTEGER NOT NULL,
+    noOfEnrolledStudent INTEGER NOT NULL,
+    facultyID INTEGER NOT NULL,
+    startTime TIME,
+    endTime TIME,
+    day VARCHAR(4) NOT NULL,
+    blocked VARCHAR(4) NOT NULL,
+    PRIMARY KEY (courseID, sectionNo),
+    FOREIGN KEY (courseID)
+    	REFERENCES course_t(courseID),
+    FOREIGN KEY (facultyID)
+    	REFERENCES faculty_t(facultyID),
+    FOREIGN KEY (roomID)
+    	REFERENCES classroom_t(roomID)
+)ENGINE = INNODB DEFAULT CHARSET=utf8mb4;
+
+
