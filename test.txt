@@ -1,0 +1,10 @@
+
+-- Populating School_T
+LOAD DATA LOCAL
+INFILE "/home/f_ahmed/Desktop/asdfasdf/2009 Spring to 2021 Summer (Modified Column Names to match the other).csv" 
+INTO TABLE School_T 
+FIELDS TERMINATED BY "\t"
+IGNORE 1 LINES 
+(@SCHOOL_TITLE,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@d,@SCHOOL_NAME,@d)
+-- If any @variable in SET is not in above line, query wont work. Needs optimization 
+SET cSchool_ID=@SCHOOL_TITLE,cSchoolName=@SCHOOL_NAME;

@@ -1,0 +1,4 @@
+1) Install the Python-Decouple library using the following command
+    pip install python-decouple 
+2) Rename the '.env_sample' file with '.env' 
+3) Open and Edit the '.env' file with your API Key and other Database informations
