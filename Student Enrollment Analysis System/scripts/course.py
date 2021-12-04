@@ -6,7 +6,7 @@ from pandas import read_csv, read_excel, to_csv
 # of an excel file
 read_file = pd.read_excel("scripts/classSize.xlsx", engine= 'openpyxl')
  
-# Write the dataframe object
+# Write the dataframe object adffafaa
 # into csv file
 read_file.to_csv ("scripts/classSize.csv",
                   index = None,
