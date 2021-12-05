@@ -14,7 +14,7 @@ read_file.to_csv ("scripts/TallySheetForSpring2021.csv",
    
 # read csv file and convert
 # into a dataframe object
-df = pd.DataFrame(pd.read_csv("scripts/TallySheetForSpring2021.csv"))
+df = pd.read_csv("scripts/TallySheetForSpring2021.csv")
  
 # show the dataframe
 print(df)
