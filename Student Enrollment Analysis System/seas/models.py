@@ -10,7 +10,7 @@ class School_T (models.Model):
 class Department_T (models.Model):
     deptCode = models.CharField(max_length = 3, primary_key = True)
     deptName = models.CharField(max_length = 50)
-    schoolTitle = models.ForeignKey(School_T, on_delete = models.CASCADE)
+    school = models.ForeignKey(School_T, on_delete = models.CASCADE)
 
 class Faculty_T (models.Model):
     facultyID = models.IntegerField(primary_key = True)
@@ -20,7 +20,7 @@ class Course_T (models.Model):
     courseID = models.CharField(max_length = 7, primary_key = True)
     courseName = models.CharField(max_length = 50)
     creditHour = models.IntegerField()
-    deptcode = models.ForeignKey(Department_T, on_delete = CASCADE)
+    dept = models.ForeignKey(Department_T, on_delete = CASCADE)
     semester = models.CharField(max_length = 6)
     year = models.DateField()
 
@@ -29,12 +29,12 @@ class Classroom_T (models.Model):
     roomCapacity = models.IntegerField()
 
 class Section_T (models.Model):
-    courseID = models.ForeignKey(Course_T, on_delete = CASCADE)
+    course = models.ForeignKey(Course_T, on_delete = CASCADE)
     sectionNo = models.IntegerField(primary_key = True)
-    roomID = models.ForeignKey(Classroom_T, on_delete = CASCADE)
+    room = models.ForeignKey(Classroom_T, on_delete = CASCADE)
     capacity = models.IntegerField()
     noOfEnrolledStudent = models.IntegerField()
-    facultyID = models.ForeignKey(Faculty_T, on_delete = CASCADE)
+    faculty = models.ForeignKey(Faculty_T, on_delete = CASCADE)
     startTime = models.TimeField()
     endTime = models.TimeField()
     day = models.CharField(max_length = 4)
