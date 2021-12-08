@@ -23,7 +23,7 @@ def convertTallyExcelToCSV(filepath, updatefilepath):
 
 def splitFacultyTallyData(filepath, updatefilepath):
 
-    df = pd.read_excel(filepath, engine= 'openpyxl')
+    df = pd.read_excel(filepath,  header=3, skipfooter=1, engine= 'openpyxl')
     column_name = 'FACULTY_FULL_NAME'
     value1 = []
     value2 = []
@@ -41,7 +41,7 @@ def splitFacultyTallyData(filepath, updatefilepath):
     value14 = []
     value15 = []
 
-    for i in range(df['SCHOOL_TITLE'].size):
+    for i in range(df['FACULTY_FULL_NAME'].size):
         value1 = df['SCHOOL_TITLE']
         value2 = df['COFFER_COURSE_ID']
         value3 = df['COFFERED_WITH']
@@ -59,8 +59,10 @@ def splitFacultyTallyData(filepath, updatefilepath):
         value15 = df['ST_MW']
 
     #df = pd.DataFrame({ 'FACULTY_FULL_NAME': value })
-    df = pd.DataFrame({'SCHOOL_TITLE':value1,'COFFER_COURSE_ID':value2,'COFFERED_WITH':value3,'SECTION':value4,'CREDIT_HOUR':value5,'CAPACITY':value6,'ENROLLED':value7,'ROOM_ID':value8,
-                    'ROOM_CAPACITY':value9,'BLOCKED':value10,'COURSE_NAME':value11,'FACULTY_FULL_NAME':value12,'STRAT_TIME':value13,'END_TIME':value14,'ST_MW':value15})
+    df = pd.DataFrame({'SCHOOL_TITLE':value1,'COFFER_COURSE_ID':value2,'COFFERED_WITH':value3,'SECTION':value4,
+                    'CREDIT_HOUR':value5,'CAPACITY':value6,'ENROLLED':value7,'ROOM_ID':value8,'ROOM_CAPACITY':value9,
+                    'BLOCKED':value10,'COURSE_NAME':value11,'FACULTY_FULL_NAME':value12,'STRAT_TIME':value13,
+                    'END_TIME':value14,'ST_MW':value15})
     
     df[['FACULTY_ID','FACULTY_NAME']] = df.FACULTY_FULL_NAME.str.split("-", expand=True)
 
@@ -70,4 +72,4 @@ def splitFacultyTallyData(filepath, updatefilepath):
 
 #convertExcelToCSV("scripts/classSize.xlsx", "scripts/classSize.csv")
 #convertTallyExcelToCSV("scripts/TallySheetForAutumn2020.xlsx", "scripts/TallySheetForAutumn2020.csv")
-splitFacultyTallyData("scripts/testSplitUpdated.xlsx", "scripts/tallySplit.xlsx")
+splitFacultyTallyData("scripts/TallySheetForAutumn2020.xlsx", "scripts/tallySplit.xlsx")

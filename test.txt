@@ -1,4 +1,3 @@
-
 -- Populating School_T
 LOAD DATA LOCAL
 INFILE "/home/f_ahmed/Desktop/asdfasdf/2009 Spring to 2021 Summer (Modified Column Names to match the other).csv" 
