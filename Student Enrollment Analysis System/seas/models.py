@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 
-# Create your models here.
+#These are our SEAS database models built upon our Schema and referenced from our DATA_DICTIONARY.
 
 class School_T (models.Model):
     schoolTitle = models.CharField(max_length = 6, primary_key = True)
