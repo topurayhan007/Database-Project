@@ -64,8 +64,9 @@ def splitFacultyTallyData(filepath, updatefilepath):
                     'BLOCKED':value10,'COURSE_NAME':value11,'FACULTY_FULL_NAME':value12,'STRAT_TIME':value13,
                     'END_TIME':value14,'ST_MW':value15})
     
-    df[['FACULTY_ID','FACULTY_NAME']] = df.FACULTY_FULL_NAME.str.split("-", expand=True)
-
+    df2 = df.FACULTY_FULL_NAME.str.split("-", expand=True)
+    df['FACULTY_ID'] = df2[0]
+    df['FACULTY_NAME'] = df2[1]
     df.to_excel(updatefilepath, index = None, header=True)
 
     print(df)

@@ -9,12 +9,14 @@ column_name = 'FACULTY_FULL_NAME'
 value = []
 value1 = []
 for i in range(df[column_name].size):
-    value = df[column_name]
-    value1 = df['COURSE_NAME']
+    value1 = df[column_name]
+    value = df['COURSE_NAME']
 
-df = pd.DataFrame({ 'FACULTY_FULL_NAME': value, 'COURSE_NAME': value1})
-df[['FACULTY_ID','FACULTY_NAME']] = df.FACULTY_FULL_NAME.str.split("-", expand=True)
+df = pd.DataFrame({ 'COURSE_NAME': value, 'FACULTY_FULL_NAME': value1})
+df2 = df.FACULTY_FULL_NAME.str.split("-", expand=True)
 
+df['FACULTY_ID'] = df2[0]
+df['FACULTY_NAME'] = df2[1]
 
 df.to_excel("scripts/testSplit.xlsx",
                   index = None,
