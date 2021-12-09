@@ -7,7 +7,7 @@ data = data[['SCHOOL_TITLE', 'Dept']]
 #previously thought needed to parse dept_code from courseID
 # for i in range(data.shape[0]):
 #     data.iloc[i, 1] = data.iloc[i, 1][:3]
-
+# dflks;D
 data = data.drop_duplicates()
 
 for i in range(data.shape[0]):
