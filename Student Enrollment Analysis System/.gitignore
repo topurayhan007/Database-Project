@@ -1,1 +1,4 @@
 .env
+Home/__pycache__/
+seas/__pycache__/
+seas/migrations/__pycache__/
