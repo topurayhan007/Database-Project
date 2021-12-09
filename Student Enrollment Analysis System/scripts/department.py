@@ -19,5 +19,3 @@ for i in range(data.shape[0]):
         Department_T(deptCode=data.iloc[i, 1], deptName= "Department of Physical Sciences", school=School_T.objects.get(schoolTitle=data.iloc[i, 0])).save()
     else:
         Department_T(deptCode=data.iloc[i, 1], school=School_T.objects.get(schoolTitle=data.iloc[i, 0])).save()
-
-
