@@ -7,6 +7,9 @@ def populateDatabase(filepath):
     df = pd.read_csv ("scripts/TallySheetForAutumn2020.csv")
     print(df)
 
+
+
+
 data = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
 
 # School Table Population
