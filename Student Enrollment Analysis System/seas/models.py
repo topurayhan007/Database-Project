@@ -16,7 +16,7 @@ class Department_T(models.Model):
 
 
 class Faculty_T(models.Model):
-    facultyID = models.IntegerField(primary_key=True)
+    facultyID = models.CharField(primary_key=True, max_length= 10)
     facultyName = models.CharField(max_length=50)
 
 
@@ -25,8 +25,6 @@ class Course_T(models.Model):
     courseName = models.CharField(max_length=50)
     creditHour = models.IntegerField()
     dept = models.ForeignKey(Department_T, on_delete=CASCADE)
-    semester = models.CharField(max_length=6)
-    year = models.CharField(max_length=4)
     
     def __str__(self):
         return self.courseName
@@ -43,8 +41,11 @@ class Section_T(models.Model):
     room = models.ForeignKey(Classroom_T, on_delete=CASCADE)
     capacity = models.IntegerField()
     noOfEnrolledStudent = models.IntegerField()
+    semester = models.CharField(max_length=6, default= "N/A")
+    year = models.CharField(max_length=4)
     faculty = models.ForeignKey(Faculty_T, on_delete=CASCADE)
     startTime = models.TimeField()
     endTime = models.TimeField()
     day = models.CharField(max_length=4)
     blocked = models.CharField(max_length=4)
+    
