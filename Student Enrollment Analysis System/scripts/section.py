@@ -14,6 +14,13 @@ import pandas as pd
 from seas.models import Course_T, Section_T, Classroom_T, Faculty_T
 
 data = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
+df2 = data.FACULTY_FULL_NAME.str.split("-", expand=True)
+data['FACULTY_ID'] = df2[0]
+data['FACULTY_NAME'] = df2[1]
+data.to_excel('scripts/Revenue_Faculty.xlsx', index = None, header=True)
+
+data = pd.read_excel('scripts/Revenue_Faculty.xlsx')
+
 data = data[['CourseID', 'Sec', 'ROOM_ID', 'size', 'stuNo', 'Semester', 'Year', 
             'FACULTY_ID', 'STRAT_TIME', 'END_TIME', 'ST_MW', 'BLOCKED']]
 data = data.drop_duplicates()
