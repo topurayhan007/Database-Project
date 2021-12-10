@@ -8,11 +8,8 @@ def populateDatabase(filepath):
     print(df)
 
 
-
-
-data = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
-
 # School Table Population
+data = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
 data = set(data.SCHOOL_TITLE)
 
 for item in data:
@@ -29,6 +26,7 @@ for item in data:
 
 
 # Department Table Population
+data = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
 data = data[['SCHOOL_TITLE', 'Dept']]
 
 data = data.drop_duplicates()
@@ -45,27 +43,66 @@ for i in range(data.shape[0]):
 
 
 # Course Table Population
+data = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
 data = data[['CourseID', 'COFFERED_WITH',
-             'Crs', 'COURSE_NAME', 'Year', 'Semester']]
+             'Crs', 'COURSE_NAME', 'Dept']]
 data = data.drop_duplicates()
 
 for index, row in data.iterrows():
     Course_T(courseID=row['CourseID'],
              courseName=row['COURSE_NAME'],
              creditHour=row['Crs'],
-             semester=row['Semester'],
-             year=row['Year'],
-             dept=Department_T.objects.get(deptCode=row['CourseID'][:3])).save()
+             dept=Department_T.objects.get(deptCode=row['Dept'])).save()
 
 
 # Classroom Table Population
+data = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
 data = data[['ROOM_ID', 'RoomSize']]
 
 data = data.drop_duplicates()
 for i in range(data.shape[0]):
     Classroom_T(roomID=data.iloc[i, 0], roomCapacity=data.iloc[i, 1]).save()
 
+
 # Faculty Table Population
+data = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
+data = data.FACULTY_FULL_NAME.str.split('-')
+
+data = data.drop_duplicates()
+
+for item in data:
+    try:
+        Faculty_T(facultyID=item[0], facultyName=item[1]).save()
+    except ValueError:
+        continue
 
 
 # Section Table Population
+df = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
+df2 = df.FACULTY_FULL_NAME.str.split("-", expand=True)
+df['FACULTY_ID'] = df2[0]
+df['FACULTY_NAME'] = df2[1]
+df.to_excel('scripts/Revenue_Faculty.xlsx', index = None, header=True)
+print("Excel Update Success")
+
+data = pd.read_excel('scripts/Revenue_Faculty.xlsx')
+
+data = data[['CourseID', 'Sec', 'ROOM_ID', 'size', 'stuNo', 'Semester', 'Year', 
+            'FACULTY_ID', 'STRAT_TIME', 'END_TIME', 'ST_MW', 'BLOCKED']]
+data = data.drop_duplicates()
+
+for index, row in data.iterrows():
+    Section_T(course = Course_T.objects.get(courseID = row['CourseID']),
+             sectionNo = row['Sec'],
+             room = Classroom_T.objects.get(roomID = row['ROOM_ID']),
+             capacity = row['size'],
+             noOfEnrolledStudent = row['stuNo'],
+             semester = row['Semester'],
+             year = row['Year'],
+             faculty = Faculty_T.objects.get(facultyID = row['FACULTY_ID']),
+             startTime = row['STRAT_TIME'],
+             endTime = row['END_TIME'],
+             day = row['ST_MW'],
+             blocked = row['BLOCKED']).save()
+
+print("Success!")
