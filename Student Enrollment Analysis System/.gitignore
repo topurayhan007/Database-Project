@@ -1,4 +1,4 @@
 .env
-Home/__pycache__/
-seas/__pycache__/
-seas/migrations/__pycache__/
+**/*/.DS_Store 
+**/*/__pycache__/
+
