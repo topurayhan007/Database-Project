@@ -60,5 +60,7 @@ class Section_T(models.Model):
     endTime = models.TimeField()
     day = models.CharField(max_length=4)
     blocked = models.CharField(max_length=4)
-
+    '%H:%M:%S'
     
+    def __str__(self):
+        return self.course
