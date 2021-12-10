@@ -24,6 +24,8 @@ for item in data:
     elif item == "SBE":
         School_T(schoolTitle=item, schoolName = "School of Business and Entrepreneurship").save()
 
+print("School Population Successful!")
+
 
 # Department Table Population
 data = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
@@ -41,6 +43,8 @@ for i in range(data.shape[0]):
     else:
         Department_T(deptCode=data.iloc[i, 1], school=School_T.objects.get(schoolTitle=data.iloc[i, 0])).save()
 
+print("Department Population Successful!")
+
 
 # Course Table Population
 data = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
@@ -54,6 +58,8 @@ for index, row in data.iterrows():
              creditHour=row['Crs'],
              dept=Department_T.objects.get(deptCode=row['Dept'])).save()
 
+print("Course Population Successful!")
+
 
 # Classroom Table Population
 data = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
@@ -62,6 +68,8 @@ data = data[['ROOM_ID', 'RoomSize']]
 data = data.drop_duplicates()
 for i in range(data.shape[0]):
     Classroom_T(roomID=data.iloc[i, 0], roomCapacity=data.iloc[i, 1]).save()
+
+print("Classroom Population Successful!")
 
 
 # Faculty Table Population
@@ -75,6 +83,8 @@ for item in data:
         Faculty_T(facultyID=item[0], facultyName=item[1]).save()
     except ValueError:
         continue
+
+print("Faculty Population Successful!")
 
 
 # Section Table Population
@@ -105,4 +115,4 @@ for index, row in data.iterrows():
              day = row['ST_MW'],
              blocked = row['BLOCKED']).save()
 
-print("Success!")
+print("Section Population Successful!")
