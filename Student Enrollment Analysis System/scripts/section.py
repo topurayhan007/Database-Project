@@ -15,17 +15,34 @@ data = data[['CourseID', 'Sec', 'ROOM_ID', 'size', 'stuNo', 'Semester', 'Year',
 data = data.drop_duplicates()
 
 for index, row in data.iterrows():
-    Section_T(course = Course_T.objects.get(courseID = row['CourseID']),
-             sectionNo = row['Sec'],
-             room = Classroom_T.objects.get(roomID = row['ROOM_ID']),
-             capacity = row['size'],
-             noOfEnrolledStudent = row['stuNo'],
-             semester = row['Semester'],
-             year = row['Year'],
-             faculty = Faculty_T.objects.get(facultyID = row['FACULTY_ID']),
-             startTime = row['STRAT_TIME'],
-             endTime = row['END_TIME'],
-             day = row['ST_MW'],
-             blocked = row['BLOCKED']).save()
+    try:
+        Section_T(course = Course_T.objects.get(courseID = row['CourseID']),
+        sectionNo = row['Sec'],
+        room = Classroom_T.objects.get(roomID = row['ROOM_ID']),
+        capacity = row['size'],
+        noOfEnrolledStudent = row['stuNo'],
+        semester = row['Semester'],
+        year = row['Year'],
+        faculty = Faculty_T.objects.get(facultyID = row['FACULTY_ID']),
+        # startTime = row['STRAT_TIME'],
+        # endTime = row['END_TIME'],
+        day = row['ST_MW'],
+        blocked = row['BLOCKED']).save()
+
+    except ValueError:
+        continue
+
+    # Section_T(course = Course_T.objects.get(courseID = row['CourseID']),
+    #          sectionNo = row['Sec'],
+    #          room = Classroom_T.objects.get(roomID = row['ROOM_ID']),
+    #          capacity = row['size'],
+    #          noOfEnrolledStudent = row['stuNo'],
+    #          semester = row['Semester'],
+    #          year = row['Year'],
+    #          faculty = Faculty_T.objects.get(facultyID = row['FACULTY_ID']),
+    #          startTime = row['STRAT_TIME'],
+    #          endTime = row['END_TIME'],
+    #          day = row['ST_MW'],
+    #          blocked = row['BLOCKED']).save()
 
 print("Success!")

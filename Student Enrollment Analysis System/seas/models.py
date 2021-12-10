@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django.db.models.deletion import CASCADE
 
@@ -56,11 +57,10 @@ class Section_T(models.Model):
     semester = models.CharField(max_length=6, default= "N/A")
     year = models.CharField(max_length=4)
     faculty = models.ForeignKey(Faculty_T, on_delete=CASCADE)
-    startTime = models.TimeField()
-    endTime = models.TimeField()
+    # startTime = models.TimeField(default= datetime.time(datetime.now()))
+    # endTime = models.TimeField(default= datetime.time(datetime.now()))
     day = models.CharField(max_length=4)
     blocked = models.CharField(max_length=4)
-    '%H:%M:%S'
     
     def __str__(self):
-        return self.course
+        return self.sectionNo

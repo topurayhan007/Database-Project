@@ -99,7 +99,7 @@ data = pd.read_excel('scripts/Revenue_Faculty.xlsx')
 
 data = data[['CourseID', 'Sec', 'ROOM_ID', 'size', 'stuNo', 'Semester', 'Year', 
             'FACULTY_ID', 'STRAT_TIME', 'END_TIME', 'ST_MW', 'BLOCKED']]
-data = data.drop_duplicates()
+# data = data.drop_duplicates()
 
 for index, row in data.iterrows():
     Section_T(course = Course_T.objects.get(courseID = row['CourseID']),
@@ -110,8 +110,8 @@ for index, row in data.iterrows():
              semester = row['Semester'],
              year = row['Year'],
              faculty = Faculty_T.objects.get(facultyID = row['FACULTY_ID']),
-             startTime = row['STRAT_TIME'],
-             endTime = row['END_TIME'],
+            #  startTime = row['STRAT_TIME'],
+            #  endTime = row['END_TIME'],
              day = row['ST_MW'],
              blocked = row['BLOCKED']).save()
 
