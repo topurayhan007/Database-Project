@@ -50,17 +50,17 @@ class Classroom_T(models.Model):
 
 class Section_T(models.Model):
     course = models.ForeignKey(Course_T, on_delete=CASCADE)
-    sectionNo = models.IntegerField(primary_key=True)
+    sectionNo = models.IntegerField()
     room = models.ForeignKey(Classroom_T, on_delete=CASCADE)
     capacity = models.IntegerField()
     noOfEnrolledStudent = models.IntegerField()
     semester = models.CharField(max_length=6, default= "N/A")
     year = models.CharField(max_length=4)
-    faculty = models.ForeignKey(Faculty_T, on_delete=CASCADE)
+    faculty = models.ForeignKey(Faculty_T, on_delete=CASCADE, null=True)
     # startTime = models.TimeField(default= datetime.time(datetime.now()))
     # endTime = models.TimeField(default= datetime.time(datetime.now()))
     day = models.CharField(max_length=4)
     blocked = models.CharField(max_length=4)
     
     def __str__(self):
-        return self.sectionNo
+        return f'{self.course} - Section {self.sectionNo} ({self.semester} {self.year})'
