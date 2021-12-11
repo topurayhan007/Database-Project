@@ -89,7 +89,7 @@ print("Faculty Population Successful!")
 
 # Section Table Population
 df = pd.read_excel('scripts/Revenue.xlsx', sheet_name='Data')
-df2 = df.FACULTY_FULL_NAME.str.split("-", expand=True)
+df2 = df.FACULTY_FULL_NAME.str.split("-")
 df['FACULTY_ID'] = df2[0]
 df['FACULTY_NAME'] = df2[1]
 df.to_excel('scripts/Revenue_Faculty.xlsx', index = None, header=True)
@@ -103,7 +103,7 @@ data = data[['CourseID', 'Sec', 'ROOM_ID', 'size', 'stuNo', 'Semester', 'Year',
 
 for index, row in data.iterrows():
     Section_T(course = Course_T.objects.get(courseID = row['CourseID']),
-             sectionNo = row['Sec'],
+             sectionNo = int(row['Sec']),
              room = Classroom_T.objects.get(roomID = row['ROOM_ID']),
              capacity = row['size'],
              noOfEnrolledStudent = row['stuNo'],
