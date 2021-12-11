@@ -12,22 +12,25 @@ from django.http import HttpResponse
     # return HttpResponse('Hello World')
     #return render(request, 'hello.html', {'name': 'Topu'})
 
-def loginpage(request):
-    return render(request, 'login.html')
+# def loginpage(request):
+#     return render(request, 'login.html')
     
-def login_user(request):
+def loginpage(request):
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('dashboard')
+            #return redirect('dashboard')
+            return render(request, 'dashboard.html')
         else:
-            messages.success(request, ("Invalid Login Credentials! Try Again.."))
-            return redirect('login')
+            return HttpResponse('<h1>Unsuccessful</h1>')
     else:
         return render(request, 'login.html')
+
+def dashboardpage(request):
+    return render(request, 'dashboard.html')
 
 def dashboardpage(request):
     return render(request, 'dashboard.html')
