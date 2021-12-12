@@ -31,6 +31,3 @@ def loginpage(request):
 
 def dashboardpage(request):
     return render(request, 'dashboard.html')
-
-def dashboardpage(request):
-    return render(request, 'dashboard.html')
