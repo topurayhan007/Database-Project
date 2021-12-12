@@ -17,7 +17,8 @@ def loginpage(request):
             #return redirect('dashboard')
             return render(request, 'dashboard.html')
         else:
-            return HttpResponse('<h1>Unsuccessful</h1>')
+            # messages.success(request, "Invalid Credentials.") 
+            return HttpResponse('<h1>Invalid Credentials!</h1>')
     else:
         return render(request, 'login.html')
 
