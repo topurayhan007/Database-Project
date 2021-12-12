@@ -7,15 +7,15 @@ from django.db.models.deletion import CASCADE
 
 class School_T(models.Model):
     schoolTitle = models.CharField(max_length=6, primary_key=True)
-    schoolName = models.CharField(max_length=50)
+    schoolName = models.CharField(max_length=200)
 
     def __str__(self):
         return self.schoolTitle
 
 
 class Department_T(models.Model):
-    deptCode = models.CharField(max_length=3, primary_key=True)
-    deptName = models.CharField(max_length=50)
+    deptCode = models.CharField(max_length=6, primary_key=True)
+    deptName = models.CharField(max_length=200)
     school = models.ForeignKey(School_T, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -23,16 +23,16 @@ class Department_T(models.Model):
 
 
 class Faculty_T(models.Model):
-    facultyID = models.CharField(primary_key=True, max_length= 10)
-    facultyName = models.CharField(max_length=50)
+    facultyID = models.CharField(primary_key=True, max_length= 5)
+    facultyName = models.CharField(max_length=200)
 
     def __str__(self):
         return self.facultyName
 
 
 class Course_T(models.Model):
-    courseID = models.CharField(max_length=7, primary_key=True)
-    courseName = models.CharField(max_length=50)
+    courseID = models.CharField(max_length=10, primary_key=True)
+    courseName = models.CharField(max_length=200)
     creditHour = models.IntegerField()
     dept = models.ForeignKey(Department_T, on_delete=CASCADE)
     
@@ -41,7 +41,7 @@ class Course_T(models.Model):
 
 
 class Classroom_T(models.Model):
-    roomID = models.CharField(max_length=7, primary_key=True)
+    roomID = models.CharField(max_length=10, primary_key=True)
     roomCapacity = models.IntegerField()
 
     def __str__(self):

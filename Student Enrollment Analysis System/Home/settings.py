@@ -75,16 +75,16 @@ WSGI_APPLICATION = 'Home.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {  
+# DATABASES = {  
 #    'default': {  
 #        'ENGINE': 'django.db.backends.mysql',  
-#        'NAME': seas,  
-#        'USER': root,
-#        'PASSWORD': ,  
-#        'HOST': localhost,
-#        'PORT': 3306,
+#        'NAME': 'seas',  
+#        'USER': 'root',
+#        'PASSWORD': '',  
+#        'HOST': 'localhost',
+#        'PORT': '3306',
 #    }  
-#} 
+# }  
 
 DATABASES = {
     'default' : {
@@ -92,6 +92,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
