@@ -37,7 +37,7 @@ class Course_T(models.Model):
     dept = models.ForeignKey(Department_T, on_delete=CASCADE)
     
     def __str__(self):
-        return self.courseName
+        return self.courseID
 
 
 class Classroom_T(models.Model):
