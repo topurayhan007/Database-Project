@@ -3,14 +3,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.http import HttpResponse
 
-# Create your views here.
-
-    # Pull data from database
-    # Transform Data
-    # Send Emails
-    # etc
-    # return HttpResponse('Hello World')
-    #return render(request, 'hello.html', {'name': 'Topu'})
 
 # def loginpage(request):
 #     return render(request, 'login.html')
@@ -31,3 +23,8 @@ def loginpage(request):
 
 def dashboardpage(request):
     return render(request, 'dashboard.html')
+
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.") 
+	return redirect('login')
