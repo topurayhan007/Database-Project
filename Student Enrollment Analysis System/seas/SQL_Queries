@@ -120,4 +120,4 @@ from seas_section_t GROUP by semester,year;
 ROUND (sum(credithour),2) as total_creadi
 from seas_course_t
 
-group by dept_i
+group by dept_id
