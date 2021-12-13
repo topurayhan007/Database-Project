@@ -76,6 +76,7 @@ FROM (SELECT *
 WHERE noofenrolledstudent BETWEEN 56 AND 65
 AND semester = "Summer" AND YEAR = '2021'
 
+
 #####################################################################################
 ClassSizeDistribution
 #####################################################################################
