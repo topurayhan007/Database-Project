@@ -146,8 +146,18 @@ SELECT COUNT(*)
 FROM (SELECT *
     FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
     INNER JOIN seas_section_t ON course_id=courseid)
-WHERE noofenrolledstudent BETWEEN 56 AND 65
+WHERE noofenrolledstudent BETWEEN 56 AND 60
 AND semester = "Summer" AND YEAR = '2021' AND school_id = "SBE"
+------------------------------------------------------------------------------------
+UNION ALL
+------------------------------------------------------------------------------------
+SELECT COUNT(*)
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE noofenrolledstudent > 60
+AND semester = "Summer" AND YEAR = '2021' AND school_id = "SBE"
+
 
 
 ####################################################################################
