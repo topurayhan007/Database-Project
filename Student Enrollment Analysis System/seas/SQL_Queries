@@ -73,3 +73,51 @@ FROM (SELECT *
     INNER JOIN seas_section_t ON course_id=courseid)
 WHERE noofenrolledstudent BETWEEN 56 AND 65
 AND semester = "Summer" AND YEAR = '2021'
+
+
+
+
+######################################################
+3. Resource usage summary from a comparison of average enrollment per course
+and average capacity per room.*******
+
+
+#########
+###########2009-2021 total class_Size and Student enrollment capacity
+
+select semester,year,
+sum(capacity) as Sum,
+Avg (capacity) as Avg_Room,sum (noofenrolledstudent) as Sum_Of_Enroll,avg(noofenrolledstudent) as Avg_Enroll
+from seas_section_t GROUP by semester,year;
+
+
+##########To see specific year 
+
+select semester,year,
+sum(capacity),
+Avg (capacity),sum (noofenrolledstudent),avg(noofenrolledstudent)
+from seas_section_t WHERE year=2009 GROUP by semester,year
+
+########## to see specific year and semeter 
+
+select semester,year,
+sum(capacity),
+Avg (capacity),sum (noofenrolledstudent),avg(noofenrolledstudent)
+from seas_section_t WHERE year=2009 and semester='Autumn' GROUP by semester,year; 
+# total tabel
+SELECT semester,year,
+ROUND(sum(capacity),2) as sumcap,
+ROUND(avg(capacity),2) as avg_room,
+ROUND (sum(noofenrolledstudent),2) as Sum_of_enroll,
+ROUND(avg(noofenrolledstudent),2) as avg_enroll,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Differ,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unsend %]
+from seas_section_t GROUP by semester,year;
+
+
+******revenw********
+ select dept_id,
+ROUND (sum(credithour),2) as total_creadi
+from seas_course_t
+
+group by dept_i
