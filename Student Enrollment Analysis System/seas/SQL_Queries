@@ -100,7 +100,7 @@ sum(capacity),
 Avg (capacity),sum (noofenrolledstudent),avg(noofenrolledstudent)
 from seas_section_t WHERE year=2009 GROUP by semester,year
 
-########## to see specific year and semeter 
+########## did  to see specific year and semeter 
 
 select semester,year,
 sum(capacity),
@@ -119,7 +119,7 @@ from seas_section_t GROUP by semester,year;
 
 ******revenw********
  select dept_id,
-ROUND (sum(credithour),2) as total_creadi
+ROUND sum(credithour) as total_creadit
 from seas_course_t
 
 group by dept_id
