@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.http import HttpResponse
-
+from seas import chartQueries
 
 # def loginpage(request):
 #     return render(request, 'login.html')
@@ -32,3 +32,8 @@ def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.") 
 	return redirect('login')
+
+def ClassSizeRequirementView(request):
+    if request.method == "POST":
+        result = chartQueries.ClassSizeRequirement("Summer", "2019")
+        return render(request, 'chartLayout.html', {"result":result})

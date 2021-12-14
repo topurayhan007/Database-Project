@@ -1,7 +1,7 @@
 from django.db import connection
 import numpy as np
 
-def ClassSizeRequirement():
+def ClassSizeRequirement(semester, year):
     with connection.cursor() as cursor:
         cursor.execute('''
             SELECT COUNT(*)
@@ -73,5 +73,6 @@ def ClassSizeRequirement():
                 INNER JOIN seas_section_t ON course_id=courseid)
             WHERE noofenrolledstudent BETWEEN 56 AND 65
             AND semester = "{}" AND YEAR = '{}'
-        '''.format())
-    return 
+        '''.format(semester,year,semester,year,semester,year,semester,year,semester,year,semester,year,semester,year,semester,year))
+        result = cursor.fetchall()
+    return result
