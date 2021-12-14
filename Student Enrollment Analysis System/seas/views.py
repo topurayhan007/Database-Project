@@ -6,7 +6,10 @@ from django.http import HttpResponse
 
 # def loginpage(request):
 #     return render(request, 'login.html')
-    
+def home(request):
+    return render(request, 'login.html')
+
+
 def loginpage(request):
     if request.method == "POST":
         username = request.POST['username']

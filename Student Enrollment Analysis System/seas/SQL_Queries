@@ -4,7 +4,7 @@ ALL SQL Queries were tried and written here
 
 
 #####################################################################################
-class size requirment 
+ClassSizeRequirement
 #####################################################################################
 SELECT COUNT(*) AS sections
 FROM (SELECT *
@@ -162,8 +162,83 @@ AND semester = "Summer" AND YEAR = '2021' AND school_id = "SBE"
 
 
 ####################################################################################
-
+UsageOfTheResources
 ####################################################################################
+SELECT semester,year,
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Summer" AND YEAR = '2021'
+------------------------------------------------------------------------------------
+UNION ALL
+------------------------------------------------------------------------------------
+SELECT semester,year,
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Summer" AND YEAR = '2021' AND school_id = "SBE"
+------------------------------------------------------------------------------------
+UNION ALL
+------------------------------------------------------------------------------------
+SELECT semester,year,
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Summer" AND YEAR = '2021' AND school_id = "SELS"
+------------------------------------------------------------------------------------
+UNION ALL
+------------------------------------------------------------------------------------
+SELECT semester,year,
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Summer" AND YEAR = '2021' AND school_id = "SETS"
+------------------------------------------------------------------------------------
+UNION ALL
+------------------------------------------------------------------------------------
+SELECT semester,year,
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Summer" AND YEAR = '2021' AND school_id = "SLASS"
+------------------------------------------------------------------------------------
+UNION ALL
+------------------------------------------------------------------------------------
+SELECT semester,year,
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Summer" AND YEAR = '2021' AND school_id = "SPPH"
 
 
 ######################################################

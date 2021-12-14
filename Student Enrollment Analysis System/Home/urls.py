@@ -19,6 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('seas.urls')),
     path('seas/', include('django.contrib.auth.urls')),
     path('seas/', include('seas.urls')),
     #path('login_user', views.login_user, name="login" )
