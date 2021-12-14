@@ -6,7 +6,9 @@ ALL SQL Queries were tried and written here
 #####################################################################################
 ClassSizeRequirement
 #####################################################################################
-SELECT COUNT(*) AS sections
+SELECT COUNT(*) AS "Sections",
+ROUND((COUNT(*)/12.0),2) AS "Classroom 6",
+ROUND((COUNT(*)/14.0),2) AS "Classroom 7"
 FROM (SELECT *
     FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
     INNER JOIN seas_section_t ON course_id=courseid)
@@ -15,7 +17,9 @@ AND semester = "Summer" AND YEAR = '2021'
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT COUNT(*)
+SELECT COUNT(*) AS "Sections",
+ROUND((COUNT(*)/12.0),2) AS "Classroom 6",
+ROUND((COUNT(*)/14.0),2) AS "Classroom 7"
 FROM (SELECT *
     FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
     INNER JOIN seas_section_t ON course_id=courseid)
@@ -24,7 +28,9 @@ AND semester = "Summer" AND YEAR = '2021'
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT COUNT(*)
+SELECT COUNT(*) AS "Sections",
+ROUND((COUNT(*)/12.0),2) AS "Classroom 6",
+ROUND((COUNT(*)/14.0),2) AS "Classroom 7"
 FROM (SELECT *
     FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
     INNER JOIN seas_section_t ON course_id=courseid)
@@ -33,7 +39,9 @@ AND semester = "Summer" AND YEAR = '2021'
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT COUNT(*)
+SELECT COUNT(*) AS "Sections",
+ROUND((COUNT(*)/12.0),2) AS "Classroom 6",
+ROUND((COUNT(*)/14.0),2) AS "Classroom 7"
 FROM (SELECT *
     FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
     INNER JOIN seas_section_t ON course_id=courseid)
@@ -42,7 +50,9 @@ AND semester = "Summer" AND YEAR = '2021'
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT COUNT(*)
+SELECT COUNT(*) AS "Sections",
+ROUND((COUNT(*)/12.0),2) AS "Classroom 6",
+ROUND((COUNT(*)/14.0),2) AS "Classroom 7"
 FROM (SELECT *
     FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
     INNER JOIN seas_section_t ON course_id=courseid)
@@ -51,7 +61,9 @@ AND semester = "Summer" AND YEAR = '2021'
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT COUNT(*)
+SELECT COUNT(*) AS "Sections",
+ROUND((COUNT(*)/12.0),2) AS "Classroom 6",
+ROUND((COUNT(*)/14.0),2) AS "Classroom 7"
 FROM (SELECT *
     FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
     INNER JOIN seas_section_t ON course_id=courseid)
@@ -60,7 +72,9 @@ AND semester = "Summer" AND YEAR = '2021'
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT COUNT(*)
+SELECT COUNT(*) AS "Sections",
+ROUND((COUNT(*)/12.0),2) AS "Classroom 6",
+ROUND((COUNT(*)/14.0),2) AS "Classroom 7"
 FROM (SELECT *
     FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
     INNER JOIN seas_section_t ON course_id=courseid)
@@ -69,7 +83,9 @@ AND semester = "Summer" AND YEAR = '2021'
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT COUNT(*)
+SELECT COUNT(*) AS "Sections",
+ROUND((COUNT(*)/12.0),2) AS "Classroom 6",
+ROUND((COUNT(*)/14.0),2) AS "Classroom 7"
 FROM (SELECT *
     FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
     INNER JOIN seas_section_t ON course_id=courseid)
