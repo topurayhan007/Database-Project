@@ -1176,4 +1176,4 @@ select sum(s.noofenrolledstudent * c.credithour)
 FROM seas_section_t as s , seas_course_t as c
 where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2021
 
-
+---totat and change left 
