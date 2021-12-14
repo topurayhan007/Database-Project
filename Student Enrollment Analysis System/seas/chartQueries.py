@@ -287,3 +287,6 @@ def UsageOfTheResources(semester, year):
         '''.format(semester,year,semester,year,semester,year,semester,year,semester,year,semester,year))
         result = cursor.fetchall()
     return result
+
+
+# print(UsageOfTheResources("Spring", '2021'))
