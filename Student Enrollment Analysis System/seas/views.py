@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.http import HttpResponse
 from seas import chartQueries
+import numpy as np
+
 
 # def loginpage(request):
 #     return render(request, 'login.html')
@@ -35,5 +37,10 @@ def logout_request(request):
 
 def ClassSizeRequirementView(request):
     if request.method == "POST":
-        result = chartQueries.ClassSizeRequirement("Summer", "2019")
-        return render(request, 'chartLayout.html', {"result":result})
+        # get.year from HTML DropDown Selection
+        arr1 = chartQueries.ClassSizeRequirement("Spring", '2021')
+        arr2 = chartQueries.ClassSizeRequirement("Spring", '2021')
+        arr3 = np.concatenate((arr1, arr2), axis=1)
+        sumarr = arr3.sum(axis=0)
+        table = np.concatenate((arr3, sumarr), axis=0)
+        return render(request, 'chartLayout.html', {"result":table})
