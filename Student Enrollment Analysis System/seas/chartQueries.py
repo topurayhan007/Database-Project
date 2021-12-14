@@ -93,16 +93,24 @@ def ClassSizeRequirement(semester, year):
         result = cursor.fetchall()
     return result
 
-# arr1 = ClassSizeRequirement("Spring", '2021')
-# arr2 = ClassSizeRequirement("Summer", '2021')
-# arr3 = np.concatenate((arr1, arr2), axis=1)
-# sumarr = arr3.sum(axis=0)
-# res = np.array([])
-# #resu = np.row_stack((arr3, sumarr), axis= 0)
-# resu = np.concatenate((arr3, sumarr), axis= 0)
-# print(arr3)
-# print(sumarr)
-# print(resu)
+# finalarr = ClassSizeRequirement("Spring", '2021')
+# finalarr = np.array(finalarr)
+# totalarr = finalarr.sum(axis=0)
+# totalarr = np.reshape(totalarr, [1, 3])
+# After reshape getting this
+# [[1.250e+02 1.042e+01 8.930e+00]
+#  [1.700e+02 1.417e+01 1.214e+01]
+#  [1.610e+02 1.342e+01 1.150e+01]
+#  [1.000e+02 8.330e+00 7.140e+00]
+#  [1.150e+02 9.580e+00 8.210e+00]
+#  [2.050e+02 1.708e+01 1.464e+01]
+#  [4.600e+01 3.830e+00 3.290e+00]
+#  [7.000e+00 5.800e-01 5.000e-01]
+#  [9.290e+02 7.741e+01 6.635e+01]]
+# table = np.concatenate((finalarr, totalarr), axis=0)
+# print(finalarr)
+# print(totalarr)
+# print(table)
 
 
 def ClassSizeDistribution(semester, year, school):
@@ -288,5 +296,7 @@ def UsageOfTheResources(semester, year):
         result = cursor.fetchall()
     return result
 
-
-# print(UsageOfTheResources("Spring", '2021'))
+# arr = UsageOfTheResources("Spring", '2021')
+# Getting 3.5212e+04 instead of 35212.0 when doing np.array(arr)
+# arr = np.array(arr)
+# print(arr)

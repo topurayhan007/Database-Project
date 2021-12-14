@@ -42,9 +42,10 @@ def ClassSizeRequirementView(request):
         # Columns: Class Size(label not values from query), Sections, Classroom 6, Classroom 7
         # Rows: 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-65
         finalarr = chartQueries.ClassSizeRequirement("Spring", '2021')
+        finalarr = np.array(finalarr)
         # Row last: Total (This row found using code below)
         totalarr = finalarr.sum(axis=0)
-        #line 48 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
+        #line 49 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
         table = np.concatenate((finalarr, totalarr), axis=0)
 
     # Note here "result" is the variable by which the HTML will recognize "table"   
