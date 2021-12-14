@@ -48,7 +48,7 @@ def ClassSizeRequirementView(request):
         table = np.concatenate((finalarr, totalarr), axis=0)
 
     # Note here "result" is the variable by which the HTML will recognize "table"   
-    return render(request, 'chartLayout.html', {"result":table})
+    return render(request, 'classSizeRequirement.html', {"result":table})
 
 
 
@@ -69,7 +69,7 @@ def ClassSizeDistributionView(request):
         finalarr = np.concatenate((allarr,totalarr),axis=1)
     
     # Note here "result" is the variable by which the HTML will recognize "finalarr" 
-    return render(request, 'filename.html', {"result": finalarr})
+    return render(request, 'ClassSizeDistribution.html', {"result": finalarr})
 
 
 
@@ -81,5 +81,5 @@ def UsageOfTheResourcesView(request):
         table = chartQueries.UsageOfTheResources("Spring", '2021')
     
     # Note here "result" is the variable by which the HTML will recognize "table" 
-    return render(request, 'filename.html', {"result": table})
+    return render(request, 'usageOfTheResources.html', {"result": table})
 
