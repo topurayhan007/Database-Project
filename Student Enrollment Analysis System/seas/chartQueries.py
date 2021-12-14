@@ -300,3 +300,17 @@ def UsageOfTheResources(semester, year):
 # Getting 3.5212e+04 instead of 35212.0 when doing np.array(arr)
 # arr = np.array(arr)
 # print(arr)
+
+
+
+
+def UsageOfTheResources(semester, year):
+    with connection.cursor() as cursor:
+        cursor.execute('''
+
+
+
+
+          '''  .format(semester,year,semester,year,semester,year,semester,year,semester,year,semester,year))
+        result = cursor.fetchall()
+    return result
