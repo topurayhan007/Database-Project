@@ -164,7 +164,85 @@ AND semester = "Summer" AND YEAR = '2021' AND school_id = "SBE"
 ####################################################################################
 UsageOfTheResources
 ####################################################################################
-SELECT semester,year,
+SELECT 
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Spring" AND YEAR = '2021'
+------------------------------------------------------------------------------------
+UNION ALL
+------------------------------------------------------------------------------------
+SELECT
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Spring" AND YEAR = '2021' AND school_id = "SBE"
+------------------------------------------------------------------------------------
+UNION ALL
+------------------------------------------------------------------------------------
+SELECT
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Spring" AND YEAR = '2021' AND school_id = "SELS"
+------------------------------------------------------------------------------------
+UNION ALL
+------------------------------------------------------------------------------------
+SELECT
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Spring" AND YEAR = '2021' AND school_id = "SETS"
+------------------------------------------------------------------------------------
+UNION ALL
+------------------------------------------------------------------------------------
+SELECT
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Spring" AND YEAR = '2021' AND school_id = "SLASS"
+------------------------------------------------------------------------------------
+UNION ALL
+------------------------------------------------------------------------------------
+SELECT
+ROUND(sum(capacity),2) as Sum_Capacity,
+ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
+ROUND(avg(capacity),2) as Avg_Room,
+ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Difference,
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
+FROM (SELECT *
+    FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
+    INNER JOIN seas_section_t ON course_id=courseid)
+WHERE semester = "Spring" AND YEAR = '2021' AND school_id = "SPPH"
+-----------------------------------------------------------------------------------
+UNION ALL
+-----------------------------------------------------------------------------------
+SELECT 
 ROUND(sum(capacity),2) as Sum_Capacity,
 ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
 ROUND(avg(capacity),2) as Avg_Room,
@@ -177,7 +255,7 @@ WHERE semester = "Summer" AND YEAR = '2021'
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT semester,year,
+SELECT
 ROUND(sum(capacity),2) as Sum_Capacity,
 ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
 ROUND(avg(capacity),2) as Avg_Room,
@@ -190,7 +268,7 @@ WHERE semester = "Summer" AND YEAR = '2021' AND school_id = "SBE"
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT semester,year,
+SELECT
 ROUND(sum(capacity),2) as Sum_Capacity,
 ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
 ROUND(avg(capacity),2) as Avg_Room,
@@ -203,7 +281,7 @@ WHERE semester = "Summer" AND YEAR = '2021' AND school_id = "SELS"
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT semester,year,
+SELECT
 ROUND(sum(capacity),2) as Sum_Capacity,
 ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
 ROUND(avg(capacity),2) as Avg_Room,
@@ -216,7 +294,7 @@ WHERE semester = "Summer" AND YEAR = '2021' AND school_id = "SETS"
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT semester,year,
+SELECT
 ROUND(sum(capacity),2) as Sum_Capacity,
 ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
 ROUND(avg(capacity),2) as Avg_Room,
@@ -229,7 +307,7 @@ WHERE semester = "Summer" AND YEAR = '2021' AND school_id = "SLASS"
 ------------------------------------------------------------------------------------
 UNION ALL
 ------------------------------------------------------------------------------------
-SELECT semester,year,
+SELECT
 ROUND(sum(capacity),2) as Sum_Capacity,
 ROUND(avg(noofenrolledstudent),2) as Avg_Enroll,
 ROUND(avg(capacity),2) as Avg_Room,
