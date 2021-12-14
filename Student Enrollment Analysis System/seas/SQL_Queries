@@ -4,9 +4,9 @@ ALL SQL Queries were tried and written here
 
 
 #####################################################################################
-ClassSizeRequirement
+class size requirment 
 #####################################################################################
-SELECT COUNT(*) AS Sections
+SELECT COUNT(*) AS sections
 FROM (SELECT *
     FROM seas_department_t INNER JOIN seas_course_t ON deptcode=dept_id
     INNER JOIN seas_section_t ON course_id=courseid)
@@ -199,15 +199,14 @@ ROUND(avg(capacity),2) as avg_room,
 ROUND (sum(noofenrolledstudent),2) as Sum_of_enroll,
 ROUND(avg(noofenrolledstudent),2) as avg_enroll,
 ROUND((avg(capacity)-avg(noofenrolledstudent)),2) as Differ,
-ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unsend %]
+ROUND(((avg(capacity)-avg(noofenrolledstudent))/avg(capacity)*100),2)as [Unused %]
 from seas_section_t GROUP by semester,year;
 
 
-******revenw********
+******reVNEW********
  select dept_id,
 ROUND (sum(credithour),2) as total_creadi
 from seas_course_t
-
 group by dept_id
 
 
