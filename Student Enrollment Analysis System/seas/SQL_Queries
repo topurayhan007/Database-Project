@@ -209,3 +209,7 @@ ROUND (sum(credithour),2) as total_creadi
 from seas_course_t
 
 group by dept_id
+
+
+
+
