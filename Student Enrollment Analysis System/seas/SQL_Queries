@@ -379,5 +379,801 @@ from seas_course_t
 group by dept_id
 
 
+######################################################################################################################
+
+
+----revinew raw data---
+
+--for slass---
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2009
+
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2009
+UNION all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2009
+
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2012
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2012
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2012
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2013
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2013
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2013
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2014
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2014
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2014
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2015
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2015
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2015
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2016
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2016
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2016
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2021
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SLASS' and s.semester= 'Summer' and s.year = 2021
+
+
+
+union all
+
+---SBE
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2009
+
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2009
+UNION all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2009
+
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2012
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2012
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2012
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2013
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2013
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2013
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2014
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2014
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2014
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2015
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2015
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2015
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2016
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2016
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2016
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Autumn' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2021
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SBE' and s.semester= 'Summer' and s.year = 2021
+
+
+---for SETS
+
+union all
+
+
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2009
+
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2009
+UNION all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2009
+
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2012
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2012
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2012
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2013
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2013
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2013
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2014
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2014
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2014
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2015
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2015
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2015
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2016
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2016
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2016
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Autumn' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Spring' and s.year = 2021
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SETS' and s.semester= 'Summer' and s.year = 2021
+
+--for sels
+
+union all
+
+
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2009
+
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2009
+UNION all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2009
+
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2012
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2012
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2012
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2013
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2013
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2013
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2014
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2014
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2014
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2015
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2015
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2015
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2016
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2016
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2016
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Autumn' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2021
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SELS' and s.semester= 'Summer' and s.year = 2021
+
+---spph
+
+union all
+
+
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2009
+
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2009
+UNION all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2009
+
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2010
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2011
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2012
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2012
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2012
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2013
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2013
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2013
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2014
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2014
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2014
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2015
+union all 
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2015
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2015
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2016
+UNION ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2016
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2016
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2017
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2018
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2019
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2020
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2021
+union ALL
+select sum(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t as s , seas_course_t as c
+where s.course_id = c.courseID and c.dept_id= 'SPPH' and s.semester= 'Summer' and s.year = 2021
 
 
