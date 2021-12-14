@@ -66,7 +66,7 @@ def ClassSizeDistributionView(request):
         allarr = np.concatenate((sbe, sels, sets, slass, spph), axis=1)
         # Column: Total (This column found using code below)
         totalarr = allarr.sum(axis=1)
-        #line 68 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
+        #line 70 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
         finalarr = np.concatenate((allarr,totalarr),axis=1)
     
     # Note here "result" is the variable by which the HTML will recognize "finalarr" 
