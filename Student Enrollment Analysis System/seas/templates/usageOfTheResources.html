@@ -4,10 +4,17 @@
 
 {% block heading %} Usage of the resources {% endblock  %}
 
-{% block tableContent2 %} 
+{% block tableContent %} 
 	
-	Table Code here
+	{% comment %} Table Code here {% endcomment %}
+	<table border="1" cellpadding = "5" cellspacing="5">
+		{% for c in colLabel %}
+			<td> Dog </td>
+		{% endfor %}
+		
 
-{% endblock tableContent2 %}
+	</table>
+
+{% endblock %}
 
 <!--NO CHART FOR Resources-->
