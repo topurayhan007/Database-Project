@@ -45,14 +45,30 @@
 	<div class="table-data">
 		<div class="order">
 			<div>
-				<table>
-					<tr>
+				<table border="1" cellpadding = "5" cellspacing="5">
 						
+					<tr>
+							
 						{% for i in colLabel %}
-							<td> {{i}} </td>
+							<td style="text-align:center"> {{i}} </td>
 						{% endfor %}
 						
+						
 					</tr>
+					
+					<tr>
+			
+						{% for j in rowLabel %}
+							<td style="text-align:center">{{j}}</td>
+							
+							<tr> 
+								{% comment %} hello {% endcomment %}
+							</tr>
+							
+						{% endfor %}
+							
+					</tr>
+					
 					
 				
 				</table>

@@ -50,7 +50,7 @@
 						<tr>
 							
 							{% for i in colLabel %}
-								<td> {{i}} </td>
+								<td style="text-align:center"> {{i}} </td>
 							{% endfor %}
 							
 							
@@ -59,10 +59,16 @@
 						<tr>
 				
 							{% for j in rowLabel %}
-								<td>{{j}}</td>
+								<td style="text-align:center">{{j}}</td>
+								
+								<tr> 
+									{% comment %} hello {% endcomment %}
+								</tr>
+								
 							{% endfor %}
 								
 						</tr>
+						
 						
 					
 					</table>
