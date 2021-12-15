@@ -5,70 +5,72 @@
 {% block heading %} Usage of the resources {% endblock  %}
 
 {% block content %} 
-	<form method ="post" action="">
+	{% load static %}
+	<meta id="viewport" name="viewport" content ="width=device-width" />
+	<link rel="stylesheet" type="text/css" href="{% static 'seas/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'seas/css/util.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'seas/css/main.css' %}" />
+
+	<form style="text-align: center; width: 330px;" action="" method="post">
 		{% csrf_token %}
-		<div>
-			<ul class="box-info">
-					<li>
-						<select name="semester" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-							<option selected>Semester</option>
-							<option value="1">Summer</option>
-							<option value="2">Spring</option>
-							<option value="3">Autumn</option>
-						</select>
-					</li>
-					<li>
-						<select name="year" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-							<option selected>Year</option>
-							<option value="1">2009</option>
-							<option value="2">2010</option>
-							<option value="3">2011</option>
-							<option value="4">2012</option>
-							<option value="5">2013</option>
-							<option value="6">2014</option>
-							<option value="7">2015</option>
-							<option value="8">2016</option>
-							<option value="9">2017</option>
-							<option value="10">2018</option>
-							<option value="11">2019</option>
-							<option value="12">2020</option>
-							<option value="13">2021</option>
-						</select>
-					</li>
-					<li>
-						<button type="button" class="btn btn-primary btn-lg" >	Generate </button>
-					</li> 
-			</ul>
-		</div>
-	
-	<!-- WRITE CODE HERE TO SHOW TABLE -->
-	<div class="table-data">
-		<div class="order">
-			<div>
-				<table>
-					<tr>
-						
-						
-					</tr>
-					
-				
-				</table>
 		
+		<div class="container-login100-form-btn" >
+			<select name="semester" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+				<option selected>Semester</option>
+				<option value="Summer">Summer</option>
+				<option value="Spring">Spring</option>
+				<option value="Autumn">Autumn</option>
+			</select>
+			<select name="year" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+				<option selected>Year</option>
+				<option value="2009">2009</option>
+				<option value="2010">2010</option>
+				<option value="2011">2011</option>
+				<option value="2012">2012</option>
+				<option value="2013">2013</option>
+				<option value="2014">2014</option>
+				<option value="2015">2015</option>
+				<option value="2016">2016</option>
+				<option value="2017">2017</option>
+				<option value="2018">2018</option>
+				<option value="2019">2019</option>
+				<option value="2020">2020</option>
+				<option value="2021">2021</option>
+			</select>
+			<button class="login100-form-btn">
+				Generate
+			</button>
+		</div>
+	</form>
+		<div class="table-data">
+			<div class="order">
+				<div>
+					<table border="1" cellpadding = "5" cellspacing="5">
+						
+						<tr>
+							
+							{% for i in colLabel %}
+								<td> {{i}} </td>
+							{% endfor %}
+							
+							
+						</tr>
+						
+						<tr>
+				
+							{% for j in rowLabel %}
+								<td>{{j}}</td>
+							{% endfor %}
+								
+						</tr>
+						
+					
+					</table>
+			
+				</div>
 			</div>
 		</div>
-	</div>
-
-
-	{% comment %} Table Code here {% endcomment %}
-	{% comment %} <table border="1" cellpadding = "5" cellspacing="5">
-	</table> {% endcomment %}
-	<script>
-		var c={{colLabel | safe}}
-		
-			console.log(c);
-		  
-	</script>
-</form>
+	
 {% endblock %}
 
 <!--NO CHART FOR Resources-->

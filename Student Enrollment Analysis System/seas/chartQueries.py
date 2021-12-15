@@ -385,76 +385,76 @@ def UsageOfTheResources(semester, year):
 # # print(table)
 
 
-def UsageOfTheResources(semester, year,dept_id):
-    with connection.cursor() as cursor:
-        cursor.execute('''
-select semester,year,dept_id,
+# def UsageOfTheResources(semester, year,dept_id):
+#     with connection.cursor() as cursor:
+#         cursor.execute('''
+# select semester,year,dept_id,
 
 
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
 
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= {} and s.semester= {} and s.year = {}
+#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
+# where c.dept_id= {} and s.semester= {} and s.year = {}
 
-UNION ALL
+# UNION ALL
 
-select semester,year,dept_id,
-
-
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= {} and s.semester= {} and s.year = {} 
-
-UNION ALL
-
-select semester,year,dept_id,
+# select semester,year,dept_id,
 
 
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
 
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= {} and s.semester= {} and s.year = {}
+#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
+# where c.dept_id= {} and s.semester= {} and s.year = {} 
 
-UNION ALL
+# UNION ALL
 
-select semester,year,dept_id,
-
-
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= {} and s.semester= {} and s.year = {}
-
-union all 
-
-select semester,year,dept_id,
+# select semester,year,dept_id,
 
 
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
 
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= {} and s.semester= {} and s.year = {} 
-union all
-select semester,year,dept_id,
+#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
+# where c.dept_id= {} and s.semester= {} and s.year = {}
 
+# UNION ALL
 
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= {} and s.semester= {} and s.year = {}
-union all
-select semester,year,dept_id,
+# select semester,year,dept_id,
 
 
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
 
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= {} and s.semester= {} and s.year = {} 
+#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
+# where c.dept_id= {} and s.semester= {} and s.year = {}
+
+# union all 
+
+# select semester,year,dept_id,
+
+
+# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+
+#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
+# where c.dept_id= {} and s.semester= {} and s.year = {} 
+# union all
+# select semester,year,dept_id,
+
+
+# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+
+#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
+# where c.dept_id= {} and s.semester= {} and s.year = {}
+# union all
+# select semester,year,dept_id,
+
+
+# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+
+#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
+# where c.dept_id= {} and s.semester= {} and s.year = {} 
 
 
 
 
-        '''.format(semester,year,dept_id, semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id))
-        result = cursor.fetchall()
-    return result
+#         '''.format(semester,year,dept_id, semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id))
+#         result = cursor.fetchall()
+#     return result
