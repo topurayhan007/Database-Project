@@ -144,3 +144,27 @@ def UsageOfTheResourcesView(request):
     else:
         return render(request, 'usageOfTheResources.html')
 
+
+
+# def RevenueTrendOfTheSchoolsView(request):
+#     if request.method == "POST":
+#         # get.year and get.semester from HTML DropDown Selection and put that instead of Spring and 2021
+#         # columns areas follows: Sum, Avg Enroll, Avg Room, Difference, Unused%
+#         # rows are as follows: Selected Semester, SBE, SELS, SETS, SLASS, SPPH
+#         semester = request.POST['semester']
+#         year = request.POST['year']
+#         # here Table is row-wise object data
+#         table = chartQueries.UsageOfTheResources(semester, year)
+#         rowlabel = [semester, "SBE", "SELS", "SETS", "SLASS", "SPPH"]
+#         collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
+
+#         # Note here "result" is the variable by which the HTML will recognize "table" 
+#         return render(request, 'revenueTrendOfTheSchools.html', {
+#             'result': table,
+#             'rowLabel': rowlabel,
+#             'colLabel': collabel, 
+        
+#         })
+    
+#     else:
+#         return render(request, 'revenueTrendOfTheSchools.html')
