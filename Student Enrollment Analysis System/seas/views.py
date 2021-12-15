@@ -29,7 +29,18 @@ def loginpage(request):
         return render(request, 'login.html')
 
 def dashboardpage(request):
-    return render(request, 'dashboard.html')
+    school = School_T.objects.all().count()
+    dept = Department_T.objects.all().count()
+    course = Course_T.objects.all().count()
+    faculty = Faculty_T.objects.all().count()
+    classroom = Classroom_T.objects.all().count()
+    return render(request, 'dashboard.html',{
+        'school':school,
+        'dept':dept,
+        'course':course,
+        'faculty':faculty,
+        'classroom':classroom,
+    })
 
 def logout_request(request):
 	logout(request)
