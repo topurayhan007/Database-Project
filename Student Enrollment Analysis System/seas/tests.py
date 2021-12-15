@@ -8,10 +8,12 @@ print(School_T.objects.order_by().values_list('schoolTitle').distinct())
 print("Semester")
 semesterList = Section_T.objects.order_by().values_list('semester').distinct()
 # print(Section_T.objects.order_by().values_list('semester').distinct())
-
+ModifiedschoolList = ["Size", School_T.objects.order_by().values_list('schoolTitle').distinct(), "Total"]
 yearList = Section_T.objects.order_by().values_list('year').distinct()
+
 # newlist = [[]]
 # newlist = [Section_T.objects.order_by().values_list('year').distinct(), Section_T.objects.order_by().values_list('semester').distinct()]
 print(semesterList)
 print(yearList)
+print(ModifiedschoolList)
 print("hello")

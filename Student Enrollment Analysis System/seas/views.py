@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from seas import chartQueries
 import numpy as np
+from seas.models import *
 
 
 # def loginpage(request):
@@ -41,8 +42,12 @@ def ClassSizeRequirementView(request):
         # get.year and get.semester from HTML DropDown Selection put that instead of Spring and 2021
         # Columns: Class Size(label not values from query), Sections, Classroom 6, Classroom 7
         # Rows: 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-65
-        finalarr = chartQueries.ClassSizeRequirement("Spring", '2021')
+        semester = request.POST['semester']
+        year = request.POST['year']
+        finalarr = chartQueries.ClassSizeRequirement(semester, year)
         finalarr = np.array(finalarr)
+        rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-65", "Total"]
+        collabel = ["Class Size", "Sections", "Classroom 6", "Classroom 7"]
         # Row last: Total (This row found using code below)
         totalarr = finalarr.sum(axis=0)
         #line 49 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
@@ -51,6 +56,8 @@ def ClassSizeRequirementView(request):
         return render(request, 'classSizeRequirement.html', {
             'result':finalarr,
             'total': totalarr,
+            'colLabel': collabel,
+            'rowLabel': rowlabel,
         })
     else:
         return render(request, 'classSizeRequirement.html')
@@ -62,16 +69,20 @@ def ClassSizeRequirementView(request):
 def ClassSizeDistributionView(request):
     if request.method == "POST":
         # get.year and get.semester from HTML DropDown Selection and put that instead of Spring and 2021
-        sbe = chartQueries.ClassSizeDistribution("Spring", '2021', "SBE")
-        sels = chartQueries.ClassSizeDistribution("Spring", '2021', "SELS")
-        sets = chartQueries.ClassSizeDistribution("Spring", '2021', "SETS")
-        slass = chartQueries.ClassSizeDistribution("Spring", '2021', "SLASS")
-        spph = chartQueries.ClassSizeDistribution("Spring", '2021', "SPPH")
+        semester = request.POST['semester']
+        year = request.POST['year']
+        sbe = chartQueries.ClassSizeDistribution(semester, year, "SBE")
+        sels = chartQueries.ClassSizeDistribution(semester, year, "SELS")
+        sets = chartQueries.ClassSizeDistribution(semester, year, "SETS")
+        slass = chartQueries.ClassSizeDistribution(semester, year, "SLASS")
+        spph = chartQueries.ClassSizeDistribution(semester, year, "SPPH")
         # Columns: Size(label not values from query), SBE, SELS, SETS, SLASS, SPPH, Total
-        # Rows: 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-60, 60+
+        # Rows: Enrollment, 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-60, 60+
+        rowlabel = ["Enrollment", "1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-60", "60+"]
         allarr = np.concatenate((sbe, sels, sets, slass, spph), axis=1)
         # Column: Total (This column found using code below)
         totalarr = allarr.sum(axis=1)
+        schoolList = ["Size", School_T.objects.order_by().values_list('schoolTitle').distinct(), "Total"]
         #line 70 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
         # finalarr = np.concatenate((allarr,totalarr),axis=1)
         
@@ -79,6 +90,8 @@ def ClassSizeDistributionView(request):
         return render(request, 'ClassSizeDistribution.html', {
             'result': allarr,
             'total': totalarr,
+            'colLabel': schoolList,
+            'rowLabel': rowlabel,
         })
     else:
         return render(request, 'ClassSizeDistribution.html')
@@ -90,11 +103,17 @@ def UsageOfTheResourcesView(request):
         # get.year and get.semester from HTML DropDown Selection and put that instead of Spring and 2021
         # columns areas follows: Sum, Avg Enroll, Avg Room, Difference, Unused%
         # rows are as follows: Selected Semester, SBE, SELS, SETS, SLASS, SPPH
-        table = chartQueries.UsageOfTheResources("Spring", '2021')
+        semester = request.POST['semester']
+        year = request.POST['year']
+        table = chartQueries.UsageOfTheResources(semester, year)
+        rowlabel = [semester, School_T.objects.order_by().values_list('schoolTitle').distinct()]
+        collabel = ["Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
 
         # Note here "result" is the variable by which the HTML will recognize "table" 
         return render(request, 'usageOfTheResources.html', {
-            'result': table
+            'result': table,
+            'rowLabel': rowlabel,
+            'colLabel': collabel, 
         
         })
     
