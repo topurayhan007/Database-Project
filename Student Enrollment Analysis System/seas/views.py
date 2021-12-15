@@ -19,8 +19,8 @@ def loginpage(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            #return redirect('dashboard')
-            return render(request, 'dashboard.html')
+            return redirect('dashboardpage')
+            # return render(request, 'dashboard.html')
         else:
             # messages.success(request, "Invalid Credentials.") 
             return HttpResponse('<h1>Invalid Credentials!</h1>')
@@ -33,7 +33,7 @@ def dashboardpage(request):
 def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.") 
-	return redirect('login')
+	return redirect('loginpage')
 
 
 def ClassSizeRequirementView(request):

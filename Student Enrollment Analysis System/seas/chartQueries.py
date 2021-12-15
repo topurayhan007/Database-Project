@@ -304,13 +304,13 @@ def UsageOfTheResources(semester, year):
 
 
 
-def UsageOfTheResources(semester, year):
-    with connection.cursor() as cursor:
-        cursor.execute('''
+# def UsageOfTheResources(semester, year):
+#     with connection.cursor() as cursor:
+#         cursor.execute('''
 
 
 
 
-          '''  .format(semester,year,semester,year,semester,year,semester,year,semester,year,semester,year))
-        result = cursor.fetchall()
-    return result
+#           '''  .format(semester,year,semester,year,semester,year,semester,year,semester,year,semester,year))
+#         result = cursor.fetchall()
+#     return result

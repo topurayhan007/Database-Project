@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-#from . import views
+from seas import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('seas.urls')),
+    # path('', views.loginpage, name='loginpage'),
+    path('dashboard/', views.dashboardpage, name='dashboardpage'),
     path('seas/', include('django.contrib.auth.urls')),
     path('seas/', include('seas.urls')),
     #path('login_user', views.login_user, name="login" )
