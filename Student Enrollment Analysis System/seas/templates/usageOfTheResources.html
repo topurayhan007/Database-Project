@@ -7,13 +7,14 @@
 {% block tableContent %} 
 	
 	{% comment %} Table Code here {% endcomment %}
-	<table border="1" cellpadding = "5" cellspacing="5">
-		{% for c in colLabel %}
-			<td> Dog </td>
+	{% comment %} <table border="1" cellpadding = "5" cellspacing="5">
+	</table> {% endcomment %}
+	
+		{% for i in colLabel %}
+			console.log(i);
 		{% endfor %}
-		
-
-	</table>
+	
+	
 
 {% endblock %}
 
