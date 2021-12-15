@@ -112,63 +112,7 @@
 					</ul>
 				</div>
 			</div>
-            <form method ="POST">
-				<ul class="box-info">
-						<li>
-						<select name="semester" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-							<option selected>Semester</option>
-							<option value="1">Summer</option>
-							<option value="2">Spring</option>
-							<option value="3">Autumn</option>
-						</select>
-						</li>
-						<li>
-						<select name="year" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-							<option selected>Year</option>
-							<option value="1">2009</option>
-							<option value="2">2010</option>
-							<option value="3">2011</option>
-							<option value="4">2012</option>
-							<option value="5">2013</option>
-							<option value="6">2014</option>
-							<option value="7">2015</option>
-							<option value="8">2016</option>
-							<option value="9">2017</option>
-							<option value="10">2018</option>
-							<option value="11">2019</option>
-							<option value="12">2020</option>
-							<option value="13">2021</option>
-						</select>
-						</li>
-						<li>
-						<button type="button" class="btn btn-primary btn-lg" method="post">Generate</button>
-						</li> 
-				</ul>
-			</form>
-
-
-            <!-- WRITE CODE HERE TO SHOW TABLE -->
-			<div class="table-data">
-				<div class="order">
-					<div>
-						{% block tableContent %} {% endblock  %}
-				
-					</div>
-				</div>
-			</div>
-
-
-            <!-- WRITE CODE HERE TO SHOW CHART -->
-            <div class="table-data">
-                <div class = "order">
-                    
-                    <div>
-						{% block chartContent %} {% endblock  %}
-				
-					</div>
-                </div>
-            </div>
-
+            {% block content %} {% endblock  %}
 
 		</main>
 		<!-- MAIN -->
