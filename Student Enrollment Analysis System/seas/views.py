@@ -62,6 +62,7 @@ def ClassSizeRequirementView(request):
         finalarr = np.array(finalarr)
         rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-65", "Total"]
         collabel = ["Class Size", "Sections", "Classroom 6", "Classroom 7"]
+        print(collabel)
         # Row last: Total (This row found using code below)
         # totalarr is row-wise data
         totalarr = finalarr.sum(axis=0)
