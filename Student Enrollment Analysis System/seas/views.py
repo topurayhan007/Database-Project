@@ -142,4 +142,7 @@ def UsageOfTheResourcesView(request):
     
     else:
         return render(request, 'usageOfTheResources.html')
+        # collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
+        # return render(request, 'usageOfTheResources.html',{'colLabel': collabel, 
+        # })
 
