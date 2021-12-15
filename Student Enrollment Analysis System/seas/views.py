@@ -28,6 +28,13 @@ def loginpage(request):
     else:
         return render(request, 'login.html')
 
+
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.") 
+	return redirect('loginpage')
+
+
 def dashboardpage(request):
     school = School_T.objects.all().count()
     dept = Department_T.objects.all().count()
@@ -41,11 +48,6 @@ def dashboardpage(request):
         'faculty':faculty,
         'classroom':classroom,
     })
-
-def logout_request(request):
-	logout(request)
-	messages.info(request, "You have successfully logged out.") 
-	return redirect('loginpage')
 
 
 def ClassSizeRequirementView(request):
@@ -146,3 +148,27 @@ def UsageOfTheResourcesView(request):
         # return render(request, 'usageOfTheResources.html',{'colLabel': collabel, 
         # })
 
+
+
+# def RevenueTrendOfTheSchoolsView(request):
+#     if request.method == "POST":
+#         # get.year and get.semester from HTML DropDown Selection and put that instead of Spring and 2021
+#         # columns areas follows: Sum, Avg Enroll, Avg Room, Difference, Unused%
+#         # rows are as follows: Selected Semester, SBE, SELS, SETS, SLASS, SPPH
+#         semester = request.POST['semester']
+#         year = request.POST['year']
+#         # here Table is row-wise object data
+#         table = chartQueries.UsageOfTheResources(semester, year)
+#         rowlabel = [semester, "SBE", "SELS", "SETS", "SLASS", "SPPH"]
+#         collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
+
+#         # Note here "result" is the variable by which the HTML will recognize "table" 
+#         return render(request, 'revenueTrendOfTheSchools.html', {
+#             'result': table,
+#             'rowLabel': rowlabel,
+#             'colLabel': collabel, 
+        
+#         })
+    
+#     else:
+#         return render(request, 'revenueTrendOfTheSchools.html')
