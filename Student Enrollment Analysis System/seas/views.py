@@ -82,7 +82,8 @@ def ClassSizeDistributionView(request):
         allarr = np.concatenate((sbe, sels, sets, slass, spph), axis=1)
         # Column: Total (This column found using code below)
         totalarr = allarr.sum(axis=1)
-        schoolList = ["Size", School_T.objects.order_by().values_list('schoolTitle').distinct(), "Total"]
+        # schoolList = ["Size", School_T.objects.order_by().values_list('schoolTitle').distinct(), "Total"]
+        schoolList = ["Size", "SBE", "SELS", "SETS", "SLASS", "SPPH", "Total"]
         #line 70 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
         # finalarr = np.concatenate((allarr,totalarr),axis=1)
         
@@ -92,6 +93,11 @@ def ClassSizeDistributionView(request):
             'total': totalarr,
             'colLabel': schoolList,
             'rowLabel': rowlabel,
+            'sbe':sbe,
+            'sels':sels,
+            'sets':sets,
+            'slass':slass,
+            'spph':spph,
         })
     else:
         return render(request, 'ClassSizeDistribution.html')
@@ -106,7 +112,7 @@ def UsageOfTheResourcesView(request):
         semester = request.POST['semester']
         year = request.POST['year']
         table = chartQueries.UsageOfTheResources(semester, year)
-        rowlabel = [semester, School_T.objects.order_by().values_list('schoolTitle').distinct()]
+        rowlabel = [semester, "SBE", "SELS", "SETS", "SLASS", "SPPH"]
         collabel = ["Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
 
         # Note here "result" is the variable by which the HTML will recognize "table" 
