@@ -78,12 +78,12 @@ def ClassSizeDistributionView(request):
         spph = chartQueries.ClassSizeDistribution(semester, year, "SPPH")
         # Columns: Size(label not values from query), SBE, SELS, SETS, SLASS, SPPH, Total
         # Rows: Enrollment, 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-60, 60+
-        rowlabel = ["Enrollment", "1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-60", "60+"]
+        rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-60", "60+"]
         allarr = np.concatenate((sbe, sels, sets, slass, spph), axis=1)
         # Column: Total (This column found using code below)
         totalarr = allarr.sum(axis=1)
         # schoolList = ["Size", School_T.objects.order_by().values_list('schoolTitle').distinct(), "Total"]
-        schoolList = ["Size", "SBE", "SELS", "SETS", "SLASS", "SPPH", "Total"]
+        collabel = ["Enrollment", "SBE", "SELS", "SETS", "SLASS", "SPPH", "Total"]
         #line 70 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
         # finalarr = np.concatenate((allarr,totalarr),axis=1)
         
@@ -91,7 +91,7 @@ def ClassSizeDistributionView(request):
         return render(request, 'ClassSizeDistribution.html', {
             'result': allarr,
             'total': totalarr,
-            'colLabel': schoolList,
+            'colLabel': collabel,
             'rowLabel': rowlabel,
             'sbe':sbe,
             'sels':sels,
@@ -113,7 +113,7 @@ def UsageOfTheResourcesView(request):
         year = request.POST['year']
         table = chartQueries.UsageOfTheResources(semester, year)
         rowlabel = [semester, "SBE", "SELS", "SETS", "SLASS", "SPPH"]
-        collabel = ["Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
+        collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
 
         # Note here "result" is the variable by which the HTML will recognize "table" 
         return render(request, 'usageOfTheResources.html', {
