@@ -28,6 +28,13 @@ def loginpage(request):
     else:
         return render(request, 'login.html')
 
+
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.") 
+	return redirect('loginpage')
+
+
 def dashboardpage(request):
     school = School_T.objects.all().count()
     dept = Department_T.objects.all().count()
@@ -41,11 +48,6 @@ def dashboardpage(request):
         'faculty':faculty,
         'classroom':classroom,
     })
-
-def logout_request(request):
-	logout(request)
-	messages.info(request, "You have successfully logged out.") 
-	return redirect('loginpage')
 
 
 def ClassSizeRequirementView(request):
