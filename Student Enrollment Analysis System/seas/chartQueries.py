@@ -109,6 +109,7 @@ def ClassSizeRequirement(semester, year):
 #  [9.290e+02 7.741e+01 6.635e+01]]
 # table = np.concatenate((finalarr, totalarr), axis=0)
 # print(finalarr)
+# totalarr = finalarr.sum(axis=0)
 # print(totalarr)
 # print(table)
 
@@ -206,6 +207,8 @@ def ClassSizeDistribution(semester, year, school):
 # slass = ClassSizeDistribution("Spring", '2021', "SLASS")
 # spph = ClassSizeDistribution("Spring", '2021', "SPPH")
 # allarr = np.concatenate((sbe, sels, sets, slass, spph), axis=1)
+# for i in allarr:
+#     print(i)
 # print(allarr)
 # totalarr = allarr.sum(axis=1)
 # print(totalarr)
@@ -300,17 +303,9 @@ def UsageOfTheResources(semester, year):
 # Getting 3.5212e+04 instead of 35212.0 when doing np.array(arr)
 # arr = np.array(arr)
 # print(arr)
+# table = UsageOfTheResources("Summer", '2020')
+# for i in table:
+#     print(i)
+# # print(table)
 
 
-
-
-# def UsageOfTheResources(semester, year):
-#     with connection.cursor() as cursor:
-#         cursor.execute('''
-
-
-
-
-#           '''  .format(semester,year,semester,year,semester,year,semester,year,semester,year,semester,year))
-#         result = cursor.fetchall()
-#     return result

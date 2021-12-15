@@ -45,10 +45,12 @@ def ClassSizeRequirementView(request):
         semester = request.POST['semester']
         year = request.POST['year']
         finalarr = chartQueries.ClassSizeRequirement(semester, year)
+        # finalarr is row wise data
         finalarr = np.array(finalarr)
         rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-65", "Total"]
         collabel = ["Class Size", "Sections", "Classroom 6", "Classroom 7"]
         # Row last: Total (This row found using code below)
+        # totalarr is row-wise data
         totalarr = finalarr.sum(axis=0)
         #line 49 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
         # table = np.concatenate((finalarr, totalarr), axis=0)
@@ -79,8 +81,10 @@ def ClassSizeDistributionView(request):
         # Columns: Size(label not values from query), SBE, SELS, SETS, SLASS, SPPH, Total
         # Rows: Enrollment, 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-60, 60+
         rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-60", "60+"]
+        # allarr has row wise data
         allarr = np.concatenate((sbe, sels, sets, slass, spph), axis=1)
         # Column: Total (This column found using code below)
+        # totalarr is a column-wise data
         totalarr = allarr.sum(axis=1)
         # schoolList = ["Size", School_T.objects.order_by().values_list('schoolTitle').distinct(), "Total"]
         collabel = ["Enrollment", "SBE", "SELS", "SETS", "SLASS", "SPPH", "Total"]
@@ -111,6 +115,7 @@ def UsageOfTheResourcesView(request):
         # rows are as follows: Selected Semester, SBE, SELS, SETS, SLASS, SPPH
         semester = request.POST['semester']
         year = request.POST['year']
+        # here Table is row-wise object data
         table = chartQueries.UsageOfTheResources(semester, year)
         rowlabel = [semester, "SBE", "SELS", "SETS", "SLASS", "SPPH"]
         collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
