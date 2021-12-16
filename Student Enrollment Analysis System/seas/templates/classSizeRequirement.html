@@ -15,7 +15,7 @@
 	{% csrf_token %}
 	
 	<div class="container-login100-form-btn" >
-		<select name="semester" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+		<select name="semester" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 6%;">
 			<option selected>Semester</option>
 			<option value="Summer">Summer</option>
 			<option value="Spring">Spring</option>
@@ -37,7 +37,7 @@
 			<option value="2020">2020</option>
 			<option value="2021">2021</option>
 		</select>
-		<button class="btn btn-primary btn-lg">
+		<button class="btn btn-primary btn-lg" style="margin-left: 10%;">
 			Generate
 		</button>
 	</div>
@@ -45,14 +45,30 @@
 	<div class="table-data">
 		<div class="order">
 			<div>
-				<table>
+				<table border="3" cellpadding = "5" cellspacing="5"  style="background-color:#DAEDF4;">
+						
 					<tr>
 						
 						{% for i in colLabel %}
-							<td> {{i}} </td>
+							<td style="text-align:center"> {{i}} </td>
 						{% endfor %}
 						
+						
 					</tr>
+					
+					<tr>
+			
+						{% for j in rowLabel %}
+							<td style="text-align:center">{{j}}</td>
+							
+							<tr> 
+								{% comment %} hello {% endcomment %}
+							</tr>
+							
+						{% endfor %}
+							
+					</tr>
+					
 					
 				
 				</table>
@@ -60,7 +76,6 @@
 			</div>
 		</div>
 	</div>
-
 
 	<!-- WRITE CODE HERE TO SHOW CHART (Zannat started)-->
 	<div class="chart-data">
