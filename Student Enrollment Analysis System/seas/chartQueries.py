@@ -458,3 +458,57 @@ def UsageOfTheResources(semester, year):
 #         '''.format(semester,year,dept_id, semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id))
 #         result = cursor.fetchall()
 #     return result
+
+
+######################################################
+
+#---Engineering school revnew 
+#--- SETS not working showing NULL
+#---- so that calculation is left
+
+# def UsageOfTheResources(semester, year):
+#     with connection.cursor() as cursor:
+#         cursor.execute('''
+
+
+#select semester,year,dept_id,
+
+
+#sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+ 
+#FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
+#where c.dept_id= 'CSE' and s.semester= {} and s.year = {}
+ 
+ #UNION ALL
+ 
+ #select semester,year,dept_id,
+
+
+#sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+ 
+#FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
+#where c.dept_id= 'PhySci' and s.semester= {} and s.year = {}
+
+#UNION ALL
+
+#select semester,year,dept_id,
+
+
+#sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+ 
+#FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
+#where c.dept_id= 'EEE' and s.semester= {} and s.year = {}
+
+#union ALL
+#select semester,year,dept_id,
+
+
+#sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+ 
+#FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
+#where c.dept_id= 'SETS' and s.semester= {} and s.year = {}
+
+
+#         '''.format(semester,year, semester,year,semester,year,semester,year,semester,year,semester,year,semester,year))
+#         result = cursor.fetchall()
+#     return result
