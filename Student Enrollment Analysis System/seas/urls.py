@@ -11,6 +11,5 @@ urlpatterns = [
     path('ClassSizeRequirement', views.ClassSizeRequirementView, name='ClassSizeRequirement'),
     path('ClassSizeDistribution', views.ClassSizeDistributionView, name='ClassSizeDistribution'),
     path('UsageOfTheResources', views.UsageOfTheResourcesView, name='UsageOfTheResources'),
-    
 
 ]
