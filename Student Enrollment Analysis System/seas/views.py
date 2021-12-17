@@ -6,7 +6,6 @@ from seas import chartQueries
 import numpy as np
 from seas.models import *
 
-
 # def loginpage(request):
 #     return render(request, 'login.html')
 def home(request):
