@@ -47,7 +47,7 @@
 			<div>
 				<table border="3" cellpadding = "5" cellspacing="5"  style="background-color:#DAEDF4;">
 						
-					<tr>
+					<!-- <tr>
 						
 						{% for i in colLabel %}
 							<td style="text-align:center"> {{i}} </td>
@@ -62,12 +62,21 @@
 							<td style="text-align:center">{{j}}</td>
 							
 							<tr> 
-								{% comment %} hello {% endcomment %}
+								
 							</tr>
 							
 						{% endfor %}
 							
-					</tr>
+					</tr> -->
+					{% for row in table %}
+						<tr>
+							{% for col in row %}
+								<td>
+									{{ col }}
+								</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
 					
 					
 				
@@ -92,28 +101,31 @@
 			<script>
 				const ctx = document.getElementById('classSizeRequirementChart')
 				
-				const labels = [
+				{% comment %} const labels = [
 					'January',
 					'February',
 					'March',
 					'April',
 					'May',
 					'June',
-				]
+				 ] {% endcomment %}
+
 				const datalist = {
-					labels: labels,
+					labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
+					{% comment %} labels: labels, {% endcomment %}
 					datasets: [{
-						label: 'My First dataset',
-						backgroundColor: 'rgb(255, 99, 132)',
-						borderColor: 'rgb(255, 99, 132)',
-						data: [0, 10, 5, 2, 20, 30, 45],
+						label: 'Class Size Requirement',
+						{% comment %} backgroundColor: 'rgb(255, 99, 132)',
+						borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+						{% comment %} data: [0, 10, 5, 2, 20, 30, 45], {% endcomment %}
+						data: [{% for value in datavalues %} {{ value }}, {% endfor %}],
 					}]
 				}
 				//Here chart is a constructor and we're passing parameters
 				const myChart = new Chart(
 					ctx,
 					{
-						type: 'line',
+						type: 'pie',
 						data: datalist,
 						options: {}
 						}

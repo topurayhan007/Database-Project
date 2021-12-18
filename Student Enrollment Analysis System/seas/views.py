@@ -61,18 +61,36 @@ def ClassSizeRequirementView(request):
         finalarr = np.array(finalarr)
         rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-65", "Total"]
         collabel = ["Class Size", "Sections", "Classroom 6", "Classroom 7"]
-        print(collabel)
+        # print(collabel)
         # Row last: Total (This row found using code below)
         # totalarr is row-wise data
         totalarr = finalarr.sum(axis=0)
         #line 49 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
         # table = np.concatenate((finalarr, totalarr), axis=0)
         # Note here "result" is the variable by which the HTML will recognize "table"
+
+        table = [collabel]
+        counter = 1
+        binning = []
+        classroom = []
+        for item1, item2, item3 in finalarr:
+            current_bin = f'{counter}-{counter + 9}'
+            table.append([current_bin, item1, item2, item3])
+            binning.append(current_bin)
+            classroom.append(item2)
+            counter += 10
+        table.append(['Total', totalarr[0], totalarr[1], totalarr[2]])
+
+
+
         return render(request, 'classSizeRequirement.html', {
             'result':finalarr,
             'total': totalarr,
             'colLabel': collabel,
             'rowLabel': rowlabel,
+            'table': table,
+            'labels': binning,
+            'datavalues': classroom,
         })
     else:
         return render(request, 'classSizeRequirement.html')
@@ -105,6 +123,7 @@ def ClassSizeDistributionView(request):
         # finalarr = np.concatenate((allarr,totalarr),axis=1)
         
         # Note here "result" is the variable by which the HTML will recognize "finalarr" 
+        
         return render(request, 'ClassSizeDistribution.html', {
             'result': allarr,
             'total': totalarr,
@@ -171,3 +190,18 @@ def UsageOfTheResourcesView(request):
     
 #     else:
 #         return render(request, 'revenueTrendOfTheSchools.html')
+
+##########chartviews edited by Zannat
+def pie_chart(request):
+    labels = []
+    data = []
+
+    queryset = chartQueries.ClassSizeRequirement("Summer", "2020")
+    for city in queryset:
+        labels.append(city.name)
+        data.append(city.population)
+
+    return render(request, 'classSizeRequirementChart', {
+        'labels': labels,
+        'data': data,
+    })
