@@ -92,7 +92,7 @@
 		<div class = "order">
 			
 			<div>
-				<canvas id = 'classSizeRequirementChart' width = "701px" height = "210px">
+				<canvas id = 'classSizeRequirementChart' width = "500px" height = "300px">
 
 				</canvas>
 		
@@ -115,9 +115,16 @@
 					{% comment %} labels: labels, {% endcomment %}
 					datasets: [{
 						label: 'Class Size Requirement',
-						{% comment %} backgroundColor: 'rgb(255, 99, 132)',
-						borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-						{% comment %} data: [0, 10, 5, 2, 20, 30, 45], {% endcomment %}
+						backgroundColor: [
+						'rgb(226, 78, 66)', //papaya
+						'rgb(233, 128, 0)', //mustard
+						'rgb(0, 143, 149)', //aqua
+						'rgb(232, 110, 128)', //blush pink
+						'rgb(255, 99, 132)',
+						'rgb(54, 162, 235)',
+						'rgb(255, 205, 86)'
+					  ],
+						{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
 						data: [{% for value in datavalues %} {{ value }}, {% endfor %}],
 					}]
 				}
