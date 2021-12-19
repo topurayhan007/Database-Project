@@ -8,8 +8,8 @@ from seas.models import *
 
 # def loginpage(request):
 #     return render(request, 'login.html')
-def dataEntry(request):
-    return render(request, 'admin/seas/')
+def home(request):
+    return render(request, 'login.html')
 
 
 def loginpage(request):
