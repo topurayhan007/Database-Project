@@ -19,6 +19,7 @@ from seas import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('admin/seas/', views.dataEntry, name='dataEntry'),
     path('', views.loginpage, name='loginpage'),
     # path('dashboard/', views.dashboardpage, name='dashboardpage'),
     path('seas/', include('django.contrib.auth.urls')),
