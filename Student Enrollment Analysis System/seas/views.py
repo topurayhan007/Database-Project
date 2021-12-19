@@ -56,6 +56,7 @@ def ClassSizeRequirementView(request):
         # Rows: 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-65
         semester = request.POST['semester']
         year = request.POST['year']
+        str = semester + " " + year
         finalarr = chartQueries.ClassSizeRequirement(semester, year)
         # finalarr is row wise data
         finalarr = np.array(finalarr)
@@ -91,6 +92,7 @@ def ClassSizeRequirementView(request):
             'table': table,
             'labels': binning,
             'datavalues': classroom,
+            'str': str,
         })
     else:
         return render(request, 'classSizeRequirement.html')
