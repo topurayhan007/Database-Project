@@ -221,17 +221,3 @@ def UsageOfTheResourcesView(request):
 #     else:
 #         return render(request, 'revenueTrendOfTheSchools.html')
 
-##########chartviews edited by Zannat
-def pie_chart(request):
-    labels = []
-    data = []
-
-    queryset = chartQueries.ClassSizeRequirement("Summer", "2020")
-    for city in queryset:
-        labels.append(city.name)
-        data.append(city.population)
-
-    return render(request, 'classSizeRequirementChart', {
-        'labels': labels,
-        'data': data,
-    })
