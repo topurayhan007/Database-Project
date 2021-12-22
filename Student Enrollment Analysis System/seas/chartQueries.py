@@ -310,130 +310,19 @@ def UsageOfTheResources(semester, year):
 # print(table)
 
 
-# def UsageOfTheResources(semester, year,dept_id):
-#     with connection.cursor() as cursor:
-#         cursor.execute('''
-# select semester,year,dept_id,
 
+def EnrollmentBreakdownOfSchool(stuNo, school, year, semester):
+    with connection.cursor() as cursor:
+        cursor.execute('''
+            SELECT count (*)
+            FROM seas_section_t AS s INNER JOIN seas_course_t AS c ON s.course_id = c.courseID 
+                INNER JOIN seas_department_t AS d ON c.dept_id = d.deptCode
+            WHERE s.noofenrolledstudent= {} AND d.school_id = "{}" AND year= '{}' AND s.semester= "{}"
+        '''.format(stuNo, school,  year, semester))
+        result = cursor.fetchall()
+    return result
 
-# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-# where c.dept_id= {} and s.semester= {} and s.year = {}
-
-# UNION ALL
-
-# select semester,year,dept_id,
-
-
-# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-# where c.dept_id= {} and s.semester= {} and s.year = {} 
-
-# UNION ALL
-
-# select semester,year,dept_id,
-
-
-# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-# where c.dept_id= {} and s.semester= {} and s.year = {}
-
-# UNION ALL
-
-# select semester,year,dept_id,
-
-
-# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-# where c.dept_id= {} and s.semester= {} and s.year = {}
-
-# union all 
-
-# select semester,year,dept_id,
-
-
-# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-# where c.dept_id= {} and s.semester= {} and s.year = {} 
-# union all
-# select semester,year,dept_id,
-
-
-# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-# where c.dept_id= {} and s.semester= {} and s.year = {}
-# union all
-# select semester,year,dept_id,
-
-
-# sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-#       FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-# where c.dept_id= {} and s.semester= {} and s.year = {} 
-
-
-
-
-#         '''.format(semester,year,dept_id, semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id,semester,year,dept_id))
-#         result = cursor.fetchall()
-#     return result
-
-
-######################################################
-
-#---Engineering school revnew 
-#--- SETS not working showing NULL
-#---- so that calculation is left
-
-# def UsageOfTheResources(semester, year):
-#     with connection.cursor() as cursor:
-#         cursor.execute('''
-
-
-#select semester,year,dept_id,
-
-
-#sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
- 
-#FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-#where c.dept_id= 'CSE' and s.semester= {} and s.year = {}
- 
- #UNION ALL
- 
- #select semester,year,dept_id,
-
-
-#sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
- 
-#FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-#where c.dept_id= 'PhySci' and s.semester= {} and s.year = {}
-
-#UNION ALL
-
-#select semester,year,dept_id,
-
-
-#sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
- 
-#FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-#where c.dept_id= 'EEE' and s.semester= {} and s.year = {}
-
-#union ALL
-#select semester,year,dept_id,
-
-
-#sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
- 
-#FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-#where c.dept_id= 'SETS' and s.semester= {} and s.year = {}
-
-
-#         '''.format(semester,year, semester,year,semester,year,semester,year,semester,year,semester,year,semester,year))
-#         result = cursor.fetchall()
-#     return result
+# test = EnrollmentBreakdownOfSchool(5, "SBE", '2021', "Spring")
+# test = str(test)[2:-3]
+# test = int(test) + 1          
+# print(test)
