@@ -71,7 +71,7 @@ def ClassSizeRequirementView(request):
         count = 0
         classroom6 = []
         classroom7 = []
-        
+
         for item1, item2, item3 in finalarr:
             table.append([rowlabel[count], item1, item2, item3])
             classroom6.append(item2)
@@ -107,6 +107,7 @@ def ClassSizeDistributionView(request):
         # get.year and get.semester from HTML DropDown Selection and put that instead of Spring and 2021
         semester = request.POST['semester']
         year = request.POST['year']
+        str = semester + " " + year
         sbe = chartQueries.ClassSizeDistribution(semester, year, "SBE")
         sels = chartQueries.ClassSizeDistribution(semester, year, "SELS")
         sets = chartQueries.ClassSizeDistribution(semester, year, "SETS")
@@ -139,6 +140,7 @@ def ClassSizeDistributionView(request):
             'sets':sets,
             'slass':slass,
             'spph':spph,
+            'str': str,
         })
     else:
         return render(request, 'ClassSizeDistribution.html', {
@@ -158,32 +160,28 @@ def UsageOfTheResourcesView(request):
         # rows are as follows: Selected Semester, SBE, SELS, SETS, SLASS, SPPH
         semester = request.POST['semester']
         year = request.POST['year']
+        str = semester + " " + year
         # here Table is row-wise object data
         finalarr = chartQueries.UsageOfTheResources(semester, year)
         rowlabel = [semester, "SBE", "SELS", "SETS", "SLASS", "SPPH"]
         collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
 
         table = [collabel]
-        counter = 1
-        binning = []
-        classroom6 = []
-        classroom7 = []
-        for item1, item2, item3 in finalarr:
-            current_bin = f'{counter}-{counter + 6}'
-            table.append([current_bin, item1, item2, item3])
-            binning.append(current_bin)
-            classroom6.append(item2)
-            classroom7.append(item3)
-            counter += 10
-        table.append(['Total', totalarr[0], totalarr[1], totalarr[2]])
+        count = 0
+        
+        for item1, item2, item3, item4, item5 in finalarr:
+            table.append([rowlabel[count], item1, item2, item3, item4, item5])
+            count=count+1
+
 
         # Note here "result" is the variable by which the HTML will recognize "table" 
         return render(request, 'usageOfTheResources.html', {
             'semesterList':semesterList,
             'yearList': yearList,
-            'result': table,
+            'table': table,
             'rowLabel': rowlabel,
-            'colLabel': collabel, 
+            'colLabel': collabel,
+            'str': str,
         
         })
     

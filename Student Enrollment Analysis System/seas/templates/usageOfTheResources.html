@@ -32,38 +32,24 @@
 			<button class="btn btn-primary btn-lg" style="margin-left: 10%;">
 				Generate
 			</button>
-			
+
 		</div>
 	</form>
 		<div class="table-data">
-			<div class="order">
+			<div class="order"> <h3 style="text-align:center"> {{str}} </h3>
 				<div>
 					<table border="3" cellpadding = "5" cellspacing="5"  style="background-color:#DAEDF4;">
 						
+						{% for row in table %}
 						<tr>
-							
-							{% for i in colLabel %}
-								<td style="text-align:center"> {{i}} </td>
+							{% for col in row %}
+								<td style="text-align:center">
+									{{ col }}
+								</td>
 							{% endfor %}
-							
-							
 						</tr>
+					{% endfor %}
 						
-						<tr>
-				
-							{% for j in rowLabel %}
-								<td style="text-align:center">{{j}}</td>
-								
-								<tr> 
-									{% comment %} hello {% endcomment %}
-								</tr>
-								
-							{% endfor %}
-								
-						</tr>
-						
-						
-					
 					</table>
 			
 				</div>
