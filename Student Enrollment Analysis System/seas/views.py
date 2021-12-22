@@ -116,25 +116,29 @@ def ClassSizeDistributionView(request):
         # Columns: Size(label not values from query), SBE, SELS, SETS, SLASS, SPPH, Total
         # Rows: Enrollment, 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-60, 60+
         rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-60", "60+"]
-        # allarr has row wise data
-        allarr = np.concatenate((sbe, sels, sets, slass, spph), axis=1)
+        # finalarr has row wise data
+        finalarr = np.concatenate((sbe, sels, sets, slass, spph), axis=1)
         # Column: Total (This column found using code below)
         # totalarr is a column-wise data
-        totalarr = allarr.sum(axis=1)
+        totalarr = finalarr.sum(axis=1)
         # schoolList = ["Size", School_T.objects.order_by().values_list('schoolTitle').distinct(), "Total"]
         collabel = ["Enrollment", "SBE", "SELS", "SETS", "SLASS", "SPPH", "Total"]
         #line 70 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
-        # finalarr = np.concatenate((allarr,totalarr),axis=1)
-        
-        # Note here "result" is the variable by which the HTML will recognize "finalarr" 
+        # finalarr = np.concatenate((finalarr,totalarr),axis=1)
+        table = [collabel]
+        count = 0
+
+        for item1, item2, item3, item4, item5 in finalarr:
+            table.append([rowlabel[count], item1, item2, item3, item4, item5, totalarr[count]])
+            
+            count=count+1
+
         
         return render(request, 'ClassSizeDistribution.html', {
             'semesterList':semesterList,
             'yearList': yearList,
-            'result': allarr,
-            'total': totalarr,
-            'colLabel': collabel,
-            'rowLabel': rowlabel,
+            'table': table,
+            'labels': rowlabel,
             'sbe':sbe,
             'sels':sels,
             'sets':sets,

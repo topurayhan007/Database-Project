@@ -207,8 +207,8 @@ def ClassSizeDistribution(semester, year, school):
 # slass = ClassSizeDistribution("Spring", '2021', "SLASS")
 # spph = ClassSizeDistribution("Spring", '2021', "SPPH")
 # allarr = np.concatenate((sbe, sels, sets, slass, spph), axis=1)
-# for i in allarr:
-#     print(i)
+# # # for i in allarr:
+# # #     print(i)
 # print(allarr)
 # totalarr = allarr.sum(axis=1)
 # print(totalarr)

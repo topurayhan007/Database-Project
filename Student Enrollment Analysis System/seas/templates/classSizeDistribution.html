@@ -40,27 +40,15 @@
 			<div>
 				<table border="3" cellpadding = "5" cellspacing="5"  style="background-color:#DAEDF4;">
 						
-					<tr>
-							
-						{% for i in colLabel %}
-							<td style="text-align:center"> {{i}} </td>
-						{% endfor %}
-						
-						
-					</tr>
-					
-					<tr>
-			
-						{% for j in rowLabel %}
-							<td style="text-align:center">{{j}}</td>
-							
-							<tr> 
-								{% comment %} hello {% endcomment %}
-							</tr>
-							
-						{% endfor %}
-							
-					</tr>
+					{% for row in table %}
+						<tr>
+							{% for col in row %}
+								<td style="text-align:center">
+									{{ col }}
+								</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
 					
 					
 				
