@@ -75,11 +75,11 @@ def ClassSizeRequirementView(request):
         classroom7 = []
 
         for item1, item2, item3 in finalarr:
-            table.append([rowlabel[count], item1, item2, item3])
+            table.append([rowlabel[count], int(item1), item2, item3])
             classroom6.append(item2)
             classroom7.append(item3)
             count=count+1
-        table.append(['Total', totalarr[0], totalarr[1], totalarr[2]])
+        table.append(['Total', int(totalarr[0]), "{:.2f}".format(totalarr[1]), "{:.2f}".format(totalarr[2]) ])
 
         return render(request, 'classSizeRequirement.html', {
             'semesterList':semesterList,
@@ -240,7 +240,6 @@ def EnrollmentBreakdownOfSchoolView(request):
             sppht += int(spph)
             totalt += total
             
-
             if n == 63:
                 table.append([rowlabel[i], sbet, selst, setst, slasst, sppht, totalt])
             else:
@@ -253,7 +252,6 @@ def EnrollmentBreakdownOfSchoolView(request):
             'table': table,
 
         })
-
 
     else:
         return render(request, 'enrollmentBreakdownOfSchool.html', {
