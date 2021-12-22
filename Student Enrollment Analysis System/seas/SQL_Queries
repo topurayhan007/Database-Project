@@ -385,74 +385,43 @@ group by dept_id
 ################################################################################################################################
 
 
---- SETS not working showing NULL
----- so that calculation is left
-
-
-select semester,year,dept_id,
-
-
+select school_id,semester,year,
 sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SLASS' and s.semester= 'Spring' and s.year = 2009
 
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= 'SLASS' and s.semester= 'Spring' and s.year = 2020
+union ALL
+
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SBE' and s.semester= 'Spring' and s.year = 2009
+
+union ALL
+
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SETS' and s.semester= 'Spring' and s.year = 2009
+
+UNION all 
+
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SPPH' and s.semester= 'Spring' and s.year = 2009
 
 UNION ALL
 
-select semester,year,dept_id,
-
-
+select school_id,semester,year,
 sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= 'SBE' and s.semester= 'Spring' and s.year = 2020 
-
-UNION ALL
-
-select semester,year,dept_id,
-
-
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= 'CSE' and s.semester= 'Spring' and s.year = 2020
-
-UNION ALL
-
-select semester,year,dept_id,
-
-
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= 'SELS' and s.semester= 'Spring' and s.year = 2020
-
-union all 
-
-select semester,year,dept_id,
-
-
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= 'SPPH' and s.semester= 'Spring' and s.year = 2020 
-union all
-select semester,year,dept_id,
-
-
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= 'EEE' and s.semester= 'Spring' and s.year = 2020 
-union all
-select semester,year,dept_id,
-
-
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-
-      FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= 'PhySci' and s.semester= 'Spring' and s.year = 2020 
-
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SELS' and s.semester= 'Spring' and s.year = 2009
 
 
 #############################################################################################################################
