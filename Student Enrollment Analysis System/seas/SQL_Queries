@@ -443,6 +443,23 @@ SELECT Count (*)/7 as IUB_resource
 from seas_section_t where capacity='40' and year='2021' and semester="Spring"
 UNION all 
 SELECT Count (*)/7 as IUB_resource
+from seas_section_t where capacity='50' and year='2021' and semester="Spring"
+UNION All
+SELECT Count (*)/7 as IUB_resource
+
+from seas_section_t where capacity='54' and year='2021' and semester="Spring"
+UNION all
+SELECT Count (*)/7 as IUB_resource
+
+from seas_section_t where capacity='64' and year='2021' and semester="Spring"
+UNION all
+SELECT Count (*)/7 as IUB_resource
+
+from seas_section_t where capacity='124' and year='2021' and semester="Spring"
+UNION all
+SELECT Count (*)/7 as IUB_resource
+
+from seas_section_t where capacity='168' and year='2021' and semester="Spring"
 
 
 
