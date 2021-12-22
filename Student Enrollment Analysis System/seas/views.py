@@ -50,8 +50,18 @@ def dashboardpage(request):
 
 
 # Semester and Year List for Selection Menue
-semesterList = ['Spring', 'Summer', 'Autumn']
-yearList = ['2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021']
+# semesterList = ['Spring', 'Summer', 'Autumn']
+# yearList = ['2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021']
+semesterList = []
+yearList = []
+semesterL = Section_T.objects.order_by().values_list('semester').distinct()
+yearL = Section_T.objects.order_by().values_list('year').distinct()
+for item in semesterL:
+    item = str(item)[2:-3]
+    semesterList.append(item)
+for item in yearL:
+    item = str(item)[2:-3]
+    yearList.append(item)
 
 
 def ClassSizeRequirementView(request):
