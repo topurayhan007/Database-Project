@@ -73,12 +73,14 @@ def ClassSizeRequirementView(request):
         table = [collabel]
         counter = 1
         binning = []
-        classroom = []
+        classroom6 = []
+        classroom7 = []
         for item1, item2, item3 in finalarr:
             current_bin = f'{counter}-{counter + 9}'
             table.append([current_bin, item1, item2, item3])
             binning.append(current_bin)
-            classroom.append(item2)
+            classroom6.append(item2)
+            classroom7.append(item3)
             counter += 10
         table.append(['Total', totalarr[0], totalarr[1], totalarr[2]])
 
@@ -91,7 +93,8 @@ def ClassSizeRequirementView(request):
             'rowLabel': rowlabel,
             'table': table,
             'labels': binning,
-            'datavalues': classroom,
+            'datavalues': classroom6,
+            'datavalues2': classroom7,
             'str': str,
         })
     else:
