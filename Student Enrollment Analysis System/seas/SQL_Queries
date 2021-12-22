@@ -468,41 +468,4 @@ from seas_section_t where capacity='168' and year='2021' and semester="Spring"
 #---Engineering school revnew 
 ################################################################################################################################
 
-select school_id,semester,year,
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
-FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
-on c.dept_id = d.deptCode
-where d.school_id= 'SETS' and s.semester= 'Spring' and s.year = 2009
-
-union ALL
-
-select dept_id,semester,year,
-
-
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
- 
-FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= 'PhySci' and s.semester= 'Spring' and s.year = 2009
-
-
-UNION ALL
-
-select dept_id,semester,year,
-
-
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
- 
-FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= 'EEE' and s.semester= 'Spring' and s.year = 2009
-
-UNION all
-
-
-select dept_id,semester,year,
-
-
-sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
- 
-FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
-where c.dept_id= 'CSE' and s.semester= 'Spring' and s.year = 2009
 
