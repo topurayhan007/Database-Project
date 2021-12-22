@@ -63,29 +63,27 @@ def ClassSizeRequirementView(request):
         str = semester + " " + year
         finalarr = chartQueries.ClassSizeRequirement(semester, year)
         finalarr = np.array(finalarr)
-        rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-65", "Total"]
+        rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-65"]
         collabel = ["Class Size", "Sections", "Classroom 6", "Classroom 7"]
         totalarr = finalarr.sum(axis=0)
 
         table = [collabel]
-        counter = 1
-        binning = []
+        count = 0
         classroom6 = []
         classroom7 = []
+        
         for item1, item2, item3 in finalarr:
-            current_bin = f'{counter}-{counter + 9}'
-            table.append([current_bin, item1, item2, item3])
-            binning.append(current_bin)
+            table.append([rowlabel[count], item1, item2, item3])
             classroom6.append(item2)
             classroom7.append(item3)
-            counter += 10
+            count=count+1
         table.append(['Total', totalarr[0], totalarr[1], totalarr[2]])
 
         return render(request, 'classSizeRequirement.html', {
             'semesterList':semesterList,
             'yearList': yearList,
             'table': table,
-            'labels': binning,
+            'labels': rowlabel,
             'datavalues': classroom6,
             'datavalues2': classroom7,
             'str': str,
@@ -161,9 +159,23 @@ def UsageOfTheResourcesView(request):
         semester = request.POST['semester']
         year = request.POST['year']
         # here Table is row-wise object data
-        table = chartQueries.UsageOfTheResources(semester, year)
+        finalarr = chartQueries.UsageOfTheResources(semester, year)
         rowlabel = [semester, "SBE", "SELS", "SETS", "SLASS", "SPPH"]
         collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
+
+        table = [collabel]
+        counter = 1
+        binning = []
+        classroom6 = []
+        classroom7 = []
+        for item1, item2, item3 in finalarr:
+            current_bin = f'{counter}-{counter + 6}'
+            table.append([current_bin, item1, item2, item3])
+            binning.append(current_bin)
+            classroom6.append(item2)
+            classroom7.append(item3)
+            counter += 10
+        table.append(['Total', totalarr[0], totalarr[1], totalarr[2]])
 
         # Note here "result" is the variable by which the HTML will recognize "table" 
         return render(request, 'usageOfTheResources.html', {
