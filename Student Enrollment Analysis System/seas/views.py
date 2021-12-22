@@ -84,10 +84,6 @@ def ClassSizeRequirementView(request):
         return render(request, 'classSizeRequirement.html', {
             'semesterList':semesterList,
             'yearList': yearList,
-            'result':finalarr,
-            'total': totalarr,
-            'colLabel': collabel,
-            'rowLabel': rowlabel,
             'table': table,
             'labels': binning,
             'datavalues': classroom6,
