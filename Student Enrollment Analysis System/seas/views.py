@@ -137,6 +137,7 @@ def ClassSizeDistributionView(request):
             'labels': rowlabel,
             'total': totalarr,
             'datavalues': finalarr,
+            'str': str,
         })
     else:
         return render(request, 'ClassSizeDistribution.html', {
