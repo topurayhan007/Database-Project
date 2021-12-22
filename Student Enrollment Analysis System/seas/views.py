@@ -165,22 +165,27 @@ def UsageOfTheResourcesView(request):
         finalarr = chartQueries.UsageOfTheResources(semester, year)
         rowlabel = [semester, "SBE", "SELS", "SETS", "SLASS", "SPPH"]
         collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
-
         table = [collabel]
+        table2 = []
         count = 0
-        
+        rowlabel2 = ["Average of ENROLLED", "Average of ROOM CAPACITY", "Average of Unused Space", "Unused Percent"]
+        list_col = []
         for item1, item2, item3, item4, item5 in finalarr:
             table.append([rowlabel[count], item1, item2, item3, item4, item5])
+            if count == 0:
+                list_col = [item2, item3, item4, item5]
             count=count+1
 
-
-        # Note here "result" is the variable by which the HTML will recognize "table" 
+        count = 0
+        for item in list_col:
+            table2.append([rowlabel2[count], list_col[count]])
+            count+=1
+        
         return render(request, 'usageOfTheResources.html', {
             'semesterList':semesterList,
             'yearList': yearList,
             'table': table,
-            'rowLabel': rowlabel,
-            'colLabel': collabel,
+            'table2': table2,
             'str': str,
         
         })
