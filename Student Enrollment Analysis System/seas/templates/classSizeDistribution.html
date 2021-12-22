@@ -77,18 +77,8 @@
 				{% comment %} labels: labels, {% endcomment %}
 				datasets: [{
 					label: 'Class Size Distribution',
-					backgroundColor: [
-					'rgb(255, 99, 132)',
-					'rgb(54, 162, 235)',
-					'rgb(255, 205, 86)',
-					'rgb(226, 78, 66)',
-					'rgb(107,142,35)', //papaya
-					'rgb(233, 128, 0)', //mustard
-					'rgb(238,130,238)', //aqua
-					'rgb(0,206,209)' //blush pink
-					
-				  ],
-					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					backgroundColor: ['rgb(255, 99, 132)',],
+				  	borderColor: 'rgb(75, 192, 192)',
 					data: [{% for value in total %} {{ value }}, {% endfor %}],
 				}]
 			}
