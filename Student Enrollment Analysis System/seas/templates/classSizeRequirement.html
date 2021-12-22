@@ -42,36 +42,15 @@
 		</button>
 	</div>
 </form>
-	<div class="table-data">
-		<div class="order">
-			<div>
+	<div class="table-data"> 
+		<div class="order"> <h3> {{str}} </h3>
+			<div> 
 				<table border="3" cellpadding = "5" cellspacing="5"  style="background-color:#DAEDF4;">
-						
-					<!-- <tr>
-						
-						{% for i in colLabel %}
-							<td style="text-align:center"> {{i}} </td>
-						{% endfor %}
-						
-						
-					</tr>
 					
-					<tr>
-			
-						{% for j in rowLabel %}
-							<td style="text-align:center">{{j}}</td>
-							
-							<tr> 
-								
-							</tr>
-							
-						{% endfor %}
-							
-					</tr> -->
 					{% for row in table %}
 						<tr>
 							{% for col in row %}
-								<td>
+								<td style="text-align:center">
 									{{ col }}
 								</td>
 							{% endfor %}
@@ -88,11 +67,11 @@
 
 	
 	<!-- WRITE CODE HERE TO SHOW CHART (Zannat started)-->
-	<div class="chart-data">
-		<div class = "order">
-			
+	<div class="table-data">
+		
 			<div>
-				<canvas id = 'classSizeRequirementChart' width = "200" height = "200">
+				<h3>Class Size 6 requirement ( {{str}} )</h3>
+				<canvas id = 'classSizeRequirementChart' width = "725" height = "600">
 
 				</canvas>
 		
@@ -101,28 +80,21 @@
 			<script>
 				const ctx = document.getElementById('classSizeRequirementChart')
 				
-				{% comment %} const labels = [
-					'January',
-					'February',
-					'March',
-					'April',
-					'May',
-					'June',
-				 ] {% endcomment %}
-
 				const datalist = {
 					labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
 					{% comment %} labels: labels, {% endcomment %}
 					datasets: [{
 						label: 'Class Size Requirement',
 						backgroundColor: [
-						'rgb(226, 78, 66)', //papaya
-						'rgb(233, 128, 0)', //mustard
-						'rgb(0, 143, 149)', //aqua
-						'rgb(232, 110, 128)', //blush pink
 						'rgb(255, 99, 132)',
 						'rgb(54, 162, 235)',
-						'rgb(255, 205, 86)'
+						'rgb(255, 205, 86)',
+						'rgb(226, 78, 66)',
+						'rgb(107,142,35)', //papaya
+						'rgb(233, 128, 0)', //mustard
+						'rgb(238,130,238)', //aqua
+						'rgb(0,206,209)' //blush pink
+						
 					  ],
 						{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
 						data: [{% for value in datavalues %} {{ value }}, {% endfor %}],
@@ -138,13 +110,52 @@
 						}
   					)
 			</script>
-		</div>
-	</div>
-	<!-- (Zannat ended edition)-->
-
-	{% comment %} Table Code here {% endcomment %}
-	{% comment %} <table border="1" cellpadding = "5" cellspacing="5">
-	</table> {% endcomment %}
+		
 	
+	<!-- (Zannat ended edition)-->
+	
+		
+		<div>
+			<h3>Class Size 7 requirement ( {{str}} )</h3>
+			<canvas id = 'classSize7RequirementChart' width = "725" height = "600">
+
+			</canvas>
+	
+		</div>
+		<!-- THIS IS THE JAVASCRIPT THAT WILL CONTROL THE BEHAVIOUR OF THIS CHART ELEMENT -->
+		<script>
+			const ctx2 = document.getElementById('classSize7RequirementChart')
+		
+			const datalist2 = {
+				labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
+				{% comment %} labels: labels, {% endcomment %}
+				datasets: [{
+					label: 'Class Size 7 Requirement',
+					backgroundColor: [
+					'rgb(107,142,35)', //papaya
+					'rgb(233, 128, 0)', //mustard
+					'rgb(238,130,238)', //aqua
+					'rgb(0,206,209)', //blush pink
+					'rgb(255, 99, 132)',
+					'rgb(54, 162, 235)',
+					'rgb(255, 205, 86)',
+					'rgb(226, 78, 66)',
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in datavalues2 %} {{ value }}, {% endfor %}],
+				}]
+			}
+			//Here chart is a constructor and we're passing parameters
+			const myChart2 = new Chart(
+				ctx2,
+				{
+					type: 'pie',
+					data: datalist2,
+					options: {}
+					}
+				  )
+		</script>
+	
+	</div>
 
 {% endblock %}

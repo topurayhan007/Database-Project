@@ -52,36 +52,30 @@ def dashboardpage(request):
 def ClassSizeRequirementView(request):
     if request.method == "POST":
         # get.year and get.semester from HTML DropDown Selection put that instead of Spring and 2021
-        # Columns: Class Size(label not values from query), Sections, Classroom 6, Classroom 7
+        # Columns: Class Size(labels, not values from query), Sections, Classroom 6, Classroom 7
         # Rows: 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-65
         semester = request.POST['semester']
         year = request.POST['year']
+        str = semester + " " + year
         finalarr = chartQueries.ClassSizeRequirement(semester, year)
-        # finalarr is row wise data
         finalarr = np.array(finalarr)
         rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-65", "Total"]
         collabel = ["Class Size", "Sections", "Classroom 6", "Classroom 7"]
-        # print(collabel)
-        # Row last: Total (This row found using code below)
-        # totalarr is row-wise data
         totalarr = finalarr.sum(axis=0)
-        #line 49 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
-        # table = np.concatenate((finalarr, totalarr), axis=0)
-        # Note here "result" is the variable by which the HTML will recognize "table"
 
         table = [collabel]
         counter = 1
         binning = []
-        classroom = []
+        classroom6 = []
+        classroom7 = []
         for item1, item2, item3 in finalarr:
             current_bin = f'{counter}-{counter + 9}'
             table.append([current_bin, item1, item2, item3])
             binning.append(current_bin)
-            classroom.append(item2)
+            classroom6.append(item2)
+            classroom7.append(item3)
             counter += 10
         table.append(['Total', totalarr[0], totalarr[1], totalarr[2]])
-
-
 
         return render(request, 'classSizeRequirement.html', {
             'result':finalarr,
@@ -90,8 +84,11 @@ def ClassSizeRequirementView(request):
             'rowLabel': rowlabel,
             'table': table,
             'labels': binning,
-            'datavalues': classroom,
+            'datavalues': classroom6,
+            'datavalues2': classroom7,
+            'str': str,
         })
+
     else:
         return render(request, 'classSizeRequirement.html')
        
