@@ -794,3 +794,107 @@ sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
 FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
 on c.dept_id = d.deptCode
 where d.school_id= 'SPPH' and s.semester= 'Summer' and s.year = 2010
+###########################################################################################
+2011
+##################################################################################
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SBE' and s.semester= 'Spring' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SETS' and s.semester= 'Spring' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SELS' and s.semester= 'Spring' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SLASS' and s.semester= 'Spring' and s.year = 2011
+
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SPPH' and s.semester= 'Spring' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SBE' and s.semester= 'Summer' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SETS' and s.semester= 'Summer' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SELS' and s.semester= 'Summer' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SLASS' and s.semester= 'Summer' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SETS' and s.semester= 'Summer' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SPPH' and s.semester= 'Summer' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SBE' and s.semester= 'Autumn' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SETS' and s.semester= 'Autumn' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SELS' and s.semester= 'Autumn' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SLASS' and s.semester= 'Autumn' and s.year = 2011
+UNION ALL
+select school_id,semester,year,
+sum(s.noofenrolledstudent * c.credithour) as 'Revenew'
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where d.school_id= 'SPPH' and s.semester= 'Summer' and s.year = 2011
+
+
+
+
+
