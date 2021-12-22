@@ -17,29 +17,22 @@
 		<div class="container-login100-form-btn" >
 			<select name="semester" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 6%;">
 				<option selected>Semester</option>
-				<option value="Summer">Summer</option>
-				<option value="Spring">Spring</option>
-				<option value="Autumn">Autumn</option>
+				{% for semester in semesterList %}
+					<option value = {{semester}} > {{semester}} </option>
+				{% endfor %}
 			</select>
+	
 			<select name="year" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
 				<option selected>Year</option>
-				<option value="2009">2009</option>
-				<option value="2010">2010</option>
-				<option value="2011">2011</option>
-				<option value="2012">2012</option>
-				<option value="2013">2013</option>
-				<option value="2014">2014</option>
-				<option value="2015">2015</option>
-				<option value="2016">2016</option>
-				<option value="2017">2017</option>
-				<option value="2018">2018</option>
-				<option value="2019">2019</option>
-				<option value="2020">2020</option>
-				<option value="2021">2021</option>
+				{% for year in yearList %}
+					<option value = {{year}} > {{year}} </option>
+				{% endfor %}
 			</select>
+	
 			<button class="btn btn-primary btn-lg" style="margin-left: 10%;">
 				Generate
 			</button>
+			
 		</div>
 	</form>
 		<div class="table-data">

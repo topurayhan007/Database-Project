@@ -50,10 +50,14 @@ def dashboardpage(request):
 
 
 def ClassSizeRequirementView(request):
+    semesterList = ['Spring', 'Summer', 'Autumn']
+    yearList = ['2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021']
+
     if request.method == "POST":
         # get.year and get.semester from HTML DropDown Selection put that instead of Spring and 2021
         # Columns: Class Size(labels, not values from query), Sections, Classroom 6, Classroom 7
         # Rows: 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-65
+
         semester = request.POST['semester']
         year = request.POST['year']
         str = semester + " " + year
@@ -78,6 +82,8 @@ def ClassSizeRequirementView(request):
         table.append(['Total', totalarr[0], totalarr[1], totalarr[2]])
 
         return render(request, 'classSizeRequirement.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
             'result':finalarr,
             'total': totalarr,
             'colLabel': collabel,
@@ -90,13 +96,19 @@ def ClassSizeRequirementView(request):
         })
 
     else:
-        return render(request, 'classSizeRequirement.html')
+        return render(request, 'classSizeRequirement.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
+        })
        
     
 
 
 
 def ClassSizeDistributionView(request):
+    semesterList = ['Spring', 'Summer', 'Autumn']
+    yearList = ['2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021']
+
     if request.method == "POST":
         # get.year and get.semester from HTML DropDown Selection and put that instead of Spring and 2021
         semester = request.POST['semester']
@@ -122,6 +134,8 @@ def ClassSizeDistributionView(request):
         # Note here "result" is the variable by which the HTML will recognize "finalarr" 
         
         return render(request, 'ClassSizeDistribution.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
             'result': allarr,
             'total': totalarr,
             'colLabel': collabel,
@@ -133,11 +147,17 @@ def ClassSizeDistributionView(request):
             'spph':spph,
         })
     else:
-        return render(request, 'ClassSizeDistribution.html')
+        return render(request, 'ClassSizeDistribution.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
+        })
 
 
 
 def UsageOfTheResourcesView(request):
+    semesterList = ['Spring', 'Summer', 'Autumn']
+    yearList = ['2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021']
+
     if request.method == "POST":
         # get.year and get.semester from HTML DropDown Selection and put that instead of Spring and 2021
         # columns areas follows: Sum, Avg Enroll, Avg Room, Difference, Unused%
@@ -151,6 +171,8 @@ def UsageOfTheResourcesView(request):
 
         # Note here "result" is the variable by which the HTML will recognize "table" 
         return render(request, 'usageOfTheResources.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
             'result': table,
             'rowLabel': rowlabel,
             'colLabel': collabel, 
@@ -158,10 +180,10 @@ def UsageOfTheResourcesView(request):
         })
     
     else:
-        return render(request, 'usageOfTheResources.html')
-        # collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
-        # return render(request, 'usageOfTheResources.html',{'colLabel': collabel, 
-        # })
+        return render(request, 'usageOfTheResources.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
+        })
 
 
 
