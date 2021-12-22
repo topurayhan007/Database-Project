@@ -52,23 +52,16 @@ def dashboardpage(request):
 def ClassSizeRequirementView(request):
     if request.method == "POST":
         # get.year and get.semester from HTML DropDown Selection put that instead of Spring and 2021
-        # Columns: Class Size(label not values from query), Sections, Classroom 6, Classroom 7
+        # Columns: Class Size(labels, not values from query), Sections, Classroom 6, Classroom 7
         # Rows: 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-65
         semester = request.POST['semester']
         year = request.POST['year']
         str = semester + " " + year
         finalarr = chartQueries.ClassSizeRequirement(semester, year)
-        # finalarr is row wise data
         finalarr = np.array(finalarr)
         rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-65", "Total"]
         collabel = ["Class Size", "Sections", "Classroom 6", "Classroom 7"]
-        # print(collabel)
-        # Row last: Total (This row found using code below)
-        # totalarr is row-wise data
         totalarr = finalarr.sum(axis=0)
-        #line 49 not working= ValueError:all the input arrays must have same number of dimensions, but the array at index 0 has 2 dimension(s) and the array at index 1 has 1 dimension(s)
-        # table = np.concatenate((finalarr, totalarr), axis=0)
-        # Note here "result" is the variable by which the HTML will recognize "table"
 
         table = [collabel]
         counter = 1
@@ -84,8 +77,6 @@ def ClassSizeRequirementView(request):
             counter += 10
         table.append(['Total', totalarr[0], totalarr[1], totalarr[2]])
 
-
-
         return render(request, 'classSizeRequirement.html', {
             'result':finalarr,
             'total': totalarr,
@@ -97,6 +88,7 @@ def ClassSizeRequirementView(request):
             'datavalues2': classroom7,
             'str': str,
         })
+
     else:
         return render(request, 'classSizeRequirement.html')
        
