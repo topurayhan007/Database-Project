@@ -201,7 +201,8 @@ def ClassSizeDistribution(semester, year, school):
 
 
 # print(ClassSizeDistribution("Spring", '2021', "SETS"))
-# sbe = ClassSizeDistribution("Spring", '2021', "SBE")
+# sbe = ClassSizeDistribution("Spring", '2021', "SBE") 
+# print(sbe)
 # sels = ClassSizeDistribution("Spring", '2021', "SELS")
 # sets = ClassSizeDistribution("Spring", '2021', "SETS")
 # slass = ClassSizeDistribution("Spring", '2021', "SLASS")

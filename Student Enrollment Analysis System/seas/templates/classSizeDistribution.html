@@ -60,59 +60,48 @@
 
 
 	<!-- WRITE CODE HERE TO SHOW CHART -->
-	<div class="chart-data">
-		<div class = "order">
-			
-			<div>
-				<canvas id = 'classSizeDistributionChart' width = "701px" height = "210px">
+	<div class="table-data">
+		<div>
+			<h3 style="text-align:center"> Class Size Distribution ( {{str}} )</h3>
+			<canvas id = 'classSizeDistributionChart' width = "1500" height = "600">
 
-				</canvas>
-		
-			</div>
-			<!-- THIS IS THE JAVASCRIPT THAT WILL CONTROL THE BEHAVIOUR OF THIS CHART ELEMENT -->
-			<script>
-				const ctx = document.getElementById('classSizeDistributionChart')
-
-				const labels = Utils.months({count: 7});
-				const datalist = {
-					labels: labels,
-					datasets: [{
-						label: 'My First Dataset',
-						data: [65, 59, 80, 81, 56, 55, 40],
-						backgroundColor: [
-						'rgba(255, 99, 132, 0.2)',
-						'rgba(255, 159, 64, 0.2)',
-						'rgba(255, 205, 86, 0.2)',
-						'rgba(75, 192, 192, 0.2)',
-						'rgba(54, 162, 235, 0.2)',
-						'rgba(153, 102, 255, 0.2)',
-						'rgba(201, 203, 207, 0.2)'
-						],
-						borderColor: [
-						'rgb(255, 99, 132)',
-						'rgb(255, 159, 64)',
-						'rgb(255, 205, 86)',
-						'rgb(75, 192, 192)',
-						'rgb(54, 162, 235)',
-						'rgb(153, 102, 255)',
-						'rgb(201, 203, 207)'
-						],
-						borderWidth: 1
-					}]
-				};
-				//Here chart is a constructor and we're passing parameters
-				const myChart = new Chart(
-					ctx,
-					{
-						type: 'bar',
-						data: datalist,
-						options: {
-							scales: {y: {beginAtZero: true}}
-							},
-						}
-  					)
-			</script>
+			</canvas>
+	
 		</div>
+		<!-- THIS IS THE JAVASCRIPT THAT WILL CONTROL THE BEHAVIOUR OF THIS CHART ELEMENT -->
+		<script>
+			const ctx = document.getElementById('classSizeDistributionChart')
+			
+			const datalist = {
+				labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
+				{% comment %} labels: labels, {% endcomment %}
+				datasets: [{
+					label: 'Class Size Distribution',
+					backgroundColor: [
+					'rgb(255, 99, 132)',
+					'rgb(54, 162, 235)',
+					'rgb(255, 205, 86)',
+					'rgb(226, 78, 66)',
+					'rgb(107,142,35)', //papaya
+					'rgb(233, 128, 0)', //mustard
+					'rgb(238,130,238)', //aqua
+					'rgb(0,206,209)' //blush pink
+					
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in total %} {{ value }}, {% endfor %}],
+				}]
+			}
+			//Here chart is a constructor and we're passing parameters
+			const myChart = new Chart(
+				ctx,
+				{
+					type: 'line',
+					data: datalist,
+					options: {}
+					}
+				  )
+		</script>
 	</div>
 	{% comment %} Table Code here {% endcomment %}
 	{% comment %} <table border="1" cellpadding = "5" cellspacing="5">

@@ -117,7 +117,7 @@ def ClassSizeDistributionView(request):
         # Rows: Enrollment, 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-60, 60+
         rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-60", "60+"]
         collabel = ["Enrollment", "SBE", "SELS", "SETS", "SLASS", "SPPH", "Total"]
-        
+
         finalarr = np.concatenate((sbe, sels, sets, slass, spph), axis=1)
         totalarr = finalarr.sum(axis=1)
         
@@ -135,12 +135,8 @@ def ClassSizeDistributionView(request):
             'yearList': yearList,
             'table': table,
             'labels': rowlabel,
-            'sbe':sbe,
-            'sels':sels,
-            'sets':sets,
-            'slass':slass,
-            'spph':spph,
-            'str': str,
+            'total': totalarr,
+            'datavalues': finalarr,
         })
     else:
         return render(request, 'ClassSizeDistribution.html', {
