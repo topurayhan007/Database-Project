@@ -55,6 +55,27 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="table-data">
+			<div class="order"> <h3 style="text-align:center"> {{str}} Summary</h3>
+				<div>
+					<table border="3" cellpadding = "5" cellspacing="5"  style="background-color:#DAEDF4;">
+						
+						{% for row in table2 %}
+						<tr>
+							{% for col in row %}
+								<td style="text-align:center">
+									{{ col }}
+								</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
+						
+					</table>
+			
+				</div>
+			</div>
+		</div>
 	
 {% endblock %}
 
