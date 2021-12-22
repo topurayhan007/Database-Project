@@ -466,3 +466,517 @@ sum(s.noofenrolledstudent * c.credithour) as 'REVENEW'
 FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID 
 where c.dept_id= 'CSE' and s.semester= 'Spring' and s.year = 2009
 
+
+
+
+
+
+
+
+
+
+
+
+
+######################################################################################################################################################################
+Breakdown of the number of courses (sections) offered in each school w.r.t.
+number of students enrolled in them, starting from 1 and going up to the largest
+number of students enrolled,
+########################################################################################################################################################################
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+
+where s.noofenrolledstudent= 1 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 2 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 3 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 4 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 5 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 6 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 7 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 8 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 9 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 10 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 11 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 12 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 13 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 14 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 15 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 16 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 17 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 18 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 19 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 20 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 21 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 22 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 23 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 24 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 25 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 26 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 27 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 28 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 29 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 30 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 31 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 32 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 33 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 32 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 33 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 34 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 35 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 36 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 37 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 38 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 39 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 40 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 41 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNIOn all 
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 42 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 43 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 44 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 45 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+select count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 46 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 47 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 48 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 49 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 50 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 51 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL 
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 52 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 53 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+UNION ALL
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 54 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL 
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 55 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+union ALL
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 56 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 57 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 58 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 59 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 60 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION ALL
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 61 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+UNION all 
+select 
+count (*) as Enrolment
+FROM seas_section_t as s inner join seas_course_t as c on s.course_id = c.courseID inner join seas_department_t as d 
+on c.dept_id = d.deptCode
+where s.noofenrolledstudent= 62 and d.school_id = 'SBE' and year= 2021 and s.semester= 'Spring'
+
+
+
+
