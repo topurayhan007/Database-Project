@@ -71,7 +71,7 @@
 		
 			<div>
 				<h3>Class Size 6 requirement ( {{str}} )</h3>
-				<canvas id = 'classSizeRequirementChart' width = "700" height = "600">
+				<canvas id = 'classSizeRequirementChart' width = "725" height = "600">
 
 				</canvas>
 		
@@ -86,13 +86,15 @@
 					datasets: [{
 						label: 'Class Size Requirement',
 						backgroundColor: [
-						'rgb(226, 78, 66)', //papaya
-						'rgb(233, 128, 0)', //mustard
-						'rgb(0, 143, 149)', //aqua
-						'rgb(232, 110, 128)', //blush pink
 						'rgb(255, 99, 132)',
 						'rgb(54, 162, 235)',
-						'rgb(255, 205, 86)'
+						'rgb(255, 205, 86)',
+						'rgb(226, 78, 66)',
+						'rgb(107,142,35)', //papaya
+						'rgb(233, 128, 0)', //mustard
+						'rgb(238,130,238)', //aqua
+						'rgb(0,206,209)' //blush pink
+						
 					  ],
 						{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
 						data: [{% for value in datavalues %} {{ value }}, {% endfor %}],
@@ -115,7 +117,7 @@
 		
 		<div>
 			<h3>Class Size 7 requirement ( {{str}} )</h3>
-			<canvas id = 'classSize7RequirementChart' width = "700" height = "600">
+			<canvas id = 'classSize7RequirementChart' width = "725" height = "600">
 
 			</canvas>
 	
@@ -130,13 +132,14 @@
 				datasets: [{
 					label: 'Class Size 7 Requirement',
 					backgroundColor: [
-					'rgb(226, 78, 66)', //papaya
+					'rgb(107,142,35)', //papaya
 					'rgb(233, 128, 0)', //mustard
-					'rgb(0, 143, 149)', //aqua
-					'rgb(232, 110, 128)', //blush pink
+					'rgb(238,130,238)', //aqua
+					'rgb(0,206,209)', //blush pink
 					'rgb(255, 99, 132)',
 					'rgb(54, 162, 235)',
-					'rgb(255, 205, 86)'
+					'rgb(255, 205, 86)',
+					'rgb(226, 78, 66)',
 				  ],
 					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
 					data: [{% for value in datavalues2 %} {{ value }}, {% endfor %}],
