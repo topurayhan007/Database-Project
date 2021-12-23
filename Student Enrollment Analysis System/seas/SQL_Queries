@@ -93,6 +93,7 @@ WHERE noofenrolledstudent BETWEEN 56 AND 65
 AND semester = "Summer" AND YEAR = '2021'
 
 
+
 #####################################################################################
 ClassSizeDistribution
 #####################################################################################
@@ -391,6 +392,8 @@ SELECT COUNT(*), (COUNT(*)*168)
 FROM seas_classroom_t
 WHERE roomcapacity = 168
 
+
+
 ####################################################################################
 AvailabilityAndCourseOfferingComparison
 ####################################################################################
@@ -472,6 +475,64 @@ FROM (SELECT *
     INNER JOIN seas_section_t ON course_id=courseid)
 WHERE noofenrolledstudent BETWEEN 125 AND 168
 AND semester = "Spring" AND YEAR = '2021'
+
+
+
+####################################################################################
+EnrollmentBreakdownOfSchool  {For loop for rest}
+####################################################################################
+SELECT COUNT(*)
+FROM seas_section_t AS s INNER JOIN seas_course_t AS c ON s.course_id = c.courseID 
+INNER JOIN seas_department_t AS d ON c.dept_id = d.deptCode
+WHERE s.noofenrolledstudent= 34 AND d.school_id = "SBE" AND year= '2021' AND s.semester= "Spring"
+
+
+
+
+
+
+####################################################################################
+RevenueInEngineeringSchool   {For loop for rest}
+####################################################################################
+SELECT  SUM(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t AS s INNER JOIN seas_course_t AS c ON s.course_id = c.courseID 
+INNER JOIN seas_department_t AS d on c.dept_id = d.deptCode
+WHERE d.school_id= "SBE" AND s.semester= "Spring" AND s.year = '2009'
+
+
+
+
+
+####################################################################################
+RevenueInEngineeringSchool  {For loop for rest}
+####################################################################################
+SELECT  SUM(s.noofenrolledstudent * c.credithour)
+FROM seas_section_t AS s INNER JOIN seas_course_t AS c ON s.course_id = c.courseID 
+INNER JOIN seas_department_t AS d on c.dept_id = d.deptCode
+WHERE d.deptcode= "CSE" AND s.semester= "Spring" AND s.year = '2009'
+
+
+
+##################################################################################################################################
+##################################################################################################################################
+                                !!!!!!!!!!!!!!! MAIN SQL ENDS HERE !!!!!!!!!!!!!!!!!
+##################################################################################################################################
+##################################################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

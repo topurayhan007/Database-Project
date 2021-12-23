@@ -316,7 +316,7 @@ def EnrollmentBreakdownOfSchool(stuNo, school, year, semester):
         cursor.execute('''
             SELECT count (*)
             FROM seas_section_t AS s INNER JOIN seas_course_t AS c ON s.course_id = c.courseID 
-                INNER JOIN seas_department_t AS d ON c.dept_id = d.deptCode
+            INNER JOIN seas_department_t AS d ON c.dept_id = d.deptCode
             WHERE s.noofenrolledstudent= {} AND d.school_id = "{}" AND year= '{}' AND s.semester= "{}"
         '''.format(stuNo, school,  year, semester))
         result = cursor.fetchall()
@@ -480,3 +480,34 @@ def AvailabilityAndCourseOfferingComparison(semester, year):
 # test = AvailabilityAndCourseOfferingComparison("Spring", '2021')
 # test = np.array(test)
 # print(test)
+
+
+def RevenueTrendOfTheSchools(school, semester, year):
+    with connection.cursor() as cursor:
+        cursor.execute('''
+            SELECT  SUM(s.noofenrolledstudent * c.credithour)
+            FROM seas_section_t AS s INNER JOIN seas_course_t AS c ON s.course_id = c.courseID 
+            INNER JOIN seas_department_t AS d on c.dept_id = d.deptCode
+            WHERE d.school_id= "{}" AND s.semester= "{}" AND s.year = '{}'
+        '''.format(school, semester, year))
+        result = cursor.fetchall()
+    return result
+
+# test = RevenueTrendOfTheSchools("SBE", "Spring", '2009')
+# test = np.array(test).flatten()
+# print(test)
+
+
+
+def RevenueInEngineeringSchool(dept, semester, year):
+    with connection.cursor() as cursor:
+        cursor.execute('''
+            SELECT  SUM(s.noofenrolledstudent * c.credithour)
+            FROM seas_section_t AS s INNER JOIN seas_course_t AS c ON s.course_id = c.courseID 
+            INNER JOIN seas_department_t AS d on c.dept_id = d.deptCode
+            WHERE d.deptcode= "{}" AND s.semester= "{}" AND s.year = '{}'
+        '''.format(dept, semester, year))
+        result = cursor.fetchall()
+    return result
+
+
