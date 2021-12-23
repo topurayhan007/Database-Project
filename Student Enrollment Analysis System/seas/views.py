@@ -203,6 +203,7 @@ def UsageOfTheResourcesView(request):
         collabel2 = ["Class Size", "IUB resource", "Capacity"]
         factor = (100-percentage)/100
         arr = chartQueries.IUBavailableResources()
+        arr = np.array(arr)
         count = 0
         iubt = 0
         capacityt = 0
@@ -234,7 +235,7 @@ def UsageOfTheResourcesView(request):
             elif i == 5:
                 table4.append([ rowlabel4[i], int(((capacityt*14)/3.5)*factor) ])
 
-
+        
         return render(request, 'usageOfTheResources.html', {
             'semesterList':semesterList,
             'yearList': yearList,
