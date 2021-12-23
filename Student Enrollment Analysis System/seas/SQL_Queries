@@ -423,7 +423,6 @@ FROM (SELECT *
     INNER JOIN seas_section_t ON course_id=courseid)
 WHERE semester = "Summer" AND YEAR = '2021' AND school_id = "SPPH"
 
-<<<<<<< HEAD
 
 ####################################################################################
 IUB Available Resources
@@ -481,8 +480,10 @@ UNION ALL
 SELECT COUNT(*), (COUNT(*)*168)
 FROM seas_classroom_t
 WHERE roomcapacity = 168
-=======
->>>>>>> 0948a307d660f249b9b4178b032668c0123c4420
+
+
+
+
 ######################################################
 *****3. Resource usage summary from a comparison of average enrollment per course
 and average capacity per room.*******
