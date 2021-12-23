@@ -318,18 +318,3 @@ def EnrollmentBreakdownOfSchoolView(request):
         })
 
 
-
-def IUBavailableResourcesView(request):
-    if request.method == "POST":
-        semester = request.POST['semester']
-        year = request.POST['year']
-        str = semester + " " + year
-        # here Table is row-wise object data
-        finalarr = chartQueries.UsageOfTheResources(semester, year)
-        count = 0
-        percentage = 0
-        for item1, item2, item3, item4, item5 in finalarr:
-            if count == 0:
-                percentage = item5
-                list_col = [item2, item3, item4, item5]
-            count=count+1
