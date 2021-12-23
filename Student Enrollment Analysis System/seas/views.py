@@ -388,10 +388,28 @@ def AvailabilityAndCourseOfferingComparisonView(request):
 
 
 
-def RevenueTrendOfTheSchools(request):
-    print("hello")
+def RevenueTrendOfTheSchoolsView(request):
+    if request.method == "POST":
+        print("success")
+    
+        return render(request, 'revenueTrendOfTheSchools.html', { 
+            
+        })
+
+    else:
+        return render(request, 'revenueTrendOfTheSchools.html')
 
 
 
-def RevenueInEngineeringSchool(request):
-    print("hello")
+
+
+def RevenueInEngineeringSchoolView(request):
+    if request.method == "POST":
+        print("success")
+    
+        return render(request, 'revenueInEngineeringSchool.html', { 
+            
+        })
+
+    else:
+        return render(request, 'revenueInEngineeringSchool.html')

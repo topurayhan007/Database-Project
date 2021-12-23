@@ -14,5 +14,6 @@ urlpatterns = [
     path('UsageOfTheResources', views.UsageOfTheResourcesView, name='UsageOfTheResources'),
     path('EnrollmentBreakdownOfSchool', views.EnrollmentBreakdownOfSchoolView, name='EnrollmentBreakdownOfSchool'),
     path('AvailabilityAndCourseOfferingComparison', views.AvailabilityAndCourseOfferingComparisonView, name='AvailabilityAndCourseOfferingComparison'),
-
+    path('RevenueTrendOfTheSchools', views.RevenueTrendOfTheSchoolsView, name='RevenueTrendOfTheSchools'),
+    path('RevenueInEngineeringSchool', views.RevenueInEngineeringSchoolView, name='RevenueInEngineeringSchool'),    
 ]
