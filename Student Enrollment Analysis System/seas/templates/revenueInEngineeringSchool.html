@@ -121,37 +121,25 @@
             {% comment %} labels: labels, {% endcomment %}
             datasets: [{
                 type: 'line',
-                fill: {
-                    target: 'origin',
-                    above: 'rgb(54, 162, 235, 1)',   // Area will be red above the origin
-                    below: 'rgb(0, 0, 255)'    // And blue below the origin
-                },
-                label: 'CSE',
-                backgroundColor: [
-                'rgb(54, 162, 235, 1)', //standard blue
-              ],
-                {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in cse %} {{ value }}, {% endfor %}],
-            },{
-                type: 'line',
-                fill: {
-                    target: 'origin',
-                    above: 'rgb(255, 205, 86, 1)',   // Area will be red above the origin
-                    below: 'rgb(0, 0, 255)'    // And blue below the origin
-                },
+                fill: true,
                 label: 'EEE',
                 backgroundColor: [
-                'rgb(255, 205, 86, 1)', //yellow
+                'rgb(54, 162, 235, 1)', //standard blue
               ],
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
                 data: [{% for value in eee %} {{ value }}, {% endfor %}],
             },{
                 type: 'line',
-                fill: {
-                    target: 'origin',
-                    above: 'rgb(255, 99, 132, 1)',   // Area will be red above the origin
-                    below: 'rgb(0, 0, 255)'    // And blue below the origin
-                },
+                fill: true,
+                label: 'CSE',
+                backgroundColor: [
+                'rgb(255, 205, 86, 1)', //yellow
+              ],
+                {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+                data: [{% for value in cse %} {{ value }}, {% endfor %}],
+            },{
+                type: 'line',
+                fill: true,
                 label: 'PS',
                 backgroundColor: [
                 'rgb(255, 99, 132, 1)', //blush pink
@@ -165,11 +153,6 @@
             ctx2,
             {
                 type: 'line',
-                fill: {
-                    target: 'origin',
-                    above: 'rgb(255, 0, 0)',   // Area will be red above the origin
-                    below: 'rgb(0, 0, 255)'    // And blue below the origin
-                },
                 data: datalist2,
                 options: {}
                 }
