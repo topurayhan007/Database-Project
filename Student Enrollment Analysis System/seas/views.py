@@ -351,8 +351,8 @@ def AvailabilityAndCourseOfferingComparisonView(request):
 
         iublist = []
         for item1, item2 in arr:
-            diff1 = sem1[count] - item1
-            diff2 = sem2[count] - item1
+            diff1 = item1 - sem1[count]
+            diff2 = item1 - sem2[count]
 
             iubt+=item1
             sem1t+= sem1[count]
@@ -390,7 +390,7 @@ def AvailabilityAndCourseOfferingComparisonView(request):
 
 def RevenueTrendOfTheSchoolsView(request):
     if request.method == "POST":
-        print("success")
+        
     
         return render(request, 'revenueTrendOfTheSchools.html', { 
             

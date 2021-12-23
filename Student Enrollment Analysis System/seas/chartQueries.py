@@ -511,3 +511,6 @@ def RevenueInEngineeringSchool(dept, semester, year):
     return result
 
 
+# test = RevenueInEngineeringSchool("CSE", "Spring", '2009')
+# test = np.array(test).flatten()
+# print(test)
