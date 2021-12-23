@@ -149,11 +149,11 @@ def ClassSizeDistributionView(request):
             'total': totalarr,
             'datavalues': finalarr,
             'str': str,
-            'sbe': np.array(sbe),
-            'sels': np.array(sels),
-            'sets': np.array(sets),
-            'slass': np.array(slass),
-            'spph': np.array(spph),
+            'sbe': np.array(sbe).flatten(),
+            'sels': np.array(sels).flatten(),
+            'sets': np.array(sets).flatten(),
+            'slass': np.array(slass).flatten(),
+            'spph': np.array(spph).flatten(),
         })
     else:
         return render(request, 'ClassSizeDistribution.html', {
