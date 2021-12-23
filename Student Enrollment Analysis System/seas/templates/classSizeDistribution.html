@@ -92,6 +92,61 @@
 					}
 				  )
 		</script>
+			<div>
+				<h3 style="text-align:center"> Class Size Distribution ( {{str}} )</h3>
+				<canvas id = 'classSizeDistributionBarChart' width = "725" height = "600">
+
+				</canvas>
+	
+			</div>
+		<!-- THIS IS THE JAVASCRIPT THAT WILL CONTROL THE BEHAVIOUR OF THIS CHART ELEMENT -->
+		<script>
+			const ctx2 = document.getElementById('classSizeDistributionBarChart')
+		
+			const datalist2 = {
+				labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
+				{% comment %} labels: labels, {% endcomment %}
+				datasets: [{
+					label: 'SBE',
+					backgroundColor: [
+					'rgb(107,142,35, 0.65)', //papaya
+					'rgb(233, 128, 0, 0.65)', //mustard
+					'rgb(238,130,238, 0.65)', //aqua
+					'rgb(0,206,209, 0.65)', //blush pink
+					'rgb(255, 99, 132, 0.65)',
+					'rgb(54, 162, 235, 0.65)',
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [ 6, 26, 32, 57,  4]
+					//[{% for value in datavalues %} {{ value }}, {% endfor %}],
+				},{
+					label: 'SELS',
+					backgroundColor: [
+					'rgb(107,142,35, 0.65)', //papaya
+					'rgb(233, 128, 0, 0.65)', //mustard
+					'rgb(238,130,238, 0.65)', //aqua
+					'rgb(0,206,209, 0.65)', //blush pink
+					'rgb(255, 99, 132, 0.65)',
+					'rgb(54, 162, 235, 0.65)',
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [12, 32, 36, 60, 30]
+					//[{% for value in datavalues %} {{ value }}, {% endfor %}],
+				}]
+			}
+			//Here chart is a constructor and we're passing parameters
+			const myChart2 = new Chart(
+				ctx2,
+				{
+					type: 'bar',
+					data: datalist2,
+					options: {}
+					}
+				  )
+		</script>
+	
+
+
 	</div>
 	{% comment %} Table Code here {% endcomment %}
 	{% comment %} <table border="1" cellpadding = "5" cellspacing="5">
