@@ -359,7 +359,7 @@ def AvailabilityAndCourseOfferingComparisonView(request):
             sem2t+= sem2[count]
             diff1t += diff1
             diff2t += diff2
-            iublist.append([item1])
+            iublist.append(item1)
             table.append([ rowlabel[count], item1, sem1[count], "{:.2f}".format(diff1), sem2[count], "{:.2f}".format(diff2) ])  
             count+=1
 
