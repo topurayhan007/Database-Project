@@ -321,3 +321,62 @@ def EnrollmentBreakdownOfSchoolView(request):
         })
 
 
+
+def AvailabilityAndCourseOfferingComparisonView(request):
+    if request.method == "POST":
+        semester1 = request.POST['semester1']
+        year = request.POST['year']
+        semester2 = request.POST['semester2']
+        str = semester1 + " and " + semester2 + " in " + year
+
+        arr = chartQueries.IUBavailableResources()
+        arr = np.array(arr)
+        sem1 = chartQueries.AvailabilityAndCourseOfferingComparison(semester1, year)
+        sem1 = np.array(sem1)
+        sem2 = chartQueries.AvailabilityAndCourseOfferingComparison(semester2, year)
+        sem2 = np.array(sem2)
+
+        collable = ["Class size", "IUB resource", semester1, "Difference", semester2, "Difference"]
+        rowlabel = ["20", "30", "35", "40", "50", "54", "64", "124", "168", "Total"]
+
+        count = 0
+        iubt = 0
+        sem1t = 0
+        sem2t = 0
+        diff1t = 0
+        diff2t = 0
+        table = [collable]
+
+        for item1, item2 in arr:
+            diff1 = sem1[count] - item1
+            diff2 = sem2[count] - item1
+
+            iubt+=item1
+            sem1t+= sem1[count]
+            sem2t+= sem2[count]
+            diff1t += diff1
+            diff2t += diff2
+
+            table.append([ rowlabel[count], item1, sem1[count], diff1, sem2[count], diff2 ])  
+            count+=1
+
+        table.append([rowlabel[9], iubt, sem1t, diff1t, sem2t, diff2t ])
+        labels = ["20", "30", "35", "40", "50", "54", "64", "124", "168"]
+
+        return render(request, 'availabilityAndCourseOfferingComparison.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
+            'str': str,
+            'table': table,
+            'iub': arr,
+            'semester1': sem1,
+            'semester2': sem2,
+            'labels': labels,
+
+        })
+
+    else:
+        return render(request, 'availabilityAndCourseOfferingComparison.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
+        })
