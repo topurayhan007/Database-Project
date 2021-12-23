@@ -385,3 +385,13 @@ def AvailabilityAndCourseOfferingComparisonView(request):
             'semesterList':semesterList,
             'yearList': yearList,
         })
+
+
+
+def RevenueTrendOfTheSchools(request):
+    print("hello")
+
+
+
+def RevenueInEngineeringSchool(request):
+    print("hello")
