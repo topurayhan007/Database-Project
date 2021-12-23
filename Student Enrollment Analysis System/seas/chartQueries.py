@@ -326,3 +326,67 @@ def EnrollmentBreakdownOfSchool(stuNo, school, year, semester):
 # test = str(test)[2:-3]
 # test = int(test) + 1          
 # print(test)
+
+
+
+def IUBavailableResources():
+    with connection.cursor() as cursor:
+        cursor.execute('''
+            SELECT COUNT(*), (COUNT(*)*20)
+            FROM seas_classroom_t
+            WHERE roomcapacity = 20
+            ------------------------------
+            UNION ALL
+            ------------------------------
+            SELECT COUNT(*), (COUNT(*)*30)
+            FROM seas_classroom_t
+            WHERE roomcapacity = 30
+            -----------------------------
+            UNION ALL
+            -----------------------------
+            SELECT COUNT(*), (COUNT(*)*35)
+            FROM seas_classroom_t
+            WHERE roomcapacity = 35
+            -----------------------------
+            UNION ALL
+            -----------------------------
+            SELECT COUNT(*), (COUNT(*)*40)
+            FROM seas_classroom_t
+            WHERE roomcapacity = 40
+            -----------------------------
+            UNION ALL
+            -----------------------------
+            SELECT COUNT(*), (COUNT(*)*50)
+            FROM seas_classroom_t
+            WHERE roomcapacity = 50
+            -----------------------------
+            UNION ALL
+            -----------------------------
+            SELECT COUNT(*), (COUNT(*)*54)
+            FROM seas_classroom_t
+            WHERE roomcapacity = 54
+            -----------------------------
+            UNION ALL
+            -----------------------------
+            SELECT COUNT(*), (COUNT(*)*64)
+            FROM seas_classroom_t
+            WHERE roomcapacity = 64
+            -----------------------------
+            UNION ALL
+            -----------------------------
+            SELECT COUNT(*), (COUNT(*)*124)
+            FROM seas_classroom_t
+            WHERE roomcapacity = 124
+            -----------------------------
+            UNION ALL
+            -----------------------------
+            SELECT COUNT(*), (COUNT(*)*168)
+            FROM seas_classroom_t
+            WHERE roomcapacity = 168
+        ''')
+        result = cursor.fetchall()
+    return result
+
+# test = IUBavailableResources()
+# test = np.array(test)
+# print(test)

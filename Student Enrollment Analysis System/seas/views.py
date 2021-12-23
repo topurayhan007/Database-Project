@@ -149,6 +149,11 @@ def ClassSizeDistributionView(request):
             'total': totalarr,
             'datavalues': finalarr,
             'str': str,
+            'sbe': sbe,
+            'sels': sels,
+            'sets': sets,
+            'slass': slass,
+            'spph': spph,
         })
     else:
         return render(request, 'ClassSizeDistribution.html', {
