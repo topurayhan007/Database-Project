@@ -13,5 +13,6 @@ urlpatterns = [
     path('ClassSizeDistribution', views.ClassSizeDistributionView, name='ClassSizeDistribution'),
     path('UsageOfTheResources', views.UsageOfTheResourcesView, name='UsageOfTheResources'),
     path('EnrollmentBreakdownOfSchool', views.EnrollmentBreakdownOfSchoolView, name='EnrollmentBreakdownOfSchool'),
+    path('AvailabilityAndCourseOfferingComparison', views.AvailabilityAndCourseOfferingComparisonView, name='AvailabilityAndCourseOfferingComparison'),
 
 ]

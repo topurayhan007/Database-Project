@@ -1,0 +1,166 @@
+{% extends 'chartLayout.html' %}
+
+{% block title %} SEAS | AvailabilityAndCourseOfferingComparison {% endblock  %}
+
+{% block heading %} Availability And Course Offering Comparison {% endblock  %}
+
+{% block content %} 
+{% load static %}
+<meta id="viewport" name="viewport" content ="width=device-width" />
+<link rel="stylesheet" type="text/css" href="{% static 'seas/css/font-awesome.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'seas/css/util.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'seas/css/main.css' %}" />
+
+<form style="text-align: center; width: 330px;" action="" method="post">
+	{% csrf_token %}
+	
+	<div class="container-login100-form-btn" >
+		<select name="semester1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 6%;">
+			<option selected>Semester1</option>
+			{% for semester in semesterList %}
+				<option value = {{semester}} > {{semester}} </option>
+			{% endfor %}
+		</select>
+
+        <select name="semester2" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 6%;">
+			<option selected>Semester2</option>
+			{% for semester in semesterList %}
+				<option value = {{semester}} > {{semester}} </option>
+			{% endfor %}
+		</select>
+
+		<select name="year" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+			<option selected>Year</option>
+			{% for year in yearList %}
+				<option value = {{year}} > {{year}} </option>
+			{% endfor %}
+		</select>
+
+		<button class="btn btn-primary btn-lg" style="margin-left: 10%;">
+			Generate
+		</button>
+
+	</div>
+</form>
+	<div class="table-data">
+		<div class="order"> <h3 style="text-align:center"> Resource Utilization in {{Semester1}} and {{Semester2}} </h3>
+			<div>
+				<table border="3" cellpadding = "5" cellspacing="5"  style="background-color:#DAEDF4;">
+						
+					{% for row in table %}
+						<tr>
+							{% for col in row %}
+								<td style="text-align:center">
+									{{ col }}
+								</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
+					
+					
+				
+				</table>
+		
+			</div>
+		</div>
+	</div>
+
+
+	<!-- WRITE CODE HERE TO SHOW CHART -->
+	<div class="table-data">
+        <div>
+            <h3 style="text-align:center"> Resource Utilization in {{Semester1}} and {{Semester2}}</h3>
+            <canvas id = 'AvailabilityAndCourseOfferingComparisonChart' width = "1500" height = "600">
+
+            </canvas>
+
+        </div>
+		<!-- THIS IS THE JAVASCRIPT THAT WILL CONTROL THE BEHAVIOUR OF THIS CHART ELEMENT -->
+		<script>
+			const ctx2 = document.getElementById('AvailabilityAndCourseOfferingComparisonChart')
+		
+			const datalist2 = {
+				labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
+				{% comment %} labels: labels, {% endcomment %}
+				datasets: [{
+					label: 'SBE',
+					backgroundColor: [
+					'rgb(107,142,35, 0.65)', //papaya
+					'rgb(233, 128, 0, 0.65)', //mustard
+					'rgb(238,130,238, 0.65)', //aqua
+					'rgb(0,206,209, 0.65)', //blush pink
+					'rgb(255, 99, 132, 0.65)',
+					'rgb(54, 162, 235, 0.65)',
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in sbe %} {{ value }}, {% endfor %}],
+				},{
+					label: 'SELS',
+					backgroundColor: [
+					'rgb(107,142,35, 0.65)', //papaya
+					'rgb(233, 128, 0, 0.65)', //mustard
+					'rgb(238,130,238, 0.65)', //aqua
+					'rgb(0,206,209, 0.65)', //blush pink
+					'rgb(255, 99, 132, 0.65)',
+					'rgb(54, 162, 235, 0.65)',
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in sels %} {{ value }}, {% endfor %}],
+				},{
+					label: 'SETS',
+					backgroundColor: [
+					'rgb(107,142,35, 0.65)', //papaya
+					'rgb(233, 128, 0, 0.65)', //mustard
+					'rgb(238,130,238, 0.65)', //aqua
+					'rgb(0,206,209, 0.65)', //blush pink
+					'rgb(255, 99, 132, 0.65)',
+					'rgb(54, 162, 235, 0.65)',
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in sets %} {{ value }}, {% endfor %}],
+				},{
+					label: 'SLASS',
+					backgroundColor: [
+					'rgb(107,142,35, 0.65)', //papaya
+					'rgb(233, 128, 0, 0.65)', //mustard
+					'rgb(238,130,238, 0.65)', //aqua
+					'rgb(0,206,209, 0.65)', //blush pink
+					'rgb(255, 99, 132, 0.65)',
+					'rgb(54, 162, 235, 0.65)',
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in slass %} {{ value }}, {% endfor %}],
+				},{
+					label: 'SPPH',
+					backgroundColor: [
+					'rgb(107,142,35, 0.65)', //papaya
+					'rgb(233, 128, 0, 0.65)', //mustard
+					'rgb(238,130,238, 0.65)', //aqua
+					'rgb(0,206,209, 0.65)', //blush pink
+					'rgb(255, 99, 132, 0.65)',
+					'rgb(54, 162, 235, 0.65)',
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in spph %} {{ value }}, {% endfor %}],
+				}]
+			}
+			//Here chart is a constructor and we're passing parameters
+			const myChart2 = new Chart(
+				ctx2,
+				{
+					type: 'bar',
+					data: datalist2,
+					options: {}
+					}
+				  )
+		</script>
+	
+
+
+	</div>
+	{% comment %} Table Code here {% endcomment %}
+	{% comment %} <table border="1" cellpadding = "5" cellspacing="5">
+	</table> {% endcomment %}
+	
+
+{% endblock %}

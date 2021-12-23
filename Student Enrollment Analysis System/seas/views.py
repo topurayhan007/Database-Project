@@ -327,7 +327,7 @@ def AvailabilityAndCourseOfferingComparisonView(request):
         semester1 = request.POST['semester1']
         year = request.POST['year']
         semester2 = request.POST['semester2']
-        str = semester1 + " and " + semester2 + " in " + year
+        strr = semester1 + " and " + semester2 + " in " + year
 
         arr = chartQueries.IUBavailableResources()
         arr = np.array(arr)
@@ -336,7 +336,9 @@ def AvailabilityAndCourseOfferingComparisonView(request):
         sem2 = chartQueries.AvailabilityAndCourseOfferingComparison(semester2, year)
         sem2 = np.array(sem2)
 
-        collable = ["Class size", "IUB resource", semester1, "Difference", semester2, "Difference"]
+        sem1 = sem1.flatten()         
+        sem2 = sem2.flatten()
+        collabel = ["Class size", "IUB resource", semester1, "Difference", semester2, "Difference"]
         rowlabel = ["20", "30", "35", "40", "50", "54", "64", "124", "168", "Total"]
 
         count = 0
@@ -345,7 +347,7 @@ def AvailabilityAndCourseOfferingComparisonView(request):
         sem2t = 0
         diff1t = 0
         diff2t = 0
-        table = [collable]
+        table = [collabel]
 
         for item1, item2 in arr:
             diff1 = sem1[count] - item1
@@ -357,7 +359,7 @@ def AvailabilityAndCourseOfferingComparisonView(request):
             diff1t += diff1
             diff2t += diff2
 
-            table.append([ rowlabel[count], item1, sem1[count], diff1, sem2[count], diff2 ])  
+            table.append([ rowlabel[count], item1, sem1[count], "{:.2f}".format(diff1), sem2[count], "{:.2f}".format(diff2) ])  
             count+=1
 
         table.append([rowlabel[9], iubt, sem1t, diff1t, sem2t, diff2t ])
@@ -366,12 +368,14 @@ def AvailabilityAndCourseOfferingComparisonView(request):
         return render(request, 'availabilityAndCourseOfferingComparison.html', {
             'semesterList':semesterList,
             'yearList': yearList,
-            'str': str,
+            'str': strr,
             'table': table,
             'iub': arr,
-            'semester1': sem1,
-            'semester2': sem2,
+            'datavalues1': sem1,
+            'datavalues2': sem2,
             'labels': labels,
+            'Semester1': semester1,
+            'Semester2': semester2,
 
         })
 
