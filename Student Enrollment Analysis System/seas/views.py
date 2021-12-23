@@ -177,12 +177,15 @@ def UsageOfTheResourcesView(request):
         collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
         table = [collabel]
         table2 = []
-        count = 0
+
         rowlabel2 = ["Average of ENROLLED", "Average of ROOM CAPACITY", "Average of Unused Space", "Unused Percent"]
+        count = 0
+        percentage = 0.0
         list_col = []
         for item1, item2, item3, item4, item5 in finalarr:
             table.append([rowlabel[count], int(item1), item2, item3, item4, item5])
             if count == 0:
+                percentage = item5
                 list_col = [item2, item3, item4, item5]
             count=count+1
 
@@ -194,11 +197,54 @@ def UsageOfTheResourcesView(request):
                 table2.append([rowlabel2[count], list_col[count]])
             count+=1
         
+        ##########################################################################################################
+        # For IUB Available Recources
+        ##########################################################################################################
+        rowlabel3 = ["20", "30", "35", "40", "50", "54", "64", "124", "168", "Total"]
+        collabel2 = ["Class Size", "IUB resource", "Capacity"]
+        factor = (100-percentage)/100
+        arr = chartQueries.IUBavailableResources()
+        arr = np.array(arr)
+        count = 0
+        iubt = 0
+        capacityt = 0
+        table3 = [collabel2]
+        table4 = []
+        for item1, item2 in arr:
+            iubt+=item1
+            capacityt+=item2
+            table3.append([rowlabel3[count], item1, item2])
+            count+=1
+            
+
+        table3.append([rowlabel3[9], iubt, capacityt])
+
+        rowlabel4 = ["Total Capacity with 6 slot 2 days", "Total Capacity with 7 slot 2 days",
+                    "Considering 3.5 average course load (6 slot)", "Considering 3.5 average course load (7 slot)",
+                    "Considering free % for 6 slots capacity", "Considering free % for 7 slots capacity"]
+        
+        for i in range(6):
+            if i == 0:
+                table4.append([ rowlabel4[i], capacityt*12])
+            elif i == 1:
+                table4.append([ rowlabel4[i], capacityt*14])
+            elif i == 2:
+                table4.append([ rowlabel4[i], int((capacityt*12)/3.5) ])
+            elif i == 3:
+                table4.append([ rowlabel4[i], int((capacityt*14)/3.5) ])
+            elif i == 4:
+                table4.append([ rowlabel4[i], int(((capacityt*12)/3.5)*factor) ])
+            elif i == 5:
+                table4.append([ rowlabel4[i], int(((capacityt*14)/3.5)*factor) ])
+
+        
         return render(request, 'usageOfTheResources.html', {
             'semesterList':semesterList,
             'yearList': yearList,
             'table': table,
             'table2': table2,
+            'table3': table3,
+            'table4': table4,
             'str': str,
         
         })
@@ -276,16 +322,61 @@ def EnrollmentBreakdownOfSchoolView(request):
 
 
 
-def IUBavailableResourcesView(request):
+def AvailabilityAndCourseOfferingComparisonView(request):
     if request.method == "POST":
-        semester = request.POST['semester']
+        semester1 = request.POST['semester1']
         year = request.POST['year']
-        str = semester + " " + year
-        # here Table is row-wise object data
-        finalarr = chartQueries.UsageOfTheResources(semester, year)
+        semester2 = request.POST['semester2']
+        str = semester1 + " and " + semester2 + " in " + year
+
+        arr = chartQueries.IUBavailableResources()
+        arr = np.array(arr)
+        sem1 = chartQueries.AvailabilityAndCourseOfferingComparison(semester1, year)
+        sem1 = np.array(sem1)
+        sem2 = chartQueries.AvailabilityAndCourseOfferingComparison(semester2, year)
+        sem2 = np.array(sem2)
+
+        collable = ["Class size", "IUB resource", semester1, "Difference", semester2, "Difference"]
+        rowlabel = ["20", "30", "35", "40", "50", "54", "64", "124", "168", "Total"]
+
         count = 0
-        percentage = 0
-        for item1, item2, item3, item4, item5 in finalarr:
-            if count == 0:
-                list_col = [item2, item3, item4, item5]
-            count=count+1
+        iubt = 0
+        sem1t = 0
+        sem2t = 0
+        diff1t = 0
+        diff2t = 0
+        table = [collable]
+
+        for item1, item2 in arr:
+            diff1 = sem1[count] - item1
+            diff2 = sem2[count] - item1
+
+            iubt+=item1
+            sem1t+= sem1[count]
+            sem2t+= sem2[count]
+            diff1t += diff1
+            diff2t += diff2
+
+            table.append([ rowlabel[count], item1, sem1[count], diff1, sem2[count], diff2 ])  
+            count+=1
+
+        table.append([rowlabel[9], iubt, sem1t, diff1t, sem2t, diff2t ])
+        labels = ["20", "30", "35", "40", "50", "54", "64", "124", "168"]
+
+        return render(request, 'availabilityAndCourseOfferingComparison.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
+            'str': str,
+            'table': table,
+            'iub': arr,
+            'semester1': sem1,
+            'semester2': sem2,
+            'labels': labels,
+
+        })
+
+    else:
+        return render(request, 'availabilityAndCourseOfferingComparison.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
+        })
