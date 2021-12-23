@@ -61,29 +61,32 @@
             labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
             {% comment %} labels: labels, {% endcomment %}
             datasets: [{
-                type: 'bar',
-                label: 'IUB Resource',
+                type: 'line',
+                label: 'CSE',
                 backgroundColor: [
                 'rgb(54, 162, 235, 1)', //standard blue
-              ],
+                ],
+                borderColor: 'rgb(255, 99, 132, 1)',
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in iub %} {{ value }}, {% endfor %}],
+                data: [{% for value in cse %} {{ value }}, {% endfor %}],
             },{
-                type: 'bar',
-                label: '{{Semester1}}',
+                type: 'line',
+                label: 'EEE',
                 backgroundColor: [
-                'rgb(255, 205, 86, 1)', //yellow
-              ],
+                'rgb(255, 99, 132, 1)', //standard blue
+                ],
+                borderColor: 'rgb(0,206,209)',
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in datavalues1 %} {{ value }}, {% endfor %}],
+                data: [{% for value in eee %} {{ value }}, {% endfor %}],
             },{
-                type: 'bar',
-                label: '{{Semester2}}',
+                type: 'line',
+                label: 'PS',
                 backgroundColor: [
-                'rgb(255, 99, 132, 1)', //blush pink
-              ],
+                'rgb(54, 162, 235, 1)', //standard blue
+                ],
+                borderColor: 'rgb(244,164,96)',
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in datavalues2 %} {{ value }}, {% endfor %}],
+                data: [{% for value in ps %} {{ value }}, {% endfor %}],
             }]
         }
         //Here chart is a constructor and we're passing parameters
@@ -104,42 +107,42 @@
 <div class="table-data">
     <div>
         <h3 style="text-align:center"> Revenue Of SETS </h3>
-        <canvas id = 'RevenueDistributionAmongTheSchools' width = "1500" height = "600">
+        <canvas id = 'RevenueOfSets' width = "1500" height = "600">
 
         </canvas>
 
     </div>
     <!-- THIS IS THE JAVASCRIPT THAT WILL CONTROL THE BEHAVIOUR OF THIS CHART ELEMENT -->
     <script>
-        const ctx2 = document.getElementById('RevenueDistributionAmongTheSchools')
+        const ctx2 = document.getElementById('RevenueOfSets')
         
         const datalist2 = {
             labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
             {% comment %} labels: labels, {% endcomment %}
             datasets: [{
-                type: 'bar',
-                label: 'IUB Resource',
+                type: 'area',
+                label: 'CSE',
                 backgroundColor: [
                 'rgb(54, 162, 235, 1)', //standard blue
               ],
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in iub %} {{ value }}, {% endfor %}],
+                data: [{% for value in cse %} {{ value }}, {% endfor %}],
             },{
-                type: 'bar',
-                label: '{{Semester1}}',
+                type: 'area',
+                label: 'EEE',
                 backgroundColor: [
                 'rgb(255, 205, 86, 1)', //yellow
               ],
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in datavalues1 %} {{ value }}, {% endfor %}],
+                data: [{% for value in eee %} {{ value }}, {% endfor %}],
             },{
-                type: 'bar',
-                label: '{{Semester2}}',
+                type: 'area',
+                label: 'PS',
                 backgroundColor: [
                 'rgb(255, 99, 132, 1)', //blush pink
               ],
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in datavalues2 %} {{ value }}, {% endfor %}],
+                data: [{% for value in ps %} {{ value }}, {% endfor %}],
             }]
         }
         //Here chart is a constructor and we're passing parameters
