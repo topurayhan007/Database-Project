@@ -198,7 +198,7 @@ def UsageOfTheResourcesView(request):
             count+=1
         
         ##########################################################################################################
-        # For IUB available recources
+        # For IUB Available Recources
         ##########################################################################################################
         rowlabel3 = ["20", "30", "35", "40", "50", "54", "64", "124", "168", "Total"]
         collabel2 = ["Class Size", "IUB resource", "Capacity"]
