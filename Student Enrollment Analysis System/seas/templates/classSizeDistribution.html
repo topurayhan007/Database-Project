@@ -76,97 +76,78 @@
 				labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
 				{% comment %} labels: labels, {% endcomment %}
 				datasets: [{
+					type: 'line',
 					label: 'Class Size Distribution',
 					backgroundColor: ['rgb(255, 99, 132)',],
 				  	borderColor: 'rgb(75, 192, 192)',
 					data: [{% for value in total %} {{ value }}, {% endfor %}],
+				},{
+					type: 'bar',
+					label: 'SBE',
+					backgroundColor: [
+					'rgb(54, 162, 235, 1)', //standard blue
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in sbe %} {{ value }}, {% endfor %}],
+				},{
+					type: 'bar',
+					label: 'SELS',
+					backgroundColor: [
+					'rgb(255, 205, 86, 1)', //yellow
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in sels %} {{ value }}, {% endfor %}],
+				},{
+					type: 'bar',
+					label: 'SETS',
+					backgroundColor: [
+					'rgb(0,206,209, 1)', //aqua
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in sets %} {{ value }}, {% endfor %}],
+				},{
+					type: 'bar',
+					label: 'SLASS',
+					backgroundColor: [
+					'rgb(255, 99, 132, 1)', //blush pink
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in slass %} {{ value }}, {% endfor %}],
+				},{
+					type: 'bar',
+					label: 'SPPH',
+					backgroundColor: [
+					'rgb(255, 152, 48, 1)', //mustard orange
+				  ],
+					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+					data: [{% for value in spph %} {{ value }}, {% endfor %}],
 				}]
 			}
 			//Here chart is a constructor and we're passing parameters
 			const myChart = new Chart(
 				ctx,
 				{
-					type: 'line',
+					type: 'scatter',
 					data: datalist,
 					options: {}
 					}
 				  )
 		</script>
-			<div>
+			<!-- <div>
 				<h3 style="text-align:center"> Class Size Distribution ( {{str}} )</h3>
 				<canvas id = 'classSizeDistributionBarChart' width = "725" height = "600">
 
 				</canvas>
 	
-			</div>
+			</div> -->
 		<!-- THIS IS THE JAVASCRIPT THAT WILL CONTROL THE BEHAVIOUR OF THIS CHART ELEMENT -->
-		<script>
+		<!-- <script>
 			const ctx2 = document.getElementById('classSizeDistributionBarChart')
 		
 			const datalist2 = {
 				labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
 				{% comment %} labels: labels, {% endcomment %}
-				datasets: [{
-					label: 'SBE',
-					backgroundColor: [
-					'rgb(107,142,35, 0.65)', //papaya
-					'rgb(233, 128, 0, 0.65)', //mustard
-					'rgb(238,130,238, 0.65)', //aqua
-					'rgb(0,206,209, 0.65)', //blush pink
-					'rgb(255, 99, 132, 0.65)',
-					'rgb(54, 162, 235, 0.65)',
-				  ],
-					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-					data: [{% for value in sbe %} {{ value }}, {% endfor %}],
-				},{
-					label: 'SELS',
-					backgroundColor: [
-					'rgb(107,142,35, 0.65)', //papaya
-					'rgb(233, 128, 0, 0.65)', //mustard
-					'rgb(238,130,238, 0.65)', //aqua
-					'rgb(0,206,209, 0.65)', //blush pink
-					'rgb(255, 99, 132, 0.65)',
-					'rgb(54, 162, 235, 0.65)',
-				  ],
-					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-					data: [{% for value in sels %} {{ value }}, {% endfor %}],
-				},{
-					label: 'SETS',
-					backgroundColor: [
-					'rgb(107,142,35, 0.65)', //papaya
-					'rgb(233, 128, 0, 0.65)', //mustard
-					'rgb(238,130,238, 0.65)', //aqua
-					'rgb(0,206,209, 0.65)', //blush pink
-					'rgb(255, 99, 132, 0.65)',
-					'rgb(54, 162, 235, 0.65)',
-				  ],
-					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-					data: [{% for value in sets %} {{ value }}, {% endfor %}],
-				},{
-					label: 'SLASS',
-					backgroundColor: [
-					'rgb(107,142,35, 0.65)', //papaya
-					'rgb(233, 128, 0, 0.65)', //mustard
-					'rgb(238,130,238, 0.65)', //aqua
-					'rgb(0,206,209, 0.65)', //blush pink
-					'rgb(255, 99, 132, 0.65)',
-					'rgb(54, 162, 235, 0.65)',
-				  ],
-					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-					data: [{% for value in slass %} {{ value }}, {% endfor %}],
-				},{
-					label: 'SPPH',
-					backgroundColor: [
-					'rgb(107,142,35, 0.65)', //papaya
-					'rgb(233, 128, 0, 0.65)', //mustard
-					'rgb(238,130,238, 0.65)', //aqua
-					'rgb(0,206,209, 0.65)', //blush pink
-					'rgb(255, 99, 132, 0.65)',
-					'rgb(54, 162, 235, 0.65)',
-				  ],
-					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-					data: [{% for value in spph %} {{ value }}, {% endfor %}],
-				}]
+				datasets: []
 			}
 			//Here chart is a constructor and we're passing parameters
 			const myChart2 = new Chart(
@@ -177,7 +158,14 @@
 					options: {}
 					}
 				  )
-		</script>
+backgroundColor: [
+					'rgb(54, 162, 235, 1)', //standard blue
+					'rgb(255, 205, 86, 1)', //yellow
+					'rgb(0,206,209, 1)', //aqua
+					'rgb(255, 99, 132, 1)', //blush pink
+					'rgb(255, 152, 48, 1)', //mustard orange
+					'rgb(54, 162, 235, 1)',
+		</script> -->
 	
 
 
