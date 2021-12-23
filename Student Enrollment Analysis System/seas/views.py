@@ -204,7 +204,7 @@ def UsageOfTheResourcesView(request):
         factor = (100-percentage)/100
         arr = chartQueries.IUBavailableResources()
         arr = np.array(arr)
-       
+        count = 0
         iubt = 0
         capacityt = 0
         table3 = [collabel2]
@@ -212,8 +212,8 @@ def UsageOfTheResourcesView(request):
         for item1, item2 in arr:
             iubt+=item1
             capacityt+=item2
-            
             table3.append([rowlabel3[count], item1, item2])
+            count+=1
             
 
         table3.append([rowlabel3[9], iubt, capacityt])
