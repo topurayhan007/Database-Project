@@ -177,12 +177,15 @@ def UsageOfTheResourcesView(request):
         collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
         table = [collabel]
         table2 = []
-        count = 0
+
         rowlabel2 = ["Average of ENROLLED", "Average of ROOM CAPACITY", "Average of Unused Space", "Unused Percent"]
+        count = 0
+        percentage = 0.0
         list_col = []
         for item1, item2, item3, item4, item5 in finalarr:
             table.append([rowlabel[count], int(item1), item2, item3, item4, item5])
             if count == 0:
+                percentage = item5
                 list_col = [item2, item3, item4, item5]
             count=count+1
 
@@ -194,11 +197,51 @@ def UsageOfTheResourcesView(request):
                 table2.append([rowlabel2[count], list_col[count]])
             count+=1
         
+        ##########################################################################################################
+        # For IUB available recources
+        rowlabel3 = ['20', '30', '35', '40', '50', '54', '64', '124', '168', 'Total']
+        collabel2 = ["Class Size", "IUB resource", "Capacity"]
+        factor = (100-percentage)/100
+        arr = chartQueries.IUBavailableResources()
+        count = 0
+        iubt = 0
+        capacityt = 0
+        table3 = [collabel2]
+        table4 = []
+        for item1, item2 in arr:
+            iubt+=item1
+            capacityt+=item2
+            if count == 9:
+                table3.append([rowlabel3[count], iubt, capacityt])
+            else:
+                table3.append([rowlabel3[count], item1, item2])
+        
+        rowlabel4 = ["Total Capacity with 6 slot 2 days", "Total Capacity with 7 slot 2 days",
+                    "Considering 3.5 average course load (6 slot)", "Considering 3.5 average course load (7 slot)",
+                    "Considering free % for 6 slots capacity", "Considering free % for 7 slots capacity"]
+        
+        for i in range(6):
+            if i == 0:
+                table4.append([ rowlabel4[i], capacityt*12])
+            elif i == 1:
+                table4.append([ rowlabel4[i], capacityt*14])
+            elif i == 2:
+                table4.append([ rowlabel4[i], int((capacityt*12)/3.5) ])
+            elif i == 3:
+                table4.append([ rowlabel4[i], int((capacityt*14)/3.5) ])
+            elif i == 4:
+                table4.append([ rowlabel4[i], int(((capacityt*12)/3.5)*factor) ])
+            elif i == 5:
+                table4.append([ rowlabel4[i], int(((capacityt*14)/3.5)*factor) ])
+
+
         return render(request, 'usageOfTheResources.html', {
             'semesterList':semesterList,
             'yearList': yearList,
             'table': table,
             'table2': table2,
+            'table3': table3,
+            'table4': table4,
             'str': str,
         
         })
@@ -287,5 +330,6 @@ def IUBavailableResourcesView(request):
         percentage = 0
         for item1, item2, item3, item4, item5 in finalarr:
             if count == 0:
+                percentage = item5
                 list_col = [item2, item3, item4, item5]
             count=count+1
