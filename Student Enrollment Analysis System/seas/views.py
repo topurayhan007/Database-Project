@@ -468,10 +468,76 @@ def RevenueTrendOfTheSchoolsView(request):
 
 def RevenueInEngineeringSchoolView(request):
     if request.method == "POST":
-        print("success")
+        collabel = ["-", "CSE", "EEE", "PS", "SETS", "CSE %", "EEE %", "PS %", "SETS %"]
+        rowlabel = ["2009 Spring", "2009 Summer", "2009 Autumn", "2010 Spring", "2010 Summer", "2010 Autumn", "2011 Spring", "2011 Summer", "2011 Autumn", 
+                    "2012 Spring", "2012 Summer", "2012 Autumn", "2013 Spring", "2013 Summer", "2013 Autumn", "2014 Spring", "2014 Summer", "2014 Autumn", 
+                    "2015 Spring", "2015 Summer", "2015 Autumn", "2016 Spring", "2016 Summer", "2016 Autumn", "2017 Spring", "2017 Summer", "2017 Autumn", 
+                    "2018 Spring", "2018 Summer", "2018 Autumn", "2019 Spring", "2019 Summer", "2019 Autumn", "2020 Spring", "2020 Summer", "2020 Autumn", 
+                    "2021 Spring", "2021 Summer"]
+
+        sets = []
+        cse = []
+        eee = []
+        ps = []
+
+
+        for i in range(38):
+            temp = rowlabel[i].split()
+            year = temp[0]
+            semester = temp[1]
+            cse.append(chartQueries.RevenueInEngineeringSchool("CSE", semester, year))
+            eee.append(chartQueries.RevenueInEngineeringSchool("EEE", semester, year))
+            ps.append(chartQueries.RevenueInEngineeringSchool("PhySci", semester, year))
+            sets.append(chartQueries.RevenueTrendOfTheSchools("SETS", semester, year))
+
+        table = [collabel]
+        sets = np.array(sets).flatten()
+        cse = np.array(cse).flatten()
+        eee = np.array(eee).flatten()
+        ps = np.array(ps).flatten()
+        
+        
+        changeCSE = []
+        changeEEE = []
+        changePS = []
+        changeSETS = []
+
+
+        for i in range(38):
+            
+            changeC = 0
+            changeE = 0
+            changeP = 0
+            changeS = 0
+            if i >= 3:
+                changeC = math.floor(((cse[i] - cse[i-3])/cse[i])*100)
+                changeCSE.append(changeC)
+                changeE = math.floor(((eee[i] - eee[i-3])/eee[i])*100)
+                changeEEE.append(changeE)
+                changeP = math.floor(((ps[i] - ps[i-3])/ps[i])*100)
+                changePS.append(changeP)
+                changeS = math.floor(((sets[i] - sets[i-3])/sets[i])*100)
+                changeSETS.append(changeS)
+            else:
+                changeCSE.append(0)
+                changeEEE.append(0)
+                changePS.append(0)
+                changeSETS.append(0)
+
+            table.append([rowlabel[i], cse[i], eee[i], ps[i], sets[i], changeC, changeE, changeP, changeS])
+
     
         return render(request, 'revenueInEngineeringSchool.html', { 
-            
+            'table': table,
+            'cse': cse,
+            'eee': eee,
+            'ps': ps,
+            'sets': sets,
+            'changeCSE': changeCSE,
+            'changeEEE': changeEEE,
+            'changePS': changePS,
+            'changeSETS': changeSETS,
+            'labels': rowlabel,
         })
 
     else:
