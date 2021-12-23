@@ -149,11 +149,11 @@ def ClassSizeDistributionView(request):
             'total': totalarr,
             'datavalues': finalarr,
             'str': str,
-            'sbe': sbe,
-            'sels': sels,
-            'sets': sets,
-            'slass': slass,
-            'spph': spph,
+            'sbe': np.array(sbe),
+            'sels': np.array(sels),
+            'sets': np.array(sets),
+            'slass': np.array(slass),
+            'spph': np.array(spph),
         })
     else:
         return render(request, 'ClassSizeDistribution.html', {
@@ -273,3 +273,19 @@ def EnrollmentBreakdownOfSchoolView(request):
             'semesterList':semesterList,
             'yearList': yearList,
         })
+
+
+
+def IUBavailableResourcesView(request):
+    if request.method == "POST":
+        semester = request.POST['semester']
+        year = request.POST['year']
+        str = semester + " " + year
+        # here Table is row-wise object data
+        finalarr = chartQueries.UsageOfTheResources(semester, year)
+        count = 0
+        percentage = 0
+        for item1, item2, item3, item4, item5 in finalarr:
+            if count == 0:
+                list_col = [item2, item3, item4, item5]
+            count=count+1
