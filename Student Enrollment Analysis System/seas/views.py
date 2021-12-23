@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from seas import chartQueries
 import numpy as np
 from seas.models import *
+import math
 
 # def loginpage(request):
 #     return render(request, 'login.html')
@@ -435,9 +436,16 @@ def RevenueTrendOfTheSchoolsView(request):
         for i in range(38):
             total = sbe[i] + sets[i] + sels[i] + slass[i] + spph[i]
             totalarr.append(total)
+            
             change = 0
+            if i >= 3:
+                change = math.floor(((totalarr[i] - totalarr[i-3])/totalarr[i])*100)
+                changearr.append(change)
+            else:
+                changearr.append(0)
+
             table.append([rowlabel[i], sbe[i], sets[i], sels[i], slass[i], spph[i], total, change])
-        
+
 
         return render(request, 'revenueTrendOfTheSchools.html', { 
             'sbe': sbe,
@@ -447,6 +455,8 @@ def RevenueTrendOfTheSchoolsView(request):
             'spph': spph,
             'table': table,
             'labels': rowlabel,
+            'total': totalarr,
+            'change': changearr,
         })
 
     else:
