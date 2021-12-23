@@ -349,6 +349,7 @@ def AvailabilityAndCourseOfferingComparisonView(request):
         diff2t = 0
         table = [collabel]
 
+        iublist = []
         for item1, item2 in arr:
             diff1 = sem1[count] - item1
             diff2 = sem2[count] - item1
@@ -358,7 +359,7 @@ def AvailabilityAndCourseOfferingComparisonView(request):
             sem2t+= sem2[count]
             diff1t += diff1
             diff2t += diff2
-
+            iublist.append([item1])
             table.append([ rowlabel[count], item1, sem1[count], "{:.2f}".format(diff1), sem2[count], "{:.2f}".format(diff2) ])  
             count+=1
 
@@ -370,7 +371,7 @@ def AvailabilityAndCourseOfferingComparisonView(request):
             'yearList': yearList,
             'str': strr,
             'table': table,
-            'iub': arr.flatten(),
+            'iub': iublist,
             'datavalues1': sem1,
             'datavalues2': sem2,
             'labels': labels,
