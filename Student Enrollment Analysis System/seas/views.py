@@ -370,7 +370,7 @@ def AvailabilityAndCourseOfferingComparisonView(request):
             'yearList': yearList,
             'str': strr,
             'table': table,
-            'iub': arr,
+            'iub': arr.flatten(),
             'datavalues1': sem1,
             'datavalues2': sem2,
             'labels': labels,
