@@ -407,19 +407,28 @@ def RevenueTrendOfTheSchoolsView(request):
             temp = rowlabel[i].split()
             year = temp[0]
             semester = temp[1]
-            sbe.append(chartQueries.RevenueTrendOfTheSchools("SBE", semester, year))
-            sets.append(chartQueries.RevenueTrendOfTheSchools("SETS", semester, year))
-            sels.append(chartQueries.RevenueTrendOfTheSchools("SELS", semester, year))
-            slass.append(chartQueries.RevenueTrendOfTheSchools("SLASS", semester, year))
-            spph.append(chartQueries.RevenueTrendOfTheSchools("SPPH", semester, year))
+            if i > 17:
+                sbe.append(chartQueries.RevenueTrendOfTheSchools("SBE", semester, year))
+                sets.append(chartQueries.RevenueTrendOfTheSchools("SETS", semester, year))
+                sels.append(chartQueries.RevenueTrendOfTheSchools("SELS", semester, year))
+                slass.append(chartQueries.RevenueTrendOfTheSchools("SLASS", semester, year))
+                temp = chartQueries.RevenueTrendOfTheSchools("SPPH", semester, year)
+                temp = np.array(temp).flatten()
+                temp = str(temp)[1:-1]
+                spph.append(int(temp))
+            else:
+                sbe.append(chartQueries.RevenueTrendOfTheSchools("SBE", semester, year))
+                sets.append(chartQueries.RevenueTrendOfTheSchools("SETS", semester, year))
+                sels.append(chartQueries.RevenueTrendOfTheSchools("SELS", semester, year))
+                slass.append(chartQueries.RevenueTrendOfTheSchools("SLASS", semester, year))
+                spph.append(0)
 
         table = [collabel]
         sbe = np.array(sbe).flatten()
         sets = np.array(sets).flatten()
         sels = np.array(sels).flatten()
         slass = np.array(slass).flatten()
-        spph = np.array(spph).flatten()
-        print(sbe)
+        
         totalarr = []
         changearr= []
 
@@ -428,7 +437,7 @@ def RevenueTrendOfTheSchoolsView(request):
             totalarr.append(total)
             change = 0
             table.append([rowlabel[i], sbe[i], sets[i], sels[i], slass[i], spph[i], total, change])
-        print(totalarr)
+        
 
         return render(request, 'revenueTrendOfTheSchools.html', { 
             'sbe': sbe,
