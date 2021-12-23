@@ -199,12 +199,12 @@ def UsageOfTheResourcesView(request):
         
         ##########################################################################################################
         # For IUB available recources
-        rowlabel3 = ['20', '30', '35', '40', '50', '54', '64', '124', '168', 'Total']
+        rowlabel3 = ["20", "30", "35", "40", "50", "54", "64", "124", "168", "Total"]
         collabel2 = ["Class Size", "IUB resource", "Capacity"]
         factor = (100-percentage)/100
         arr = chartQueries.IUBavailableResources()
         arr = np.array(arr)
-        count = 0
+       
         iubt = 0
         capacityt = 0
         table3 = [collabel2]
@@ -212,11 +212,12 @@ def UsageOfTheResourcesView(request):
         for item1, item2 in arr:
             iubt+=item1
             capacityt+=item2
-            if count == 9:
-                table3.append([rowlabel3[count], iubt, capacityt])
-            else:
-                table3.append([rowlabel3[count], item1, item2])
-        
+            
+            table3.append([rowlabel3[count], item1, item2])
+            
+
+        table3.append([rowlabel3[9], iubt, capacityt])
+
         rowlabel4 = ["Total Capacity with 6 slot 2 days", "Total Capacity with 7 slot 2 days",
                     "Considering 3.5 average course load (6 slot)", "Considering 3.5 average course load (7 slot)",
                     "Considering free % for 6 slots capacity", "Considering free % for 7 slots capacity"]
