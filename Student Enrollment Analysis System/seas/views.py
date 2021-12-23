@@ -49,10 +49,22 @@ def dashboardpage(request):
     })
 
 
-def ClassSizeRequirementView(request):
-    semesterList = ['Spring', 'Summer', 'Autumn']
-    yearList = ['2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021']
+# Semester and Year List for Selection Menue
+# semesterList = ['Spring', 'Summer', 'Autumn']
+# yearList = ['2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021']
+semesterList = []
+yearList = []
+semesterL = Section_T.objects.order_by().values_list('semester').distinct()
+yearL = Section_T.objects.order_by().values_list('year').distinct()
+for item in semesterL:
+    item = str(item)[2:-3]
+    semesterList.append(item)
+for item in yearL:
+    item = str(item)[2:-3]
+    yearList.append(item)
 
+
+def ClassSizeRequirementView(request):
     if request.method == "POST":
         # get.year and get.semester from HTML DropDown Selection put that instead of Spring and 2021
         # Columns: Class Size(labels, not values from query), Sections, Classroom 6, Classroom 7
@@ -73,11 +85,11 @@ def ClassSizeRequirementView(request):
         classroom7 = []
 
         for item1, item2, item3 in finalarr:
-            table.append([rowlabel[count], item1, item2, item3])
+            table.append([rowlabel[count], int(item1), item2, item3])
             classroom6.append(item2)
             classroom7.append(item3)
             count=count+1
-        table.append(['Total', totalarr[0], totalarr[1], totalarr[2]])
+        table.append(['Total', int(totalarr[0]), "{:.2f}".format(totalarr[1]), "{:.2f}".format(totalarr[2]) ])
 
         return render(request, 'classSizeRequirement.html', {
             'semesterList':semesterList,
@@ -100,11 +112,11 @@ def ClassSizeRequirementView(request):
 
 
 def ClassSizeDistributionView(request):
-    semesterList = ['Spring', 'Summer', 'Autumn']
-    yearList = ['2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021']
-
     if request.method == "POST":
         # get.year and get.semester from HTML DropDown Selection and put that instead of Spring and 2021
+        # Columns: Size(label not values from query), SBE, SELS, SETS, SLASS, SPPH, Total
+        # Rows: Enrollment, 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-60, 60+
+
         semester = request.POST['semester']
         year = request.POST['year']
         str = semester + " " + year
@@ -113,8 +125,7 @@ def ClassSizeDistributionView(request):
         sets = chartQueries.ClassSizeDistribution(semester, year, "SETS")
         slass = chartQueries.ClassSizeDistribution(semester, year, "SLASS")
         spph = chartQueries.ClassSizeDistribution(semester, year, "SPPH")
-        # Columns: Size(label not values from query), SBE, SELS, SETS, SLASS, SPPH, Total
-        # Rows: Enrollment, 1-10, 11-20, 21-30, 31-35, 36-40, 41-50, 51-55, 56-60, 60+
+        
         rowlabel = ["1-10", "11-20", "21-30", "31-35", "36-40", "41-50", "51-55", "56-60", "60+"]
         collabel = ["Enrollment", "SBE", "SELS", "SETS", "SLASS", "SPPH", "Total"]
 
@@ -148,9 +159,6 @@ def ClassSizeDistributionView(request):
 
 
 def UsageOfTheResourcesView(request):
-    semesterList = ['Spring', 'Summer', 'Autumn']
-    yearList = ['2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021']
-
     if request.method == "POST":
         # get.year and get.semester from HTML DropDown Selection and put that instead of Spring and 2021
         # columns areas follows: Sum, Avg Enroll, Avg Room, Difference, Unused%
@@ -168,14 +176,17 @@ def UsageOfTheResourcesView(request):
         rowlabel2 = ["Average of ENROLLED", "Average of ROOM CAPACITY", "Average of Unused Space", "Unused Percent"]
         list_col = []
         for item1, item2, item3, item4, item5 in finalarr:
-            table.append([rowlabel[count], item1, item2, item3, item4, item5])
+            table.append([rowlabel[count], int(item1), item2, item3, item4, item5])
             if count == 0:
                 list_col = [item2, item3, item4, item5]
             count=count+1
 
         count = 0
         for item in list_col:
-            table2.append([rowlabel2[count], list_col[count]])
+            if count == 3:
+                table2.append([rowlabel2[count], f'{list_col[count]} %'])
+            else:
+                table2.append([rowlabel2[count], list_col[count]])
             count+=1
         
         return render(request, 'usageOfTheResources.html', {
@@ -195,26 +206,65 @@ def UsageOfTheResourcesView(request):
 
 
 
-# def RevenueTrendOfTheSchoolsView(request):
-#     if request.method == "POST":
-#         # get.year and get.semester from HTML DropDown Selection and put that instead of Spring and 2021
-#         # columns areas follows: Sum, Avg Enroll, Avg Room, Difference, Unused%
-#         # rows are as follows: Selected Semester, SBE, SELS, SETS, SLASS, SPPH
-#         semester = request.POST['semester']
-#         year = request.POST['year']
-#         # here Table is row-wise object data
-#         table = chartQueries.UsageOfTheResources(semester, year)
-#         rowlabel = [semester, "SBE", "SELS", "SETS", "SLASS", "SPPH"]
-#         collabel = ["-", "Sum", "Avg Enroll", "Avg Room", "Difference", "Unused%"]
+def EnrollmentBreakdownOfSchoolView(request):
+    if request.method == "POST":
+        semester = request.POST['semester']
+        year = request.POST['year']
+        strr = semester + " " + year
 
-#         # Note here "result" is the variable by which the HTML will recognize "table" 
-#         return render(request, 'revenueTrendOfTheSchools.html', {
-#             'result': table,
-#             'rowLabel': rowlabel,
-#             'colLabel': collabel, 
+        collabel = ["Enrollment", "SBE", "SELS", "SETS", "SLASS", "SPPH", "Total"]
+        table = [collabel]
+        rowlabel = []
         
-#         })
-    
-#     else:
-#         return render(request, 'revenueTrendOfTheSchools.html')
+        for i in range(62):
+            num= i+1
+            rowlabel.append(f'{num}')
+        rowlabel.append('Total')
 
+        sbet = 0
+        selst = 0
+        setst = 0
+        slasst = 0
+        sppht = 0
+        totalt = 0
+        for i in range(63):
+            n = i+1
+            sbe = chartQueries.EnrollmentBreakdownOfSchool(n, "SBE", year, semester)
+            sels = chartQueries.EnrollmentBreakdownOfSchool(n, "SELS", year, semester)
+            sets = chartQueries.EnrollmentBreakdownOfSchool(n, "SETS", year, semester)
+            slass = chartQueries.EnrollmentBreakdownOfSchool(n, "SLASS", year, semester)
+            spph = chartQueries.EnrollmentBreakdownOfSchool(n, "SPPH", year, semester)
+
+            sbe = str(sbe)[2:-3]
+            sels = str(sels)[2:-3]
+            sets = str(sets)[2:-3]
+            slass = str(slass)[2:-3]
+            spph = str(spph)[2:-3]
+
+            total =  int(sbe) + int(sels) + int(sets) + int(slass) + int(spph)
+            
+            sbet += int(sbe)
+            selst += int(sels)
+            setst += int(sets)
+            slasst += int(slass)
+            sppht += int(spph)
+            totalt += total
+            
+            if n == 63:
+                table.append([rowlabel[i], sbet, selst, setst, slasst, sppht, totalt])
+            else:
+                table.append([rowlabel[i], sbe, sels, sets, slass, spph, total])
+
+        return render(request, 'enrollmentBreakdownOfSchool.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
+            'str': strr,
+            'table': table,
+
+        })
+
+    else:
+        return render(request, 'enrollmentBreakdownOfSchool.html', {
+            'semesterList':semesterList,
+            'yearList': yearList,
+        })

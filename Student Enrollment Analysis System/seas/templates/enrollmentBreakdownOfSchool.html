@@ -1,0 +1,62 @@
+{% extends 'chartLayout.html' %}
+
+{% block title %} SEAS | EnrollmentBreakdownOfSchool {% endblock  %}
+
+{% block heading %} Enrollment Breakdown Of Schools {% endblock  %}
+
+{% block content %} 
+	{% load static %}
+	<meta id="viewport" name="viewport" content ="width=device-width" />
+	<link rel="stylesheet" type="text/css" href="{% static 'seas/css/font-awesome.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'seas/css/util.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'seas/css/main.css' %}" />
+
+	<form style="text-align: center; width: 330px;" action="" method="post">
+		{% csrf_token %}
+		
+		<div class="container-login100-form-btn" >
+			<select name="semester" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 6%;">
+				<option selected>Semester</option>
+				{% for semester in semesterList %}
+					<option value = {{semester}} > {{semester}} </option>
+				{% endfor %}
+			</select>
+	
+			<select name="year" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+				<option selected>Year</option>
+				{% for year in yearList %}
+					<option value = {{year}} > {{year}} </option>
+				{% endfor %}
+			</select>
+	
+			<button class="btn btn-primary btn-lg" style="margin-left: 10%;">
+				Generate
+			</button>
+
+		</div>
+	</form>
+		<div class="table-data">
+			<div class="order"> <h3 style="text-align:center"> {{str}} </h3>
+				<div>
+					<table border="3" cellpadding = "5" cellspacing="5" style="background-color:#DAEDF4;">
+						
+						{% for row in table %}
+						<tr>
+							{% for col in row %}
+								<td style="text-align:center">
+									{{ col }}
+								</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
+						
+					</table>
+			
+				</div>
+			</div>
+		</div>
+
+	
+{% endblock %}
+
+<!--NO CHART FOR Resources-->
