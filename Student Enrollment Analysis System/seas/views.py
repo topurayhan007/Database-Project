@@ -390,8 +390,12 @@ def AvailabilityAndCourseOfferingComparisonView(request):
 
 def RevenueTrendOfTheSchoolsView(request):
     if request.method == "POST":
-        
-    
+        collabel = ["-", "SBE", "SETS", "SELS", "SLASS", "SPPH", "Total", "Change %"]
+        rowlabel = ["2009 Spring", "2009 Summer", "2009 Autumn", "2010 Spring", "2010 Summer", "2010 Autumn", "2011 Spring", "2011 Summer", "2011 Autumn", 
+                    "2012 Spring", "2012 Summer", "2012 Autumn", "2013 Spring", "2013 Summer", "2013 Autumn", "2014 Spring", "2014 Summer", "2014 Autumn", 
+                    "2015 Spring", "2015 Summer", "2015 Autumn", "2016 Spring", "2016 Summer", "2016 Autumn", "2017 Spring", "2017 Summer", "2017 Autumn", 
+                    "2018 Spring", "2018 Summer", "2018 Autumn", "2019 Spring", "2019 Summer", "2019 Autumn", "2020 Spring", "2020 Summer", "2020 Autumn", 
+                    "2021 Spring", "2021 Summer"]
         return render(request, 'revenueTrendOfTheSchools.html', { 
             
         })
