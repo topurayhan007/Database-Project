@@ -363,7 +363,7 @@ def AvailabilityAndCourseOfferingComparisonView(request):
             table.append([ rowlabel[count], item1, sem1[count], "{:.2f}".format(diff1), sem2[count], "{:.2f}".format(diff2) ])  
             count+=1
 
-        table.append([rowlabel[9], iubt, sem1t, diff1t, sem2t, diff2t ])
+        table.append([rowlabel[9], "{:.2f}".format(iubt), "{:.2f}".format(sem1t), "{:.2f}".format(diff1t), "{:.2f}".format(sem2t), "{:.2f}".format(diff2t) ])
         labels = ["20", "30", "35", "40", "50", "54", "64", "124", "168"]
 
         return render(request, 'availabilityAndCourseOfferingComparison.html', {
