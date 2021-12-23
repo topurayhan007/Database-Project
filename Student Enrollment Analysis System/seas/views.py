@@ -396,8 +396,48 @@ def RevenueTrendOfTheSchoolsView(request):
                     "2015 Spring", "2015 Summer", "2015 Autumn", "2016 Spring", "2016 Summer", "2016 Autumn", "2017 Spring", "2017 Summer", "2017 Autumn", 
                     "2018 Spring", "2018 Summer", "2018 Autumn", "2019 Spring", "2019 Summer", "2019 Autumn", "2020 Spring", "2020 Summer", "2020 Autumn", 
                     "2021 Spring", "2021 Summer"]
+
+        sbe = []
+        sets = []
+        sels = []
+        slass = []
+        spph = []
+
+        for i in range(38):
+            temp = rowlabel[i].split()
+            year = temp[0]
+            semester = temp[1]
+            sbe.append(chartQueries.RevenueTrendOfTheSchools("SBE", semester, year))
+            sets.append(chartQueries.RevenueTrendOfTheSchools("SETS", semester, year))
+            sels.append(chartQueries.RevenueTrendOfTheSchools("SELS", semester, year))
+            slass.append(chartQueries.RevenueTrendOfTheSchools("SLASS", semester, year))
+            spph.append(chartQueries.RevenueTrendOfTheSchools("SPPH", semester, year))
+
+        table = [collabel]
+        sbe = np.array(sbe).flatten()
+        sets = np.array(sets).flatten()
+        sels = np.array(sels).flatten()
+        slass = np.array(slass).flatten()
+        spph = np.array(spph).flatten()
+        print(sbe)
+        totalarr = []
+        changearr= []
+
+        for i in range(38):
+            total = sbe[i] + sets[i] + sels[i] + slass[i] + spph[i]
+            totalarr.append(total)
+            change = 0
+            table.append([rowlabel[i], sbe[i], sets[i], sels[i], slass[i], spph[i], total, change])
+        print(totalarr)
+
         return render(request, 'revenueTrendOfTheSchools.html', { 
-            
+            'sbe': sbe,
+            'sets': sets,
+            'sels': sels,
+            'slass': slass,
+            'spph': spph,
+            'table': table,
+            'labels': rowlabel,
         })
 
     else:
