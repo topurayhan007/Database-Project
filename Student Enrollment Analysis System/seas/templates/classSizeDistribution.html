@@ -117,8 +117,7 @@
 					'rgb(54, 162, 235, 0.65)',
 				  ],
 					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-					data: [ 6, 26, 32, 57,  4]
-					//[{% for value in datavalues %} {{ value }}, {% endfor %}],
+					data: [{% for value in sbe %} {{ value }}, {% endfor %}],
 				},{
 					label: 'SELS',
 					backgroundColor: [
@@ -130,8 +129,7 @@
 					'rgb(54, 162, 235, 0.65)',
 				  ],
 					{% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-					data: [12, 32, 36, 60, 30]
-					//[{% for value in datavalues %} {{ value }}, {% endfor %}],
+					data: [{% for value in sels %} {{ value }}, {% endfor %}],
 				}]
 			}
 			//Here chart is a constructor and we're passing parameters
