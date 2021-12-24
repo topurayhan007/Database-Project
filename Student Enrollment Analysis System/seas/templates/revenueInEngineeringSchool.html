@@ -207,6 +207,7 @@
                 data: [{% for value in changeCSE %} {{ value }}, {% endfor %}],
             },
             {
+                type: 'line',
                 label: 'CSE (linear)',
                 trendlineLinear: {
                     style: "rgb(43 ,66 ,255, 0.3)",
@@ -286,7 +287,8 @@
               ],
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
                 data: [{% for value in changeEEE %} {{ value }}, {% endfor %}],
-            },{
+            },{ 
+                type: 'line',
                 label: 'EEE (linear)',
                 trendlineLinear: {
                     style: "rgb(43 ,66 ,255, 0.3)",
@@ -366,6 +368,7 @@
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
                 data: [{% for value in changePS %} {{ value }}, {% endfor %}],
             },{
+                type: 'line',
                 label: 'PS (linear)',
                 trendlineLinear: {
                     style: "rgb(43 ,66 ,255, 0.3)",
