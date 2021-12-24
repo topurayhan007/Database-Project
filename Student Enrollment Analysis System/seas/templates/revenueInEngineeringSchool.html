@@ -191,20 +191,33 @@
             {% comment %} labels: labels, {% endcomment %}
             datasets: [{
                 type: 'line',
-                label: 'Total',
+                label: 'CSE',
 				yAxisID: 'A',
                 backgroundColor: ['rgb(0,100,0)',],
 				borderColor: 'rgb(255, 99, 132, 1)',
                 data: [{% for value in cse %} {{ value }}, {% endfor %}],
             },{
                 type: 'bar',
-                label: 'Change %',
+                label: 'CSE Change %',
 				yAxisID: 'B',
                 backgroundColor: [
                 'rgb(54, 162, 235, 1)', //yellow
               ],
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
                 data: [{% for value in changeCSE %} {{ value }}, {% endfor %}],
+            },
+            {
+                label: 'CSE (linear)',
+                trendlineLinear: {
+                    style: "rgb(43 ,66 ,255, 0.3)",
+                    lineStyle: "dotted|solid",
+                    width: 2
+                },
+                backgroundColor: [
+                'rgb(147, 245, 66)', //green
+              ],
+                {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+                data: [{% for value in ps %} {{ value }}, {% endfor %}],
             }]
         }
         //Here chart is a constructor and we're passing parameters
@@ -259,20 +272,32 @@
             {% comment %} labels: labels, {% endcomment %}
             datasets: [{
                 type: 'line',
-                label: 'Total',
+                label: 'EEE',
 				yAxisID: 'A',
                 backgroundColor: ['rgb(0,100,0)',],
 				borderColor: 'rgb(255, 99, 132, 1)',
                 data: [{% for value in eee %} {{ value }}, {% endfor %}],
             },{
                 type: 'bar',
-                label: 'Change %',
+                label: 'EEE Change %',
 				yAxisID: 'B',
                 backgroundColor: [
                 'rgb(54, 162, 235, 1)', //yellow
               ],
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
                 data: [{% for value in changeEEE %} {{ value }}, {% endfor %}],
+            },{
+                label: 'EEE (linear)',
+                trendlineLinear: {
+                    style: "rgb(43 ,66 ,255, 0.3)",
+                    lineStyle: "dotted|solid",
+                    width: 2
+                },
+                backgroundColor: [
+                'rgb(147, 245, 66)', //green
+              ],
+                {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+                data: [{% for value in ps %} {{ value }}, {% endfor %}],
             }]
         }
         //Here chart is a constructor and we're passing parameters
@@ -326,20 +351,32 @@
             {% comment %} labels: labels, {% endcomment %}
             datasets: [{
                 type: 'line',
-                label: 'Total',
+                label: 'PS',
 				yAxisID: 'A',
                 backgroundColor: ['rgb(0,100,0)',],
 				borderColor: 'rgb(255, 99, 132, 1)',
                 data: [{% for value in ps %} {{ value }}, {% endfor %}],
             },{
                 type: 'bar',
-                label: 'Change %',
+                label: 'PS Change %',
 				yAxisID: 'B',
                 backgroundColor: [
                 'rgb(54, 162, 235, 1)', //yellow
               ],
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
                 data: [{% for value in changePS %} {{ value }}, {% endfor %}],
+            },{
+                label: 'PS (linear)',
+                trendlineLinear: {
+                    style: "rgb(43 ,66 ,255, 0.3)",
+                    lineStyle: "dotted|solid",
+                    width: 2
+                },
+                backgroundColor: [
+                'rgb(147, 245, 66)', //green
+              ],
+                {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+                data: [{% for value in ps %} {{ value }}, {% endfor %}],
             }]
         }
         //Here chart is a constructor and we're passing parameters
