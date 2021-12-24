@@ -61,7 +61,7 @@
 
 	<!-- WRITE CODE HERE TO SHOW CHART -->
 	<div class="table-data">
-		<div>
+		<div  style="background-color:#0c0c1e;">
 			<h3 style="text-align:center"> Class Size Distribution ( {{str}} )</h3>
 			<canvas id = 'classSizeDistributionChart' width = "1500" height = "600">
 
@@ -133,46 +133,8 @@
 					}
 				  )
 		</script>
-			<!-- <div>
-				<h3 style="text-align:center"> Class Size Distribution ( {{str}} )</h3>
-				<canvas id = 'classSizeDistributionBarChart' width = "725" height = "600">
-
-				</canvas>
-	
-			</div> -->
-		<!-- THIS IS THE JAVASCRIPT THAT WILL CONTROL THE BEHAVIOUR OF THIS CHART ELEMENT -->
-		<!-- <script>
-			const ctx2 = document.getElementById('classSizeDistributionBarChart')
 		
-			const datalist2 = {
-				labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
-				{% comment %} labels: labels, {% endcomment %}
-				datasets: []
-			}
-			//Here chart is a constructor and we're passing parameters
-			const myChart2 = new Chart(
-				ctx2,
-				{
-					type: 'bar',
-					data: datalist2,
-					options: {}
-					}
-				  )
-backgroundColor: [
-					'rgb(54, 162, 235, 1)', //standard blue
-					'rgb(255, 205, 86, 1)', //yellow
-					'rgb(0,206,209, 1)', //aqua
-					'rgb(255, 99, 132, 1)', //blush pink
-					'rgb(255, 152, 48, 1)', //mustard orange
-					'rgb(54, 162, 235, 1)',
-		</script> -->
-	
-
-
 	</div>
-	{% comment %} Table Code here {% endcomment %}
-	{% comment %} <table border="1" cellpadding = "5" cellspacing="5">
-	</table> {% endcomment %}
 	
 
 {% endblock %}

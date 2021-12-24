@@ -156,9 +156,16 @@
 
 
 </div>
+
 <div class="table-data">
-    <div>
+    <div class="order"> 
         <h3 style="text-align:center"> IUB Revenue and Change % </h3>
+    </div>
+</div>
+
+<div class="table-data">
+    <div  style="background-color:#0c0c1e;">
+        
         <canvas id = 'IUBRevenueAndChange' width = "1500" height = "600">
 
         </canvas>
@@ -197,17 +204,18 @@
                 data: datalist3,
                 options: {
 					scales: {
-						yAxes: [{
-									id: 'A',
-									position: 'left',
-								},{
-									id: 'B',
-									position: 'right',
-									ticks: {
-										max: 100,
-										min: -100,
-								}
-							}]
+                        A: {
+                            display: true,
+                            position: 'left',
+                            grid: {
+                                drawOnChartArea: false, // only want the grid lines for one axis to show up
+                            },
+                          },
+                        B: {
+                        display: true,
+                        position: 'right',
+                        },
+						
 					}
 				}
             }
