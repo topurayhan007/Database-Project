@@ -1669,3 +1669,10 @@ where d.school_id= 'SPPH' and s.semester= 'Autumn' and s.year = 2021
 
 
 
+####################################################################################################################################################
+EnrollmentBreakdownOfSchool
+####################################################################################################################################################
+ SELECT count (*)
+            FROM seas_section_t AS s INNER JOIN seas_course_t AS c ON s.course_id = c.courseID 
+            INNER JOIN seas_department_t AS d ON c.dept_id = d.deptCode
+            WHERE s.noofenrolledstudent= {} AND d.school_id = 1 AND year= 2021 AND s.semester= 'Spring'
