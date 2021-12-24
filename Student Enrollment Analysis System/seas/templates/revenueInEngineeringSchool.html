@@ -204,17 +204,18 @@
                 data: datalist3,
                 options: {
 					scales: {
-						yAxes: [{
-									id: 'A',
-									position: 'left',
-								},{
-									id: 'B',
-									position: 'right',
-									ticks: {
-										max: 100,
-										min: -60,
-								}
-							}]
+                        A: {
+                            display: true,
+                            position: 'left',
+                            grid: {
+                                drawOnChartArea: false, // only want the grid lines for one axis to show up
+                            },
+                          },
+                        B: {
+                        display: true,
+                        position: 'right',
+                        },
+						
 					}
 				}
             }
@@ -266,17 +267,18 @@
                 data: datalist4,
                 options: {
 					scales: {
-						yAxes: [{
-									id: 'A',
-									position: 'left',
-								},{
-									id: 'B',
-									position: 'right',
-									ticks: {
-										max: 100,
-										min: -100,
-								}
-							}]
+                        A: {
+                            display: true,
+                            position: 'left',
+                            grid: {
+                                drawOnChartArea: false, // only want the grid lines for one axis to show up
+                            },
+                          },
+                        B: {
+                        display: true,
+                        position: 'right',
+                        },
+						
 					}
 				}
             }
@@ -327,17 +329,18 @@
                 data: datalist5,
                 options: {
 					scales: {
-						yAxes: [{
-									id: 'A',
-									position: 'left',
-								},{
-									id: 'B',
-									position: 'right',
-									ticks: {
-										max: 100,
-										min: -100,
-								}
-							}]
+                        A: {
+                            display: true,
+                            position: 'left',
+                            grid: {
+                                drawOnChartArea: false, // only want the grid lines for one axis to show up
+                            },
+                          },
+                        B: {
+                        display: true,
+                        position: 'right',
+                        },
+						
 					}
 				}
             }
