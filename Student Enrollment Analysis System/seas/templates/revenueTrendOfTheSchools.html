@@ -61,29 +61,50 @@
             labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
             {% comment %} labels: labels, {% endcomment %}
             datasets: [{
-                type: 'bar',
-                label: 'IUB Resource',
+                type: 'line',
+                label: 'SBE',
                 backgroundColor: [
-                'rgb(54, 162, 235, 1)', //standard blue
-              ],
+                'rgb(255, 99, 132, 1)'//blush pink
+                ],
+                borderColor: 'rgb(54, 162, 235, 1)', //standard blue
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in iub %} {{ value }}, {% endfor %}],
+                data: [{% for value in sbe %} {{ value }}, {% endfor %}],
             },{
-                type: 'bar',
-                label: '{{Semester1}}',
+                type: 'line',
+                label: 'SETS',
                 backgroundColor: [
                 'rgb(255, 205, 86, 1)', //yellow
-              ],
+                ],
+                borderColor: 'rgb(0,206,209, 1)', //aqua
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in datavalues1 %} {{ value }}, {% endfor %}],
+                data: [{% for value in sets %} {{ value }}, {% endfor %}],
             },{
-                type: 'bar',
-                label: '{{Semester2}}',
+                type: 'line',
+                label: 'SELS',
                 backgroundColor: [
-                'rgb(255, 99, 132, 1)', //blush pink
-              ],
+                'rgb(0,206,209, 1)', //aqua
+                ],
+                borderColor: 'rgb(255, 205, 86, 1)', //yellow
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in datavalues2 %} {{ value }}, {% endfor %}],
+                data: [{% for value in sels %} {{ value }}, {% endfor %}],
+            },{
+                type: 'line',
+                label: 'SLASS',
+                backgroundColor: [
+                'rgb(54, 162, 235, 1)', //standard blue
+                ],
+                borderColor: 'rgb(255, 99, 132, 1)', //blush pink,
+                {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+                data: [{% for value in slass %} {{ value }}, {% endfor %}],
+            },{
+                type: 'line',
+                label: 'SPPH',
+                backgroundColor: [
+                'rgb(255, 205, 86, 1)', //yellow
+                ],
+                borderColor: 'rgb(255, 152, 48, 1)', //mustard orange
+                {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+                data: [{% for value in spph %} {{ value }}, {% endfor %}],
             }]
         }
         //Here chart is a constructor and we're passing parameters
@@ -96,7 +117,6 @@
                 }
               )
     </script>
-
 
 
 </div>
@@ -117,36 +137,62 @@
             labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
             {% comment %} labels: labels, {% endcomment %}
             datasets: [{
-                type: 'bar',
-                label: 'IUB Resource',
+                type: 'line',
+                fill: true,
+                label: 'SPPH',
                 backgroundColor: [
-                'rgb(54, 162, 235, 1)', //standard blue
-              ],
+                'rgb(255, 152, 48, 1)', //mustard orange
+                ],
+                borderColor: 'rgb(255, 205, 86, 1)', //yellow
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in iub %} {{ value }}, {% endfor %}],
+                data: [{% for value in spph %} {{ value }}, {% endfor %}],
             },{
-                type: 'bar',
-                label: '{{Semester1}}',
+                type: 'line',
+                fill: true,
+                label: 'SELS',
                 backgroundColor: [
                 'rgb(255, 205, 86, 1)', //yellow
-              ],
+                ],
+                borderColor: 'rgb(0,206,209, 1)', //aqua
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in datavalues1 %} {{ value }}, {% endfor %}],
+                data: [{% for value in sels %} {{ value }}, {% endfor %}],
             },{
-                type: 'bar',
-                label: '{{Semester2}}',
+                type: 'line',
+                fill: true,
+                label: 'SLASS',
                 backgroundColor: [
-                'rgb(255, 99, 132, 1)', //blush pink
-              ],
+                'rgb(255, 99, 132, 1)', //blush pink,
+                ],
+                borderColor: 'rgb(54, 162, 235, 1)', //standard blue
                 {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
-                data: [{% for value in datavalues2 %} {{ value }}, {% endfor %}],
+                data: [{% for value in slass %} {{ value }}, {% endfor %}],
+            },{
+                type: 'line',
+                fill: true,
+                label: 'SETS',
+                backgroundColor: [
+                'rgb(0,206,209, 1)', //aqua
+                ],
+                borderColor: 'rgb(255, 205, 86, 1)', //yellow
+                {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+                data: [{% for value in sets %} {{ value }}, {% endfor %}],
+            },{
+                type: 'line',
+                fill: true,
+                label: 'SBE',
+                backgroundColor: [
+                'rgb(54, 162, 235, 1)', //standard blue
+                ],
+                borderColor: 'rgb(255, 99, 132, 1)',//blush pink
+                {% comment %} borderColor: 'rgb(255, 99, 132)', {% endcomment %}
+                data: [{% for value in sbe %} {{ value }}, {% endfor %}],
             }]
         }
         //Here chart is a constructor and we're passing parameters
         const myChart2 = new Chart(
             ctx2,
             {
-                type: 'area',
+                type: 'line',
                 data: datalist2,
                 options: {}
                 }
