@@ -525,18 +525,8 @@ def RevenueInEngineeringSchoolView(request):
                 changeSETS.append(0)
 
             table.append([rowlabel[i], cse[i], eee[i], ps[i], sets[i], changeC, changeE, changeP, changeS])
-            linearCSE = []
-            linearEEE = []
-            linearPS = []
+            
 
-            linearCSE.append(cse[0])
-            linearCSE.append(cse[37])
-
-            linearEEE.append(eee[0])
-            linearEEE.append(eee[37])
-
-            linearPS.append(ps[0])
-            linearPS.append(ps[37])
         return render(request, 'revenueInEngineeringSchool.html', { 
             'table': table,
             'cse': cse,
@@ -548,9 +538,6 @@ def RevenueInEngineeringSchoolView(request):
             'changePS': changePS,
             'changeSETS': changeSETS,
             'labels': rowlabel,
-            'linearCSE': linearCSE,
-            'linearEEE': linearEEE,
-            'linearPS': linearPS,
         })
 
     else:
