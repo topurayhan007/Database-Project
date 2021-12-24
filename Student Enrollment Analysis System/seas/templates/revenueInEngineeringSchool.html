@@ -11,14 +11,16 @@
 <link rel="stylesheet" type="text/css" href="{% static 'seas/css/util.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'seas/css/main.css' %}" />
 
-<form style="text-align: center; width: 1500px;" action="" method="post">
+<form style="text-align: center; width: 1550px;" action="" method="post">
 	{% csrf_token %}
 	
-	<div class="container-login100-form-btn" >
-		<button class="btn btn-primary btn-lg">
-			Generate
-		</button>
-	</div>
+	<ul class="box-info">
+        <li>
+            <button class="btn btn-primary btn-lg" style="margin-left: 47%;">
+                Generate
+            </button>
+        </li>
+    </ul>
 
 </form>
 	

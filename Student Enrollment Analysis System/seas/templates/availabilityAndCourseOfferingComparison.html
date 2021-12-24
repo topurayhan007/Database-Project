@@ -14,33 +14,39 @@
 <form style="text-align: center; width: 1500px;" action="" method="post">
 	{% csrf_token %}
 	
-	<div class="container-login100-form-btn" >
-		<select name="semester1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
-			<option selected>Semester 1</option>
-			{% for semester in semesterList %}
-				<option value = {{semester}} > {{semester}} </option>
-			{% endfor %}
-		</select>
+	<ul class="box-info">
+		<li>
+			<select name="semester1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 30%;">
+				<option selected>Semester 1</option>
+				{% for semester in semesterList %}
+					<option value = {{semester}} > {{semester}} </option>
+				{% endfor %}
+			</select>
+		</li>
+		<li>
+			<select name="semester2" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 30%;">
+				<option selected>Semester 2</option>
+				{% for semester in semesterList %}
+					<option value = {{semester}} > {{semester}} </option>
+				{% endfor %}
+			</select>
+		</li>
+		<li>
+			<select name="year" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 40%;">
+				<option selected>Year</option>
+				{% for year in yearList %}
+					<option value = {{year}} > {{year}} </option>
+				{% endfor %}
+			</select>
+		</li>
+		<li>
+			<button class="btn btn-primary btn-lg" style="margin-left: 30%;">
+				Compare
+			</button>
+		</li>
+	</ul>
 
-        <select name="semester2" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 5%;">
-			<option selected>Semester 2</option>
-			{% for semester in semesterList %}
-				<option value = {{semester}} > {{semester}} </option>
-			{% endfor %}
-		</select>
 
-		<select name="year" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 5%;">
-			<option selected>Year</option>
-			{% for year in yearList %}
-				<option value = {{year}} > {{year}} </option>
-			{% endfor %}
-		</select>
-
-		<button class="btn btn-primary btn-lg" style="margin-left: 5%;">
-			Compare
-		</button>
-
-	</div>
 </form>
 	<div class="table-data">
 		<div class="order"> <h3 style="text-align:center"> Resource Utilization in {{Semester1}} and {{Semester2}} </h3>

@@ -11,14 +11,16 @@
 <link rel="stylesheet" type="text/css" href="{% static 'seas/css/util.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'seas/css/main.css' %}" />
 
-<form style="text-align: center; width: 1500px;" action="" method="post">
+<form style="text-align: center; width: 1550px;" action="" method="post">
 	{% csrf_token %}
 	
-	<div class="container-login100-form-btn" >
-		<button class="btn btn-primary btn-lg">
-			Generate
-		</button>
-	</div>
+	<ul class="box-info">
+        <li>
+            <button class="btn btn-primary btn-lg" style="margin-left: 46%;">
+                Generate
+            </button>
+        </li>
+    </ul>
 
 </form>
 
@@ -46,8 +48,14 @@
 </div>
 
 <div class="table-data">
-    <div>
+    <div class="order"> 
         <h3 style="text-align:center"> Revenue Trend Of The Schools</h3>
+    </div>
+</div>
+
+<div class="table-data">
+    <div  style="background-color:#0c0c1e;">
+        
         <canvas id = 'RevenueTrendOfTheSchools' width = "1500" height = "600">
 
         </canvas>
@@ -122,8 +130,14 @@
 </div>
 
 <div class="table-data">
-    <div>
+    <div class="order"> 
         <h3 style="text-align:center"> Revenue Distribution Among The Schools</h3>
+    </div>
+</div>
+
+<div class="table-data">
+    <div  style="background-color:#0c0c1e;">
+        
         <canvas id = 'RevenueDistributionAmongTheSchools' width = "1500" height = "600">
 
         </canvas>

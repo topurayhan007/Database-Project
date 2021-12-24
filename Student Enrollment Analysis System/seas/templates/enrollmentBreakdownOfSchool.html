@@ -14,26 +14,29 @@
 	<form style="text-align: center; width: 1500px;" action="" method="post">
 		{% csrf_token %}
 		
-		<div class="container-login100-form-btn" >
-			<select name="semester" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-				<option selected>Semester</option>
-				{% for semester in semesterList %}
-					<option value = {{semester}} > {{semester}} </option>
-				{% endfor %}
-			</select>
-	
-			<select name="year" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"  style="margin-left: 5%;">
-				<option selected>Year</option>
-				{% for year in yearList %}
-					<option value = {{year}} > {{year}} </option>
-				{% endfor %}
-			</select>
-	
-			<button class="btn btn-primary btn-lg" style="margin-left: 5%;">
-				Generate
-			</button>
-
-		</div>
+		<ul class="box-info">
+			<li>
+				<select name="semester" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 40%;">
+					<option selected>Semester</option>
+					{% for semester in semesterList %}
+						<option value = {{semester}} > {{semester}} </option>
+					{% endfor %}
+				</select>
+			</li>
+			<li>
+				<select name="year" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-left: 40%;">
+					<option selected>Year</option>
+					{% for year in yearList %}
+						<option value = {{year}} > {{year}} </option>
+					{% endfor %}
+				</select>
+			</li>
+			<li>
+				<button class="btn btn-primary btn-lg" style="margin-left: 40%;">
+					Generate
+				</button>
+			</li>
+		</ul>
 	</form>
 		<div class="table-data">
 			<div class="order"> <h3 style="text-align:center"> {{str}} </h3>
