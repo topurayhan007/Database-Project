@@ -10,7 +10,6 @@
 * numpy==1.21.4
 * openpyxl==3.0.9
 * pandas==1.3.4
-* python-dateutil==2.8.2
 * python-decouple==3.5
 
 # Run the project
