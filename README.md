@@ -1,6 +1,8 @@
 # Student Enrollment Analysis System (SEAS)
-![SEAS Screenshot1](Database-Project/Student Enrollment Analysis System/seas/static/seas/images/home.png)
-![SEAS Screenshot2](Database-Project/Student Enrollment Analysis System/seas/static/seas/images/home-dark.png)
+A web-based application written in Python (Django) to analyze the enrollment data of university students, particularly students from Independent University, Bangladesh.
+
+![Screenshot 1](/seas/static/seas/images/home.png)
+![Screenshot 2](/seas/static/seas/images/home-dark.png)
 * Create a virtual environment using the following command `pip install virtualenv myenv`
 * Select that environment's python.exe as the interpreter,'path: `myenv/Scripts/python.exe`'
 # Dependencies
@@ -20,7 +22,7 @@
     username: topurayhan007 password: 12345
     username: zannatchowdhury password: 3451
     username: admin password: 12345
-# Alternate Database usage
+# Alternate Database
 * Note that SQLite is used as the default database in this project
 * If you choose to use a different database configure it in the Django Settings DATABASE section
 * Then migrate to create the tables in the SQL database using the following command `python manage.py makemigrations` followed by `python manage.py migrate`
@@ -31,9 +33,9 @@
   * To run the populationScript.py on Mac:
         Use the following command `python manage.py shell < scripts/populationScript.py`
         
-  `NOTE:` The population Script will take a very long time to populate data if you are using SQLite Database (60 minutes +)
-  * It was lot faster in MySQL like around 4/5 minutes
-  * These doesn't apply to Mac users, not sure about Linux users
+    `NOTE:` The population Script will take a very long time to populate data if you are using SQLite Database (60 minutes +)
+      * It was lot faster in MySQL like around 4/5 minutes
+      * These doesn't apply to Mac users, not sure about Linux users
 * You should see that your database has successfully populated
 
-# Thanks for reading. Have a nice day and keep on coding! :)
+# Thanks for reading. Have a nice day & keep on coding! :)
