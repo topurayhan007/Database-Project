@@ -1,4 +1,6 @@
 # Student Enrollment Analysis System (SEAS)
+![SEAS Screenshot1](images/home.png)
+![SEAS Screenshot2](images/home-dark.png)
 * Create a virtual environment using the following command `pip install virtualenv myenv`
 * Select that environment's python.exe as the interpreter,'path: `myenv/Scripts/python.exe`'
 # Dependencies
