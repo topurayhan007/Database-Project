@@ -7,8 +7,7 @@ import numpy as np
 from seas.models import *
 import math
 
-# def loginpage(request):
-#     return render(request, 'login.html')
+
 def home(request):
     return render(request, 'login.html')
 
@@ -21,7 +20,6 @@ def loginpage(request):
         if user is not None:
             login(request, user)
             return redirect('dashboardpage')
-            # return render(request, 'dashboard.html')
         else:
             # messages.success(request, "Invalid Credentials.") 
             return HttpResponse('<h1>Invalid Credentials!</h1>')
