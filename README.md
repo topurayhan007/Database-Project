@@ -1,8 +1,8 @@
 # Student Enrollment Analysis System (SEAS)
 A web-based application written in Python (Django) to analyze the enrollment data of university students, particularly students from Independent University, Bangladesh.
 
-![Screenshot 1](images/home.png)
-![Screenshot 2](images/home-dark.png)
+![Screenshot 1](Implementation_Screenshots/home.png)
+![Screenshot 2](Implementation_Screenshots/home-dark.png)
 * Create a virtual environment using the following command `pip install virtualenv myenv`
 * Select that environment's python.exe as the interpreter,'path: `myenv/Scripts/python.exe`'
 # Dependencies
