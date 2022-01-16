@@ -540,3 +540,11 @@ def RevenueInEngineeringSchoolView(request):
 
     else:
         return render(request, 'revenueInEngineeringSchool.html')
+
+
+def UploadTallySheetView(request):
+    if request.method == "POST":
+        print('Hello World')
+    
+    else:
+        return render(request, 'uploadTallySheet.html')
