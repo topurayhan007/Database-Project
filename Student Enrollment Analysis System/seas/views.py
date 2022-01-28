@@ -577,7 +577,7 @@ def UploadTallySheetView(request):
         })
 
     if 'populate' in request.POST:
-        populationScript.populateDatabase()
+        # populationScript.populateDatabase()
         messages.info(request, 'Successfully populated the database!')
         
     
