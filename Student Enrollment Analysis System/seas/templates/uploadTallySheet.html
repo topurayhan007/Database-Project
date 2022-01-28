@@ -11,12 +11,21 @@
     {% csrf_token %}
     
     <ul class="box-info">
+
 			<li>
         <input type="file" name="myfile" class="form-control">                            
         <br/>
-        <button type="submit" class="btn btn-success">Upload</button>
+        <button type="submit" name="upload" class="btn btn-success">Upload</button>
+      </li>
+    </ul>
+
+    <ul class="box-info">
+			<li>
+        <h4 style="margin-left: 22%;">Click the button to populate the database with the new tally sheet!</h4>
+        <button type="submit" name="populate" class="btn btn-success">Populate Database</button>
       </li>
 
+    </ul>
   </form>
  
     

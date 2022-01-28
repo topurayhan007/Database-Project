@@ -11,6 +11,7 @@ import pandas as pd
 import os
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+from scripts import populationScript
 
 
 def home(request):
@@ -548,7 +549,7 @@ def RevenueInEngineeringSchoolView(request):
 
 
 def UploadTallySheetView(request):
-    if request.method == "POST":
+    if 'upload' in request.POST:
         myfile = request.FILES['myfile']        
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
@@ -569,8 +570,16 @@ def UploadTallySheetView(request):
         #     obj.save()
 
         return render(request, 'uploadTallySheet.html', {
-            'uploaded_file_url': uploaded_file_url
+            'uploaded_file_url': uploaded_file_url,
+            'system_log': dbframe,
+            
+
         })
+
+    if 'populate' in request.POST:
+        populationScript.populateDatabase()
+        messages.info(request, 'Successfully populated the database!')
+        
     
     else:
         return render(request, 'uploadTallySheet.html')
