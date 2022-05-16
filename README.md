@@ -33,7 +33,7 @@ A web-based application written in Python (Django) to analyze the enrollment dat
   * To run the populationScript.py on Mac:
         Use the following command `python manage.py shell < scripts/populationScript.py`
         
-    `NOTE:` The population Script will take a very long time to populate data if you are using SQLite Database (60 minutes +)
+    `NOTE:` The population Script will take a very long time to populate data if you are using SQLite Database (60 minutes +) and the project is in your HDD.
       * It was lot faster in MySQL like around 4/5 minutes
       * These doesn't apply to Mac users, not sure about Linux users
 * You should see that your database has successfully populated
