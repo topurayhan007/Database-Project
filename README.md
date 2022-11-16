@@ -38,9 +38,6 @@ A web-based application written in Python (Django) to analyze the enrollment dat
       * These doesn't apply to Mac users, not sure about Linux users
 * You should see that your database has successfully populated
 
-# Thanks for reading. Have a nice day & keep on coding! :)
-
-
 ![Screenshot 3](Implementation_Screenshots/Screenshot 2021-12-26 at 11.17.58 AM.png)
 ![Screenshot 4](Implementation_Screenshots/Screenshot 2021-12-26 at 11.18.17 AM.png)
 ![Screenshot 5](Implementation_Screenshots/Screenshot 2021-12-26 at 11.18.42 AM.png)
@@ -67,3 +64,8 @@ A web-based application written in Python (Django) to analyze the enrollment dat
 ![Screenshot 26](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.49 AM.png)
 ![Screenshot 27](Implementation_Screenshots/Screenshot 2021-12-26 at 11.24.23 AM.png)
 ![Screenshot 28](Implementation_Screenshots/Screenshot 2021-12-26 at 11.24.25 AM.png)
+
+# Thanks for reading. Have a nice day & keep on coding! :)
+
+
+
