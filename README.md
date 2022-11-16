@@ -3,6 +3,35 @@ A web-based application written in Python (Django) to analyze the enrollment dat
 
 ![Screenshot 1](Implementation_Screenshots/home.png)
 ![Screenshot 2](Implementation_Screenshots/home-dark.png)
+
+
+![Screenshot 3](Implementation_Screenshots/Screenshot 2021-12-26 at 11.17.58 AM.png)
+![Screenshot 4](Implementation_Screenshots/Screenshot 2021-12-26 at 11.18.17 AM.png)
+![Screenshot 5](Implementation_Screenshots/Screenshot 2021-12-26 at 11.18.42 AM.png)
+![Screenshot 6](Implementation_Screenshots/Screenshot 2021-12-26 at 11.18.46 AM.png)
+![Screenshot 7](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.15 AM.png)
+![Screenshot 8](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.17 AM.png)
+![Screenshot 9](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.33 AM.png)
+![Screenshot 10](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.39 AM.png)
+![Screenshot 11](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.45 AM.png)
+![Screenshot 12](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.48 AM.png)
+![Screenshot 13](Implementation_Screenshots/Screenshot 2021-12-26 at 11.20.17 AM.png)
+![Screenshot 14](Implementation_Screenshots/Screenshot 2021-12-26 at 11.20.21 AM.png)
+![Screenshot 15](Implementation_Screenshots/Screenshot 2021-12-26 at 11.20.50 AM.png)
+![Screenshot 16](Implementation_Screenshots/Screenshot 2021-12-26 at 11.20.59 AM.png)
+![Screenshot 17](Implementation_Screenshots/Screenshot 2021-12-26 at 11.21.39 AM.png)
+![Screenshot 18](Implementation_Screenshots/Screenshot 2021-12-26 at 11.21.49 AM.png)
+![Screenshot 19](Implementation_Screenshots/Screenshot 2021-12-26 at 11.21.54 AM.png)
+![Screenshot 20](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.02 AM.png)
+![Screenshot 21](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.05 AM.png)
+![Screenshot 22](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.15 AM.png)
+![Screenshot 23](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.21 AM.png)
+![Screenshot 24](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.26 AM.png)
+![Screenshot 25](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.41 AM.png)
+![Screenshot 26](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.49 AM.png)
+![Screenshot 27](Implementation_Screenshots/Screenshot 2021-12-26 at 11.24.23 AM.png)
+![Screenshot 28](Implementation_Screenshots/Screenshot 2021-12-26 at 11.24.25 AM.png)
+
 * Create a virtual environment using the following command `pip install virtualenv myenv`
 * Select that environment's python.exe as the interpreter,'path: `myenv/Scripts/python.exe`'
 # Dependencies
@@ -38,32 +67,6 @@ A web-based application written in Python (Django) to analyze the enrollment dat
       * These doesn't apply to Mac users, not sure about Linux users
 * You should see that your database has successfully populated
 
-![Screenshot 3](Implementation_Screenshots/Screenshot 2021-12-26 at 11.17.58 AM.png)
-![Screenshot 4](Implementation_Screenshots/Screenshot 2021-12-26 at 11.18.17 AM.png)
-![Screenshot 5](Implementation_Screenshots/Screenshot 2021-12-26 at 11.18.42 AM.png)
-![Screenshot 6](Implementation_Screenshots/Screenshot 2021-12-26 at 11.18.46 AM.png)
-![Screenshot 7](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.15 AM.png)
-![Screenshot 8](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.17 AM.png)
-![Screenshot 9](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.33 AM.png)
-![Screenshot 10](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.39 AM.png)
-![Screenshot 11](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.45 AM.png)
-![Screenshot 12](Implementation_Screenshots/Screenshot 2021-12-26 at 11.19.48 AM.png)
-![Screenshot 13](Implementation_Screenshots/Screenshot 2021-12-26 at 11.20.17 AM.png)
-![Screenshot 14](Implementation_Screenshots/Screenshot 2021-12-26 at 11.20.21 AM.png)
-![Screenshot 15](Implementation_Screenshots/Screenshot 2021-12-26 at 11.20.50 AM.png)
-![Screenshot 16](Implementation_Screenshots/Screenshot 2021-12-26 at 11.20.59 AM.png)
-![Screenshot 17](Implementation_Screenshots/Screenshot 2021-12-26 at 11.21.39 AM.png)
-![Screenshot 18](Implementation_Screenshots/Screenshot 2021-12-26 at 11.21.49 AM.png)
-![Screenshot 19](Implementation_Screenshots/Screenshot 2021-12-26 at 11.21.54 AM.png)
-![Screenshot 20](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.02 AM.png)
-![Screenshot 21](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.05 AM.png)
-![Screenshot 22](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.15 AM.png)
-![Screenshot 23](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.21 AM.png)
-![Screenshot 24](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.26 AM.png)
-![Screenshot 25](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.41 AM.png)
-![Screenshot 26](Implementation_Screenshots/Screenshot 2021-12-26 at 11.22.49 AM.png)
-![Screenshot 27](Implementation_Screenshots/Screenshot 2021-12-26 at 11.24.23 AM.png)
-![Screenshot 28](Implementation_Screenshots/Screenshot 2021-12-26 at 11.24.25 AM.png)
 
 # Thanks for reading. Have a nice day & keep on coding! :)
 
