@@ -412,6 +412,9 @@ body {
 	color: var(--dark);	
 }
 
+.btn-lg {
+	background-color: #DB504A;
+}
 
 
 
